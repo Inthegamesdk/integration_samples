@@ -34,6 +34,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data android:name="BITMOVIN_PLAYER_LICENSE_KEY" android:value="92f02d33-1c0e-47f0-8bdb-c6e877a55ba2" />
+
     </application>
 
 </manifest>
