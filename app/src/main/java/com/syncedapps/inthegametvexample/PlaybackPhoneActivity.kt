@@ -3,6 +3,7 @@ package com.syncedapps.inthegametvexample
 import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import android.view.WindowInsets
 import android.view.WindowManager
@@ -17,6 +18,7 @@ import com.bitmovin.player.api.analytics.AnalyticsSourceConfig
 import com.bitmovin.player.api.source.Source
 import com.bitmovin.player.api.source.SourceConfig
 import com.bitmovin.player.api.source.SourceType
+import com.syncedapps.inthegametv.ITGOverlayView
 import com.syncedapps.inthegametv.integration.ITGBitmovinPlayerAdapter
 import com.syncedapps.inthegametv.integration.ITGPlaybackComponent
 import com.syncedapps.inthegametvexample.databinding.ActivityPhonePlaybackBinding
@@ -109,7 +111,18 @@ class PlaybackPhoneActivity : FragmentActivity() {
 
 
         // Initialize ITGPlaybackComponent
-        mITGComponent = ITGPlaybackComponent(this)
+        mITGComponent = object : ITGPlaybackComponent(this) {
+            override fun overlayWillChangeVideoRect(
+                rect: ITGOverlayView.VideoRect,
+                animationDuration: Long
+            ) {
+                Log.d(this.javaClass.simpleName, "overlayWillChangeVideoRect rect=$rect, animationDuration=$animationDuration")
+            }
+
+            override fun overlayWillResetVideoRect(animationDuration: Long) {
+                Log.d(this.javaClass.simpleName, "overlayWillResetVideoRect animationDuration=$animationDuration")
+            }
+        }
 
 
         // Set up the ITGMedia3PlayerAdapter with your player view
