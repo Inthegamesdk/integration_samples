@@ -22,32 +22,17 @@ import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.common.util.Util
-import androidx.media3.datasource.DefaultDataSource
-import androidx.media3.datasource.DefaultHttpDataSource
 import androidx.media3.exoplayer.DefaultRenderersFactory
 import androidx.media3.exoplayer.ExoPlayer
-import androidx.media3.exoplayer.hls.HlsMediaSource
-import androidx.media3.exoplayer.source.MediaSource
-import androidx.media3.exoplayer.source.ProgressiveMediaSource
 import androidx.media3.ui.leanback.LeanbackPlayerAdapter
-import com.amazon.mediatailorsdk.AdData
-import com.amazon.mediatailorsdk.AdObserver
-import com.amazon.mediatailorsdk.NonLinearAdsData
 import com.syncedapps.inthegametv.ITGContent
 import com.syncedapps.inthegametv.data.CloseOption
 import com.syncedapps.inthegametv.domain.model.AnalyticsEventSnapshot
 import com.syncedapps.inthegametv.domain.model.UserSnapshot
-import com.syncedapps.inthegametv.integration.ITGExoLeanbackPlayerAdapter
 import com.syncedapps.inthegametv.integration.ITGMedia3LeanbackPlayerAdapter
 import com.syncedapps.inthegametv.integration.ITGPlaybackComponent
-import io.datazoom.sdk.Datazoom
-import io.datazoom.sdk.DzAdapter
-import io.datazoom.sdk.media3.createContext
-import io.datazoom.sdk.mediatailor.removeSession
-import io.datazoom.sdk.mediatailor.setupAdSession
-import io.datazoom.sdk.utils.AdapterCallbackListener
-import io.datazoom.sdk.utils.DzPlaybackEvent
 import io.inthegame.awsdemo.mediatailor.AwsMediaTailorController
+import io.inthegame.awsdemo.mediatailor.domain.model.ITGM3U8
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.*
@@ -55,7 +40,6 @@ import java.util.*
 @OptIn(UnstableApi::class)
 class PlaybackVideoFragment : VideoSupportFragment() {
 
-    private var datazoomAdapter: DzAdapter? = null
     private var mPlayerGlue: PlaybackTransportControlGlue<LeanbackPlayerAdapter>? = null
     private var mPlayerAdapter: LeanbackPlayerAdapter? = null
     private var mPlayer: ExoPlayer? = null
@@ -65,28 +49,32 @@ class PlaybackVideoFragment : VideoSupportFragment() {
     private var currentItem: Int = 0
     private var playbackPosition: Long = 0L
     private var playWhenReady: Boolean = true
-//    private val awsMediaTailorController : AwsMediaTailorController by lazy { AwsMediaTailorController(
-//        lifecycleScope,
-//        { videoUrl ->
-//            lifecycleScope.launch {
-//                prepareMediaForPlaying(Uri.parse(videoUrl))
-//                mPlayer?.playWhenReady = playWhenReady
-//                mPlayer?.seekTo(currentItem, playbackPosition)
-//                mPlayer?.prepare()
-//            }
-//        },
-//        { flexiJson ->
-//            lifecycleScope.launch {
-//                if (mITGComponent?.itgOverlayView?.currentContent()
-//                        ?.contains(ITGContent.FLEXI) == false
-//                ) {
-//                    aiConsoleManager?.startDisplayAdFlow()
-//                    delay(1_500L)
-//                    mITGComponent?.itgOverlayView?.injectFlexi(flexiJson)
-//                }
-//            }
-//        }
-//    ) }
+    private val awsMediaTailorController : AwsMediaTailorController by lazy { AwsMediaTailorController(
+        lifecycleScope,
+        { videoUrl ->
+            Log.d(this.javaClass.simpleName, "playVideo $videoUrl")
+            if (videoUrl.isNullOrEmpty()) return@AwsMediaTailorController
+            lifecycleScope.launch {
+                mPlayer?.addMediaItem(
+                    MediaItem.Builder().setUri(Uri.parse(videoUrl)).build()
+                )
+                mPlayer?.playWhenReady = playWhenReady
+                mPlayer?.seekTo(currentItem, playbackPosition)
+                mPlayer?.prepare()
+            }
+        },
+        { flexiJson ->
+            lifecycleScope.launch {
+                if (mITGComponent?.itgOverlayView?.currentContent()
+                        ?.contains(ITGContent.FLEXI) == false
+                ) {
+                    aiConsoleManager?.startDisplayAdFlow()
+                    delay(1_500L)
+                    mITGComponent?.itgOverlayView?.injectFlexi(flexiJson)
+                }
+            }
+        }
+    ) }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -129,53 +117,9 @@ class PlaybackVideoFragment : VideoSupportFragment() {
         }
         (requireView() as ViewGroup).addView(rootFrame, 3)
 
-        aiConsoleManager = AIConsoleManager(requireContext(), rootFrame, lifecycleScope)
-
-        MediaTailorExampleHelper.implementMediaTailor(contentUrl = CONTENT_URL) { session, _, contentUrl ->
-            session?.let {
-                datazoomAdapter?.setupAdSession(session, surfaceView, contentUrl)
-
-                session.addAdObserver(object  : AdObserver() {
-                    override fun onNewNonLinearAds(adData: NonLinearAdsData) {
-                        super.onNewNonLinearAds(adData)
-
-                        Log.d("DATAZOOM", "onNewNonLinearAds $adData")
-                    }
-
-                    override fun onNonLinearAdsStart(
-                        adData: NonLinearAdsData,
-                        adElapsedTime: Double,
-                        playhead: Double
-                    ) {
-                        super.onNonLinearAdsStart(adData, adElapsedTime, playhead)
-                        Log.d("DATAZOOM", "onNonLinearAdsStart $adData")
-                    }
-
-                    override fun onNonLinearAdsEnd(adData: NonLinearAdsData) {
-                        super.onNonLinearAdsEnd(adData)
-                        Log.d("DATAZOOM", "onNonLinearAdsEnd $adData")
-                    }
-
-                    override fun onNewAd(adData: AdData, isReplacement: Boolean) {
-                        super.onNewAd(adData, isReplacement)
-                        Log.d("DATAZOOM", "onNewAd $adData isReplacement $isReplacement")
-                    }
-                })
-
-                lifecycleScope.launch {
-                    delay(1000)
-
-                    mPlayer?.addMediaItem(
-                        MediaItem.Builder().setUri(session.playbackUrl).build()
-                    )
-                    mPlayer?.playWhenReady = playWhenReady
-                    mPlayer?.seekTo(currentItem, playbackPosition)
-                    mPlayer?.prepare()
-                    mPlayer?.play()
-                }
-            }
+        lifecycleScope.launch {
+            awsMediaTailorController.initialize(CONTENT_URL)
         }
-
     }
 
     override fun onStart() {
@@ -229,16 +173,6 @@ class PlaybackVideoFragment : VideoSupportFragment() {
                 }
             }
         })
-        datazoomAdapter = Datazoom.createContext(exoPlayer = player)
-        datazoomAdapter?.addPlaybackListener(object : AdapterCallbackListener {
-            override fun onAdPlaybackEvents(event: DzPlaybackEvent) {
-                Log.d("DATAZOOM", "onAdPlaybackEvents $event")
-            }
-
-            override fun onPlaybackUpdate(playHeadMs: Long, livePlayHeadMs: Double?) {
-            }
-
-        })
         mITGPlayerAdapter?.onPlayerReady(player)
         mPlayerAdapter = LeanbackPlayerAdapter(requireContext(), player, UPDATE_DELAY)
         mPlayerGlue = PlaybackTransportControlGlue(
@@ -251,11 +185,6 @@ class PlaybackVideoFragment : VideoSupportFragment() {
     }
 
     private fun releasePlayer() {
-        datazoomAdapter?.id?.let {
-            Datazoom.removeContext(id = it)
-        }
-        datazoomAdapter?.removeSession()
-
         mPlayer?.let { player ->
             playbackPosition = player.currentPosition
             currentItem = player.currentMediaItemIndex
@@ -363,6 +292,6 @@ class PlaybackVideoFragment : VideoSupportFragment() {
         private const val UPDATE_DELAY = 16
 //        private const val CONTENT_URL = "https://1fd3d978cae34bfb8203bd5feea44953.mediatailor.us-east-1.amazonaws.com/v1/session/b4af9cd7f590baef44a681686a25208ee900a7a5/datazoom_mt_config/hls.m3u8"
 //        private const val CONTENT_URL = "https://d2jzd9l24jb7u.cloudfront.net/v1/session/7c8ce5ad5bcc5198ca301174a2ead89b25915ca4/NAB-ITG-SSAI_EMT-CDK/out/v1/4cc3b6168dee4c5caa47a3664f79ed27/index.m3u8"
-        private const val CONTENT_URL = "https://400be94055624d6c82023dd1a6e88186.mediatailor.us-west-2.amazonaws.com/v1/session/7c8ce5ad5bcc5198ca301174a2ead89b25915ca4/NAB-ITG-SSAI_EMT-CDK/index.m3u8"
+        private const val CONTENT_URL = "${ITGM3U8.BASE_URL}/v1/session/7c8ce5ad5bcc5198ca301174a2ead89b25915ca4/demo_page_for_client_testing/index.m3u8"
     }
 }

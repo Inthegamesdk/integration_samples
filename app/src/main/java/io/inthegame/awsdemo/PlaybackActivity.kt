@@ -3,9 +3,6 @@ package io.inthegame.awsdemo
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.FragmentActivity
-import io.datazoom.sdk.Datazoom
-import io.datazoom.sdk.Config.Builder
-import io.datazoom.sdk.logs.LogLevel
 
 /** Loads [PlaybackVideoFragment]. */
 class PlaybackActivity : FragmentActivity() {
@@ -20,12 +17,6 @@ class PlaybackActivity : FragmentActivity() {
         if (configId.isEmpty() || configId == "{DATAZOOM_CONFIG_ID}"){
             throw IllegalArgumentException("Please provide your Datazoom configId")
         }
-
-        Datazoom.init(
-            Builder(configId)
-                .logLevel(LogLevel.VERBOSE)
-                .build()
-        )
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()

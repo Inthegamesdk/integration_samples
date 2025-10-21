@@ -17,7 +17,7 @@ class FetchConfig(
     override suspend fun execute(parameters: Param): ITGM3U8 {
         return awsMediaTailorRepo.fetchConfig(parameters.configUrl).let { config ->
             config.copy(
-                manifestUrl = AwsMediaTailorRepoImpl.BASE_URL + config.manifestUrl, //prepare m3u8 path
+                manifestUrl = config.manifestUrl, //prepare m3u8 path
             )
         }
     }

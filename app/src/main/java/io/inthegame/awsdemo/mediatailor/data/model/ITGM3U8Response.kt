@@ -7,6 +7,6 @@ data class ITGM3U8Response(
     val trackingUrl: String?,
 ) {
     companion object {
-        fun ITGM3U8Response.toDomain() = ITGM3U8(manifestUrl, trackingUrl)
+        fun ITGM3U8Response.toDomain() = ITGM3U8(ITGM3U8.BASE_URL + manifestUrl, ITGM3U8.BASE_URL + trackingUrl)
     }
 }

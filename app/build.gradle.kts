@@ -61,7 +61,5 @@ dependencies {
 
     implementation("com.github.Inthegamesdk:itg-android-sdk-latest:2.6.26")
 
-    implementation("io.datazoom.sdk:media3:0.0.14")
-    implementation("io.datazoom.sdk:mediatailor:0.0.17")
 
 }

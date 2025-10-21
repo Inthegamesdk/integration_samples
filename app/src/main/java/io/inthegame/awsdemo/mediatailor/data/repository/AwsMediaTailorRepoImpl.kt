@@ -35,11 +35,11 @@ class AwsMediaTailorRepoImpl : AwsMediaTailorRepo {
     private val gson = Gson()
 
     override suspend fun fetchConfig(configUrl: String): ITGM3U8 {
-        return executeCall<ITGM3U8Response>(BASE_URL + configUrl, asPost = true).toDomain()
+        return executeCall<ITGM3U8Response>(configUrl, asPost = true).toDomain()
     }
 
     override suspend fun fetchTrackingData(config: ITGM3U8): TrackingData {
-        return executeCall<TrackingDataResponse>(BASE_URL + config.trackingUrl).toDomain()
+        return executeCall<TrackingDataResponse>(config.trackingUrl.orEmpty()).toDomain()
     }
 
     override suspend fun fetchStaticResource(nonLinearAd: NonLinearAd): String {
@@ -67,8 +67,5 @@ class AwsMediaTailorRepoImpl : AwsMediaTailorRepo {
         }
     }
 
-    internal companion object {
-        internal const val BASE_URL =
-            "https://d2maq8vu6turh1.cloudfront.net";
-    }
+
 }

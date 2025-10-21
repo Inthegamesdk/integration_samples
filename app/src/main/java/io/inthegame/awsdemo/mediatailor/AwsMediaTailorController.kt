@@ -24,10 +24,10 @@ class AwsMediaTailorController(
     private val observeAdsUseCase = ObserveAds(repo)
 
 
-    suspend fun initialize() {
+    suspend fun initialize(url : String) {
         val awsConfig = fetchConfigUseCase(
             FetchConfig.Param(
-                "/v1/session/fbf6111d121bd3e23fd10fd13159f79f1e4c5f3a/NAB-ITG-SSAI_EMT-CDK/out/v1/73e41d9cef39439682a56385f43f23d3/index.m3u8"
+                url
             )
         )
             .asSuccessful()
