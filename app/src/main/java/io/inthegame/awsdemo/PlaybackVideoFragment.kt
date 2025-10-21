@@ -363,6 +363,6 @@ class PlaybackVideoFragment : VideoSupportFragment() {
         private const val UPDATE_DELAY = 16
 //        private const val CONTENT_URL = "https://1fd3d978cae34bfb8203bd5feea44953.mediatailor.us-east-1.amazonaws.com/v1/session/b4af9cd7f590baef44a681686a25208ee900a7a5/datazoom_mt_config/hls.m3u8"
 //        private const val CONTENT_URL = "https://d2jzd9l24jb7u.cloudfront.net/v1/session/7c8ce5ad5bcc5198ca301174a2ead89b25915ca4/NAB-ITG-SSAI_EMT-CDK/out/v1/4cc3b6168dee4c5caa47a3664f79ed27/index.m3u8"
-        private const val CONTENT_URL = "https://400be94055624d6c82023dd1a6e88186.mediatailor.us-west-2.amazonaws.com/v1/session/7c8ce5ad5bcc5198ca301174a2ead89b25915ca4/NAB-ITG-SSAI_EMT-CDK/index.m3u8"
-    }
+        const val BASE_URL = "https://3e763f5a2cb64a869ea9bb83d5f933d7.mediatailor.us-west-2.amazonaws.com"
+        private const val CONTENT_URL = "${BASE_URL}/v1/session/7c8ce5ad5bcc5198ca301174a2ead89b25915ca4/demo_page_for_client_testing/index.m3u8"    }
 }
