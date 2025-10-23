@@ -1,5 +1,5 @@
 {
-  "name": "mytvproject",
+  "name": "itg_rn_expo_example",
   "version": "1.0.0",
   "scripts": {
     "start": "EXPO_TV=1 expo start",
@@ -17,7 +17,8 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-native": "npm:react-native-tvos@0.81.4-0",
-    "react-native-web": "^0.21.0"
+    "react-native-web": "^0.21.0",
+    "expo-itg-video": "file:./expo-itg-video"
   },
   "devDependencies": {
     "@react-native-tvos/config-tv": "^0.1.4",

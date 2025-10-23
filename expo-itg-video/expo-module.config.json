@@ -1,0 +1,9 @@
+{
+  "platforms": ["apple", "android", "web"],
+  "apple": {
+    "modules": ["ExpoItgVideoModule"]
+  },
+  "android": {
+    "modules": ["expo.modules.itgvideo.ExpoItgVideoModule"]
+  }
+}
