@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- варіант 1: глобально (небажано) -->
+    <base-config cleartextTrafficPermitted="true" />
+    <!-- або варіант 2: тільки обрані домени -->
+    <!--
+    <domain-config cleartextTrafficPermitted="true">
+      <domain includeSubdomains="true">example.com</domain>
+    </domain-config>
+    -->
+</network-security-config>
