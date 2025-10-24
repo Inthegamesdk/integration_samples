@@ -1,10 +1,8 @@
 package io.inthegame.awsdemo
 
-import android.annotation.TargetApi
 import android.content.Context
 import android.graphics.Color
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -19,9 +17,7 @@ import androidx.leanback.app.VideoSupportFragmentGlueHost
 import androidx.leanback.media.PlaybackTransportControlGlue
 import androidx.lifecycle.lifecycleScope
 import androidx.media3.common.MediaItem
-import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
-import androidx.media3.common.util.Util
 import androidx.media3.exoplayer.DefaultRenderersFactory
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.leanback.LeanbackPlayerAdapter
@@ -33,9 +29,8 @@ import com.syncedapps.inthegametv.integration.ITGMedia3LeanbackPlayerAdapter
 import com.syncedapps.inthegametv.integration.ITGPlaybackComponent
 import io.inthegame.awsdemo.mediatailor.AwsMediaTailorController
 import io.inthegame.awsdemo.mediatailor.domain.model.ITGM3U8
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.util.*
+import java.util.Date
 
 @OptIn(UnstableApi::class)
 class PlaybackVideoFragment : VideoSupportFragment() {
@@ -49,32 +44,14 @@ class PlaybackVideoFragment : VideoSupportFragment() {
     private var currentItem: Int = 0
     private var playbackPosition: Long = 0L
     private var playWhenReady: Boolean = true
-    private val awsMediaTailorController : AwsMediaTailorController by lazy { AwsMediaTailorController(
-        lifecycleScope,
-        { videoUrl ->
-            Log.d(this.javaClass.simpleName, "playVideo $videoUrl")
-            if (videoUrl.isNullOrEmpty()) return@AwsMediaTailorController
-            lifecycleScope.launch {
-                mPlayer?.addMediaItem(
-                    MediaItem.Builder().setUri(Uri.parse(videoUrl)).build()
-                )
-                mPlayer?.playWhenReady = playWhenReady
-                mPlayer?.seekTo(currentItem, playbackPosition)
-                mPlayer?.prepare()
-            }
-        },
-        { flexiJson ->
-            lifecycleScope.launch {
-                if (mITGComponent?.itgOverlayView?.currentContent()
-                        ?.contains(ITGContent.FLEXI) == false
-                ) {
-                    aiConsoleManager?.startDisplayAdFlow()
-                    delay(1_500L)
-                    mITGComponent?.itgOverlayView?.injectFlexi(flexiJson)
-                }
-            }
+    private val awsMediaTailorController: AwsMediaTailorController by lazy {
+        AwsMediaTailorController(
+            lifecycleScope,
+            this::startPlayback
+        ) { flexiJson ->
+            mITGComponent?.itgOverlayView?.injectFlexi(flexiJson)
         }
-    ) }
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -87,11 +64,44 @@ class PlaybackVideoFragment : VideoSupportFragment() {
         }
     }
 
-    private var aiConsoleManager: AIConsoleManager? = null
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.setBackgroundColor(Color.BLACK)
+        initITG(savedInstanceState)
+        lifecycleScope.launch {
+            awsMediaTailorController.initialize(CONTENT_URL)
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        initializePlayer()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (mPlayer == null) {
+            initializePlayer()
+        }
+        Handler(Looper.getMainLooper()).postDelayed({
+            hideControlsOverlay(false)
+        }, 30)
+    }
+
+    /** Pauses the player.  */
+    override fun onPause() {
+        super.onPause()
+        if (mPlayerGlue != null && mPlayerGlue?.isPlaying == true) {
+            mPlayerGlue?.pause()
+        }
+    }
+
+    override fun onStop() {
+        releasePlayer()
+        super.onStop()
+    }
+
+    private fun initITG(savedInstanceState : Bundle?) {
         // create the overlay
         val adapter = ITGMedia3LeanbackPlayerAdapter(
             playerView = surfaceView
@@ -116,63 +126,12 @@ class PlaybackVideoFragment : VideoSupportFragment() {
             )
         }
         (requireView() as ViewGroup).addView(rootFrame, 3)
-
-        lifecycleScope.launch {
-            awsMediaTailorController.initialize(CONTENT_URL)
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        if (Util.SDK_INT > 23) {
-            initializePlayer()
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        if (Util.SDK_INT <= 23 || mPlayer == null) {
-            initializePlayer()
-        }
-        Handler(Looper.getMainLooper()).postDelayed({
-            hideControlsOverlay(false)
-        }, 30)
-    }
-
-    /** Pauses the player.  */
-    @TargetApi(Build.VERSION_CODES.N)
-    override fun onPause() {
-        super.onPause()
-        if (mPlayerGlue != null && mPlayerGlue?.isPlaying == true) {
-            mPlayerGlue?.pause()
-        }
-        if (Util.SDK_INT <= 23) {
-            releasePlayer()
-        }
-    }
-
-    override fun onStop() {
-        if (Util.SDK_INT > 23) {
-            releasePlayer()
-        }
-        super.onStop()
     }
 
     private fun initializePlayer() {
         val player =
             ExoPlayer.Builder(requireContext(), DefaultRenderersFactory(requireContext())).build()
         mPlayer = player
-        mPlayer?.addListener(object : Player.Listener {
-            override fun onIsPlayingChanged(isPlaying: Boolean) {
-                super.onIsPlayingChanged(isPlaying)
-                if (isPlaying) {
-                    lifecycleScope.launch {
-                        delay(1_000L)
-                        aiConsoleManager?.startConsoleFlow()
-                    }
-                }
-            }
-        })
         mITGPlayerAdapter?.onPlayerReady(player)
         mPlayerAdapter = LeanbackPlayerAdapter(requireContext(), player, UPDATE_DELAY)
         mPlayerGlue = PlaybackTransportControlGlue(
@@ -194,6 +153,19 @@ class PlaybackVideoFragment : VideoSupportFragment() {
             mPlayer = null
             mPlayerGlue = null
             mPlayerAdapter = null
+        }
+    }
+
+    private fun startPlayback(videoUrl: String?) {
+        Log.d(this.javaClass.simpleName, "playVideo $videoUrl")
+        if (videoUrl.isNullOrEmpty()) return
+        lifecycleScope.launch {
+            mPlayer?.addMediaItem(
+                MediaItem.Builder().setUri(Uri.parse(videoUrl)).build()
+            )
+            mPlayer?.playWhenReady = playWhenReady
+            mPlayer?.seekTo(currentItem, playbackPosition)
+            mPlayer?.prepare()
         }
     }
 
@@ -229,28 +201,6 @@ class PlaybackVideoFragment : VideoSupportFragment() {
             defStyleAttr
         )
 
-        override fun channelInfoDidLoad(streamUrl: String?) {
-            super.channelInfoDidLoad(streamUrl)
-        }
-
-        //optional
-        override fun overlayProducedAnalyticsEvent(eventSnapshot: AnalyticsEventSnapshot) {
-            Log.d(
-                this.javaClass.simpleName,
-                "overlayProducedAnalyticsEvent eventSnapshot $eventSnapshot"
-            )
-        }
-
-        //optional
-        override fun userState(userSnapshot: UserSnapshot) {
-            Log.d(this.javaClass.simpleName, "overlayUserUpdated userSnapshot $userSnapshot")
-        }
-
-        override fun overlayDidEndPresentingContent(content: ITGContent) {
-            super.overlayDidEndPresentingContent(content)
-            aiConsoleManager?.startConsoleFlow()
-        }
-
         override fun overlayRequestedPlay() {
             shouldNotShowControls = true
             super.overlayRequestedPlay()
@@ -265,33 +215,11 @@ class PlaybackVideoFragment : VideoSupportFragment() {
             shouldNotShowControls = true
             super.overlayRequestedSeekTo(timestampMillis)
         }
-
-        override fun overlayRequestedFocus(focusView: View) {
-            Log.d(this.javaClass.simpleName, "overlayRequestedFocus focusView=$focusView")
-        }
-
-        override fun overlayReleasedFocus() {
-            Log.d(this.javaClass.simpleName, "overlayReleasedFocus")
-        }
-
-        override fun overlayDidShowSidebar() {}
-
-        override fun overlayDidHideSidebar() {}
-
-        override fun overlayClickedUserArea() {
-            Log.d("ITG", "CLICKED USER AREA")
-        }
-
-        override fun overlayClosedByUser(type: CloseOption, timestamp: Long) {
-            Log.d("ITG", "ITG CLOSED - ${type.name}")
-        }
-
     }
 
     companion object {
         private const val UPDATE_DELAY = 16
-//        private const val CONTENT_URL = "https://1fd3d978cae34bfb8203bd5feea44953.mediatailor.us-east-1.amazonaws.com/v1/session/b4af9cd7f590baef44a681686a25208ee900a7a5/datazoom_mt_config/hls.m3u8"
-//        private const val CONTENT_URL = "https://d2jzd9l24jb7u.cloudfront.net/v1/session/7c8ce5ad5bcc5198ca301174a2ead89b25915ca4/NAB-ITG-SSAI_EMT-CDK/out/v1/4cc3b6168dee4c5caa47a3664f79ed27/index.m3u8"
-        private const val CONTENT_URL = "${ITGM3U8.BASE_URL}/v1/session/7c8ce5ad5bcc5198ca301174a2ead89b25915ca4/demo_page_for_client_testing/index.m3u8"
+        private const val CONTENT_URL =
+            "${ITGM3U8.BASE_URL}/v1/session/7c8ce5ad5bcc5198ca301174a2ead89b25915ca4/demo_page_for_client_testing/index.m3u8"
     }
 }

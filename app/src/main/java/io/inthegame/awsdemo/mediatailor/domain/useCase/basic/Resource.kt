@@ -7,9 +7,5 @@ sealed class Resource<out T> {
 
     companion object {
         inline fun <reified T> Resource<T>.asSuccessful() = (this as? Success)?.value
-        fun Resource<Boolean>.asSuccessful(defaultValue: Boolean = false) =
-            (this as? Success)?.value ?: defaultValue
-
-        inline fun <reified T> Resource<T>.asError() = (this as? Failure)?.throwable
     }
 }
