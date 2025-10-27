@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'exo_player.dart';
+import 'avplayer.dart';
+
 class ITGNativeVideoPlayer extends StatelessWidget{
   const ITGNativeVideoPlayer({super.key, required this.videoUrl});
 
@@ -34,7 +36,9 @@ class ITGNativeVideoPlayer extends StatelessWidget{
         },
         child: defaultTargetPlatform == TargetPlatform.android
             ? AndroidExoPlayer(videoUrl: videoUrl)
-            : throw UnsupportedError("Unsupported platform view"),
+            : (defaultTargetPlatform == TargetPlatform.iOS
+            ? AVPlayer(videoUrl: videoUrl)
+            : throw UnsupportedError("Unsupported platform view"))
     );
   }
 
