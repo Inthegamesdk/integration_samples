@@ -138,7 +138,6 @@ class PlaybackVideoFragment : VideoSupportFragment() {
                 session.addAdObserver(object  : AdObserver() {
                     override fun onNewNonLinearAds(adData: NonLinearAdsData) {
                         super.onNewNonLinearAds(adData)
-
                         Log.d("DATAZOOM", "onNewNonLinearAds $adData")
                     }
 
