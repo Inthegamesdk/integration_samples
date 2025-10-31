@@ -26,6 +26,9 @@ import com.syncedapps.inthegametv.integration.ITGMedia3PlayerAdapter
 import com.syncedapps.inthegametv.integration.ITGPlaybackComponent
 import androidx.activity.OnBackPressedCallback
 import android.view.KeyEvent
+import androidx.lifecycle.lifecycleScope
+import com.syncedapps.inthegametv.network.ITGEnvironment
+import kotlinx.coroutines.launch
 
 class PlaybackPhoneActivity : FragmentActivity() {
 
@@ -75,6 +78,8 @@ class PlaybackPhoneActivity : FragmentActivity() {
 
             accountId = accountId, //mandatory: your ITG accountId
             channelSlug = channelSlug, //mandatory: your channelId on our admin panel
+            itgEnvironment = ITGEnvironment.dev,
+            showLogs = true
         )
 
 
@@ -83,9 +88,11 @@ class PlaybackPhoneActivity : FragmentActivity() {
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                if (mITGComponent == null || mITGComponent?.handleBackPressIfNeeded() == false) {
-                    // Implement your own back press action here
-                    finish()
+                lifecycleScope.launch {
+                    if (mITGComponent == null || mITGComponent?.handleBackPressIfNeeded() == false) {
+                        // Implement your own back press action here
+                        finish()
+                    }
                 }
             }
         })
