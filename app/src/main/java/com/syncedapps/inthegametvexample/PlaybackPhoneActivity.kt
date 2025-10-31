@@ -54,8 +54,8 @@ class PlaybackPhoneActivity : FragmentActivity() {
         startVideo()
 
         // Replace 'your_account_id' and 'your_channel_slug' with actual values
-        val accountId = "68650da0324217d506bcc2d4"
-        val channelSlug = "samplechannel"
+        val accountId = "62a73d850bcf95e08a025f82"
+        val channelSlug = "demo"
 
 
         // Initialize ITGPlaybackComponent
