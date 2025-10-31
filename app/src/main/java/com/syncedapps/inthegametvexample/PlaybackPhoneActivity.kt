@@ -22,7 +22,7 @@ import com.syncedapps.inthegametvexample.databinding.ActivityPhonePlaybackBindin
 import android.view.ViewGroup
 import java.util.*
 
-import com.syncedapps.inthegametv.integration.ITGMedia3PlayerAdapter
+import io.inthegame.media3.ITGMedia3PlayerAdapter
 import com.syncedapps.inthegametv.integration.ITGPlaybackComponent
 import androidx.activity.OnBackPressedCallback
 import android.view.KeyEvent
