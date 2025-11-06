@@ -10,7 +10,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://jitpack.io' }
+        maven {
+            url = uri("https://androidrepo.internal.inthegame.io/repository/android/")
+        }
         maven {
             url = uri("https://artifacts.bitmovin.com/artifactory/public-releases")
         }

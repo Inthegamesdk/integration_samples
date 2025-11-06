@@ -9,6 +9,7 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.lifecycleScope
 import com.bitmovin.analytics.api.AnalyticsConfig
 import com.bitmovin.analytics.api.SourceMetadata
 import com.bitmovin.player.PlayerView
@@ -22,6 +23,7 @@ import com.syncedapps.inthegametv.ITGOverlayView
 import com.syncedapps.inthegametv.integration.ITGBitmovinPlayerAdapter
 import com.syncedapps.inthegametv.integration.ITGPlaybackComponent
 import com.syncedapps.inthegametvexample.databinding.ActivityPhonePlaybackBinding
+import kotlinx.coroutines.launch
 import java.util.*
 
 class PlaybackPhoneActivity : FragmentActivity() {
@@ -106,24 +108,11 @@ class PlaybackPhoneActivity : FragmentActivity() {
 
     private fun initITG(player: Player, savedInstanceState: Bundle?) {
         // Replace 'your_account_id' and 'your_channel_slug' with actual values
-        val accountId = "68650da0324217d506bcc2d4"
-        val channelSlug = "samplechannel"
-
+        val accountId = "62a73d850bcf95e08a025f82"
+        val channelSlug = "demo"
 
         // Initialize ITGPlaybackComponent
-        mITGComponent = object : ITGPlaybackComponent(this) {
-            override fun overlayWillChangeVideoRect(
-                rect: ITGOverlayView.VideoRect,
-                animationDuration: Long
-            ) {
-                Log.d(this.javaClass.simpleName, "overlayWillChangeVideoRect rect=$rect, animationDuration=$animationDuration")
-            }
-
-            override fun overlayWillResetVideoRect(animationDuration: Long) {
-                Log.d(this.javaClass.simpleName, "overlayWillResetVideoRect animationDuration=$animationDuration")
-            }
-        }
-
+        mITGComponent = ITGPlaybackComponent(this)
 
         // Set up the ITGMedia3PlayerAdapter with your player view
         val adapter = ITGBitmovinPlayerAdapter(playerView = playerView)
@@ -142,17 +131,18 @@ class PlaybackPhoneActivity : FragmentActivity() {
             channelSlug = channelSlug, //mandatory: your channelId on our admin panel
         )
 
-
         // Add the ITG component to your view hierarchy
         binding.outerContainer.addView(mITGComponent, 0)
 
         // ITG: handle back press
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                // ITG: make sure ITG does not consume this back press
-                if (mITGComponent == null || mITGComponent?.handleBackPressIfNeeded() == false) {
-                    // Implement your own back press action here
-                    finish()
+                lifecycleScope.launch {
+                    // ITG: make sure ITG does not consume this back press
+                    if (mITGComponent == null || mITGComponent?.handleBackPressIfNeeded() == false) {
+                        // Implement your own back press action here
+                        finish()
+                    }
                 }
             }
         })
