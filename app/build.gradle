@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.syncedapps.inthegametvexample"
-        minSdkVersion 22
+        minSdkVersion 24
         targetSdkVersion 35
         versionCode 149
         versionName "2.1.5"
