@@ -1,4 +1,4 @@
 <resources>
 
-    <style name="AppTheme" parent="@style/Theme.AppCompat" />
+    <style name="AppTheme" parent="@style/Theme.Design" />
 </resources>

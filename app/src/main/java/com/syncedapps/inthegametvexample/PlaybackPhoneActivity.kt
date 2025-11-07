@@ -23,6 +23,8 @@ import com.syncedapps.inthegametv.integration.ITGExoPlayerAdapter
 import com.syncedapps.inthegametv.integration.ITGPlaybackComponent
 import androidx.activity.OnBackPressedCallback
 import android.view.KeyEvent
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 
 class PlaybackPhoneActivity : FragmentActivity() {
 
@@ -45,8 +47,8 @@ class PlaybackPhoneActivity : FragmentActivity() {
         setupFullscreenMode()
 
         // Replace 'your_account_id' and 'your_channel_slug' with actual values
-        val accountId = "68650da0324217d506bcc2d4"
-        val channelSlug = "samplechannel"
+        val accountId = "62a73d850bcf95e08a025f82"
+        val channelSlug = "demo"
 
         //add video view
         videoView = buildVideoView()
@@ -78,9 +80,11 @@ class PlaybackPhoneActivity : FragmentActivity() {
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                if (mITGComponent == null || mITGComponent?.handleBackPressIfNeeded() == false) {
-                    // Implement your own back press action here
-                    finish()
+                lifecycleScope.launch {
+                    if (mITGComponent == null || mITGComponent?.handleBackPressIfNeeded() == false) {
+                        // Implement your own back press action here
+                        finish()
+                    }
                 }
             }
         })
