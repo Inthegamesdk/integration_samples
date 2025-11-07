@@ -10,6 +10,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.leanback.app.VideoSupportFragmentGlueHost
 import androidx.leanback.media.PlaybackTransportControlGlue
+import androidx.lifecycle.lifecycleScope
 import com.google.android.exoplayer2.DefaultRenderersFactory
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
@@ -21,6 +22,7 @@ import com.google.android.exoplayer2.upstream.DefaultHttpDataSource
 import com.google.android.exoplayer2.util.Util
 import com.syncedapps.inthegametv.integration.ITGExoLeanbackPlayerAdapter
 import com.syncedapps.inthegametv.integration.ITGPlaybackComponent
+import kotlinx.coroutines.launch
 
 class PlaybackVideoFragment : VideoSupportFragment() {
 
@@ -39,8 +41,8 @@ class PlaybackVideoFragment : VideoSupportFragment() {
         play()
 
         // Replace 'your_account_id' and 'your_channel_slug' with actual values
-        val accountId = "68650da0324217d506bcc2d4"
-        val channelSlug = "samplechannel"
+        val accountId = "62a73d850bcf95e08a025f82"
+        val channelSlug = "demo"
 
         // Initialize ITGPlaybackComponent
         mITGComponent = ITGPlaybackComponent(requireContext())
@@ -68,9 +70,11 @@ class PlaybackVideoFragment : VideoSupportFragment() {
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                if (mITGComponent == null || mITGComponent?.handleBackPressIfNeeded() == false) {
-                    // Implement your own back press action here
-                    requireActivity().finish()
+                lifecycleScope.launch {
+                    if (mITGComponent == null || mITGComponent?.handleBackPressIfNeeded() == false) {
+                        // Implement your own back press action here
+                        requireActivity().finish()
+                    }
                 }
             }
         })
