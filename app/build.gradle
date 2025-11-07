@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.syncedapps.inthegametvexample"
-        minSdkVersion 22
+        minSdkVersion 24
         targetSdkVersion 35
         versionCode 149
         versionName "2.1.5"
@@ -84,5 +84,6 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.0'
 
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.2.2'
-    implementation 'com.github.Inthegamesdk:itg-android-sdk-latest:2.6.31'
+    implementation 'io.inthegame.sdk:core:2.7.0'
+    implementation 'io.inthegame.sdk:media3:2.7.0'
 }

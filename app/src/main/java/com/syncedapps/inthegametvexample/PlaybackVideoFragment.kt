@@ -2,6 +2,7 @@ package com.syncedapps.inthegametvexample
 
 import android.annotation.SuppressLint
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.annotation.OptIn
 import androidx.core.content.ContextCompat
 import androidx.leanback.app.VideoSupportFragmentGlueHost
 import androidx.leanback.media.PlaybackTransportControlGlue
+import androidx.lifecycle.lifecycleScope
 import androidx.media3.common.MediaItem
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.common.util.Util
@@ -23,6 +25,7 @@ import androidx.media3.exoplayer.source.ProgressiveMediaSource
 import androidx.media3.ui.leanback.LeanbackPlayerAdapter
 import com.syncedapps.inthegametv.integration.ITGMedia3LeanbackPlayerAdapter
 import com.syncedapps.inthegametv.integration.ITGPlaybackComponent
+import kotlinx.coroutines.launch
 
 class PlaybackVideoFragment : VideoSupportFragment()  {
 
@@ -43,8 +46,8 @@ class PlaybackVideoFragment : VideoSupportFragment()  {
         play()
 
         // Replace 'your_account_id' and 'your_channel_slug' with actual values
-        val accountId = "68650da0324217d506bcc2d4"
-        val channelSlug = "samplechannel"
+        val accountId = "62a73d850bcf95e08a025f82"
+        val channelSlug = "demo"
 
 
         // Initialize ITGPlaybackComponent
@@ -74,9 +77,11 @@ class PlaybackVideoFragment : VideoSupportFragment()  {
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                if (mITGComponent == null || mITGComponent?.handleBackPressIfNeeded() == false) {
-                    // Implement your own back press action here
-                    requireActivity().finish()
+                lifecycleScope.launch {
+                    if (mITGComponent == null || mITGComponent?.handleBackPressIfNeeded() == false) {
+                        // Implement your own back press action here
+                        requireActivity().finish()
+                    }
                 }
             }
         })
@@ -86,15 +91,13 @@ class PlaybackVideoFragment : VideoSupportFragment()  {
     @OptIn(UnstableApi::class)
     override fun onStart() {
         super.onStart()
-        if (Util.SDK_INT > 23) {
-            initializePlayer()
-        }
+        initializePlayer()
     }
 
     @OptIn(UnstableApi::class)
     override fun onResume() {
         super.onResume()
-        if (Util.SDK_INT <= 23 || mPlayer == null) {
+        if (mPlayer == null) {
             initializePlayer()
             play()
         }
@@ -107,17 +110,12 @@ class PlaybackVideoFragment : VideoSupportFragment()  {
         if (mPlayerGlue != null && mPlayerGlue?.isPlaying == true) {
             mPlayerGlue?.pause()
         }
-        if (Util.SDK_INT <= 23) {
-            releasePlayer()
-        }
     }
 
     @OptIn(UnstableApi::class)
     override fun onStop() {
         super.onStop()
-        if (Util.SDK_INT > 23) {
-            releasePlayer()
-        }
+        releasePlayer()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
