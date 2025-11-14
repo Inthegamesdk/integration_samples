@@ -22,11 +22,11 @@ import androidx.media3.exoplayer.DefaultRenderersFactory
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.leanback.LeanbackPlayerAdapter
 import com.syncedapps.inthegametv.ITGContent
-import com.syncedapps.inthegametv.data.CloseOption
 import com.syncedapps.inthegametv.domain.model.AnalyticsEventSnapshot
 import com.syncedapps.inthegametv.domain.model.UserSnapshot
 import com.syncedapps.inthegametv.integration.ITGMedia3LeanbackPlayerAdapter
 import com.syncedapps.inthegametv.integration.ITGPlaybackComponent
+import com.syncedapps.inthegametv.network.ITGEnvironment
 import io.inthegame.awsdemo.mediatailor.AwsMediaTailorController
 import io.inthegame.awsdemo.mediatailor.domain.model.ITGM3U8
 import kotlinx.coroutines.launch
@@ -112,9 +112,9 @@ class PlaybackVideoFragment : VideoSupportFragment() {
             requireView(),
             viewLifecycleOwner,
             adapter,
-            "668d16a5cbbeb699b8dd9bcb",
-            "test-channel",
-            userBroadcasterForeignID = "android_${Date().time}",
+            "62a73d850bcf95e08a025f82",
+            "demo",
+            itgEnvironment = ITGEnvironment.dev,
             savedState = savedInstanceState
         )
         (requireView() as ViewGroup).addView(mITGComponent, 0)
@@ -169,7 +169,7 @@ class PlaybackVideoFragment : VideoSupportFragment() {
         }
     }
 
-    fun handleBackPressIfNeeded(): Boolean {
+    suspend fun handleBackPressIfNeeded(): Boolean {
         return mITGComponent?.handleBackPressIfNeeded() ?: false
     }
 
@@ -200,21 +200,6 @@ class PlaybackVideoFragment : VideoSupportFragment() {
             attrs,
             defStyleAttr
         )
-
-        override fun overlayRequestedPlay() {
-            shouldNotShowControls = true
-            super.overlayRequestedPlay()
-        }
-
-        override fun overlayRequestedPause() {
-            shouldNotShowControls = true
-            super.overlayRequestedPlay()
-        }
-
-        override fun overlayRequestedSeekTo(timestampMillis: Long) {
-            shouldNotShowControls = true
-            super.overlayRequestedSeekTo(timestampMillis)
-        }
     }
 
     companion object {

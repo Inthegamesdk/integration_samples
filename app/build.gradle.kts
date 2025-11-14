@@ -28,6 +28,7 @@ android {
     }
 
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
@@ -59,7 +60,10 @@ dependencies {
     implementation("androidx.media3:media3-ui-leanback:1.8.0")
     implementation("androidx.media3:media3-ui:1.8.0")
 
-    implementation("com.github.Inthegamesdk:itg-android-sdk-latest:2.6.26")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.2.2")
+
+    implementation("io.inthegame.sdk:core:2.7.0")
+    implementation("io.inthegame.sdk:media3:2.7.0")
 
 
 }

@@ -3,6 +3,8 @@ package io.inthegame.awsdemo
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 
 /** Loads [PlaybackVideoFragment]. */
 class PlaybackActivity : FragmentActivity() {
@@ -19,15 +21,16 @@ class PlaybackActivity : FragmentActivity() {
         }
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                val fragment =
-                    supportFragmentManager.findFragmentByTag(playbackFragmentTag) as? PlaybackVideoFragment
-                if (fragment != null && fragment.handleBackPressIfNeeded()) {
-                    return
-                } else {
-                    // Back is pressed... Finishing the activity
-                    finish()
+                lifecycleScope.launch {
+                    val fragment =
+                        supportFragmentManager.findFragmentByTag(playbackFragmentTag) as? PlaybackVideoFragment
+                    if (fragment != null && fragment.handleBackPressIfNeeded()) {
+                        return@launch
+                    } else {
+                        // Back is pressed... Finishing the activity
+                        finish()
+                    }
                 }
-
             }
         })
     }
