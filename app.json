@@ -1,5 +1,6 @@
 {
   "expo": {
+    "orientation": "landscape",
     "plugins": [
       [
         "@react-native-tvos/config-tv",
@@ -27,10 +28,16 @@
     "ios": {
       "splash": {
         "image": "./assets/images/icon-1920x720.png"
-      }
+      },
+      "bundleIdentifier": "com.anonymous.MyTVProject"
     },
     "newArchEnabled": true,
     "name": "MyTVProject",
-    "slug": "MyTVProject"
+    "slug": "MyTVProject",
+    "extra": {
+      "eas": {
+        "projectId": "c05f906a-0ce5-4032-a2fd-95dfd3c6267a"
+      }
+    }
   }
 }
