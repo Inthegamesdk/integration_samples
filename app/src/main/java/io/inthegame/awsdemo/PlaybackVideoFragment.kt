@@ -21,6 +21,7 @@ import com.amazon.mediatailorsdk.AdObserver
 import com.amazon.mediatailorsdk.Session
 import com.syncedapps.inthegametv.integration.ITGMedia3LeanbackPlayerAdapter
 import com.syncedapps.inthegametv.integration.ITGPlaybackComponent
+import com.syncedapps.inthegametv.network.ITGEnvironment
 import io.datazoom.sdk.Datazoom
 import io.datazoom.sdk.DzAdapter
 import io.datazoom.sdk.media3.createContext
@@ -53,8 +54,9 @@ class PlaybackVideoFragment : VideoSupportFragment() {
             requireView(),
             viewLifecycleOwner,
             adapter,
-            "668d16a5cbbeb699b8dd9bcb",
-            "test-channel",
+            "62a73d850bcf95e08a025f82",
+            "demo",
+            itgEnvironment = ITGEnvironment.dev,
             savedState = savedInstanceState
         )
         (requireView() as ViewGroup).addView(mITGComponent, 0)
@@ -155,7 +157,7 @@ class PlaybackVideoFragment : VideoSupportFragment() {
         }
     }
 
-    fun handleBackPressIfNeeded(): Boolean {
+    suspend fun handleBackPressIfNeeded(): Boolean {
         return mITGComponent?.handleBackPressIfNeeded() ?: false
     }
 
@@ -184,20 +186,6 @@ class PlaybackVideoFragment : VideoSupportFragment() {
             defStyleAttr
         )
 
-        override fun overlayRequestedPlay() {
-            shouldNotShowControls = true
-            super.overlayRequestedPlay()
-        }
-
-        override fun overlayRequestedPause() {
-            shouldNotShowControls = true
-            super.overlayRequestedPlay()
-        }
-
-        override fun overlayRequestedSeekTo(timestampMillis: Long) {
-            shouldNotShowControls = true
-            super.overlayRequestedSeekTo(timestampMillis)
-        }
     }
 
     companion object {
