@@ -1,0 +1,12 @@
+<component name="HomeViewController" extends="Scene" initialFocus = "typeIntegrationButtonsGroup">
+    <script type="text/brightscript" uri="./HomeViewController.brs" />
+
+
+    <interface>
+       
+    </interface>
+
+    <children>
+            <ButtonGroup id = "typeIntegrationButtonsGroup" />
+    </children>
+</component>
