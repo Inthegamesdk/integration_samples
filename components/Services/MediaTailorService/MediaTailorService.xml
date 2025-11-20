@@ -1,0 +1,19 @@
+<component name="MediaTailorService" extends = "Node">
+    <script type="text/brightscript" uri="MediaTailorService.brs" />   
+    <script type="text/brightscript" uri="../../Helpers/util.brs" />   
+
+    <interface>
+        <field id="baseUrl" type="string" />
+        <field id="manifestUrl" type="string" />
+        <field id="streamUrl" type="string" />
+        <field id="creative" type="string" />
+        <field id="trackingUrl" type="string" />
+        <field id="availsIDs" type="array" />
+
+        <function name="start" />
+    </interface>
+
+     <children>  
+
+     </children>
+</component>

@@ -1,0 +1,33 @@
+<component name="NetworkLayerManager" extends="Node">
+    <script type="text/brightscript" uri="./NetworkLayerManager.brs" />
+    <script type="text/brightscript" uri="../../Helpers/util.brs" />
+
+    <interface>
+        <field id="registrationResponce" type="assocarray" />
+        <field id="loginizationResponce" type="assocarray" />
+        <field id="infoResponce" type="assocarray" />
+        <field id="answerResponce" type="node" />
+        <field id="versionStorketResponce" type="assocarray" alwaysNotify = "true"/>
+        <field id="versionAdminResponce" type="assocarray" alwaysNotify = "true"/>
+
+        <field id="isUpdateUserInfo" type="bool" alwaysNotify = "true"/>
+        <field id="channelsInfo" type="array" alwaysNotify = "true"/>
+        <field id="activity" type="assocarray" alwaysNotify = "true"/>
+        <field id="videoHeaders" type="assocarray" alwaysNotify = "true"/>
+        <field id="manifestData" type="node" alwaysNotify = "true"/>
+        <field id="manifestUrl" type="string" alwaysNotify = "true"/>
+        <field id="responceFlexiJson" type="assocarray" alwaysNotify = "true"/>
+
+        <field id="accounts" type="array" alwaysNotify = "true"/>
+        <field id="accountDetail" type="assocarray" alwaysNotify = "true"/>
+        <field id="creativeObject" type="assocarray" alwaysNotify = "true"/>
+
+
+        <function name = "fetchAccounts"/>
+        <function name = "fetchAccountDetail"/>
+    </interface>
+
+    <children>
+        
+    </children>
+</component>

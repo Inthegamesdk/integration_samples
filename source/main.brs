@@ -1,4 +1,3 @@
-'********** Copyright 2016 Roku Corp.  All Rights Reserved. **********
 sub Main()
   showChannelSGScreen()
 end sub
@@ -7,7 +6,7 @@ sub showChannelSGScreen()
   screen = CreateObject("roSGScreen")
   m.port = CreateObject("roMessagePort")
   screen.setMessagePort(m.port)
-  screen.CreateScene("HomeViewController")
+  _ = screen.CreateScene("ChannelsList")
   screen.show()
 
   while(true)
@@ -17,5 +16,6 @@ sub showChannelSGScreen()
     if msgType = "roSGScreenEvent"
       if msg.isScreenClosed() then return
     end if
- end while
+  end while
 end sub
+

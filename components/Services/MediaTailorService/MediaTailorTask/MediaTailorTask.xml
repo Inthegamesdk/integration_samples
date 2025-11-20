@@ -1,0 +1,14 @@
+<component name="MediaTailorTask" extends = "Task">
+    <script type="text/brightscript" uri="MediaTailorTask.brs" />   
+
+    <interface>
+        <field id="id" type="string" />
+        <field id="url" type="string" value = ""/>
+        <field id="body" type="string" value = ""/>
+        <field id="response" type="assocarray" />
+    </interface>
+
+     <children>  
+
+     </children>
+</component>

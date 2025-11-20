@@ -1,0 +1,24 @@
+<component name="VideoPlayer" extends="Group">
+    <script type="text/brightscript" uri="./VideoPlayer.brs" />
+    <script type="text/brightscript" uri="../Helpers/util.brs" />
+
+    <interface>
+        <field id="accountRoute" type="assocarray" onChange = "configureVideoContentNode"/>
+        <field id="videoUrl" type="string"/>
+        <field id="environment" type="string" />
+        <function name="stopVideo" />
+        <!-- Remote integration -->
+        <!-- <function name = "itgRequestedVideoStateChange"/>
+        <function name = "itgRequestVideoRectChange"/>
+        <function name = "itgReleasedFocus"/> -->
+    </interface>
+
+    <children>
+        <Rectangle id="background" width = "1920" height = "1080" color = "#000000" opacity="1"/>
+
+        <Video id="videoPlayer" width = "720" height = "405"/>
+
+        <ITGLibrary:OverlayViewController id="overlayViewController"/>
+        
+    </children>
+</component>

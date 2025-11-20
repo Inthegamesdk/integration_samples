@@ -1,0 +1,11 @@
+<component name="NetworkTask" extends="Task">
+    <script type="text/brightscript" uri="NetworkTask.brs"/>
+    <script type="text/brightscript" uri="../../Helpers/cache.brs"/>       
+    <script type="text/brightscript" uri="../../Helpers/util.brs"/>
+
+    <interface>
+        <field id="baseUrl" type="string"/>
+        <field id="request" alwaysNotify = "true" type="node"/>
+        <field id="response" alwaysNotify = "true" type="node"/>   
+    </interface>
+</component>

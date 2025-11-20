@@ -1,0 +1,48 @@
+<component name="ChannelsList" extends="Scene" initialFocus = "channelList">
+    <script type="text/brightscript" uri="./ChannelsList.brs" />
+    <script type="text/brightscript" uri="../Helpers/util.brs"/>
+
+    <interface>
+    </interface>
+
+    <children>
+        <LayoutGroup id = "layoutGroup" itemSpacings = "[100]" layoutDirection = "horiz" translation = "[50,50]">
+            <RowList id = "envList"
+                itemComponentName = "ChannelItemComponent"
+                itemSize = "[600, 100]"
+                rowItemSize = "[[600, 100]]"
+                itemSpacing = "[0, 30]"
+                rowItemSpacing = "[[0, 30]]"
+                focusBitmapUri = "pkg:/nil"
+                focusFootprintBitmapUri = "pkg:/nil"
+                vertFocusAnimationStyle = "floatingFocus"
+                numRows = "6"/>
+
+            <RowList id = "accountList"
+                itemComponentName = "ChannelItemComponent"
+                itemSize = "[600, 100]"
+                rowItemSize = "[[600, 100]]"
+                itemSpacing = "[0, 30]"
+                rowItemSpacing = "[[0, 30]]"
+                focusBitmapUri = "pkg:/nil"
+                focusFootprintBitmapUri = "pkg:/nil"
+                vertFocusAnimationStyle = "floatingFocus"
+                numRows = "5"/>
+
+            <RowList id = "chennelList"
+                itemComponentName = "ChannelItemComponent"
+                itemSize = "[600, 100]"
+                rowItemSize = "[[600, 100]]"
+                itemSpacing = "[0, 30]"
+                rowItemSpacing = "[[0, 30]]"
+                focusBitmapUri = "pkg:/nil"
+                focusFootprintBitmapUri = "pkg:/nil"
+                vertFocusAnimationStyle = "floatingFocus"
+                numRows = "5"/>
+        </LayoutGroup>
+
+        <Poster id = "testMaskPost" width = "1920" height = "1080"/>
+        <Label id = "loadingLibraryLabelStatus"  width = "1920" height = "1080" vertAlign = "centr" horizAlign = "centr"/>
+    </children>
+</component>
+

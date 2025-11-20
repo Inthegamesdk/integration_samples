@@ -1,0 +1,24 @@
+<component name="ChannelItemComponent" extends="Group">
+    <script type="text/brightscript" uri="ChannelItemComponent.brs" />
+    <script type="text/brightscript" uri="pkg:/components/Helpers/util.brs" />
+
+    <interface>
+        <field id="itemContent" type="node" onChange="configureDataSource" />
+        <field id="rowFocusPercent" type="float" onChange="itemFocused" />
+        <field id="width" type="float" onChange="layoutSubviews" />
+        <field id="height" type="float" onChange="layoutSubviews" />
+        <field id="rowListHasFocus" type="bool" onChange="itemFocused" />
+    </interface>
+
+    <children>
+        <Poster id="background"
+                uri = "pkg:/images/fieldMask.9.png"
+                blendColor = "#A9A9A9ff" />
+
+        <Label  id="titleLabel" 
+                vertAlign = "center"
+                horizAlign = "center"/>
+
+        <ColorFieldInterpolator id = "colorInterpolator" key="[0.0, 1.0]" keyValue="[#A9A9A9ff, #2D2A2Aff]" fieldToInterp="background.blendColor"/>
+    </children>
+</component>

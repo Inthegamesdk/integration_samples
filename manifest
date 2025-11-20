@@ -1,21 +1,23 @@
-title=Inthegame
-subtitle= Integration Example
-major_version=1
-minor_version=0
-build_version=0
+title=ITGLibrary:demo
+major_version=2
+minor_version=7
+build_version=1
 
-mm_icon_focus_hd=pkg:/images/rde_mm_focus_sd.jpg
+mm_icon_focus_hd=pkg:/images/logoChannel.jpg
 
-mm_icon_focus_sd=pkg:/images/rde_mm_focus_hd.png
-mm_icon_focus_fhd=pkg:/images/rde_mm_focus_fhd.png
+mm_icon_focus_sd=pkg:/images/logoChannel.jpg
+mm_icon_focus_fhd=pkg:/images/logoChannel.jpg
 
+splash_screen_sd=pkg:/images/rde_splash_sd.jpg
 
-splash_screen_sd=pkg:/images/rde_splash_hd.jpg
 splash_screen_hd=pkg:/images/rde_splash_hd.jpg
+
 splash_screen_fhd=pkg:/images/rde_splash_fhd.jpg
 
 splash_color=#662D91
 splash_min_time=1000
 
-ui_resolutions=hd,fhd
-
+ui_resolutions=hd, fhd
+bs_const=LOG_REQUEST_ENABLED=false
+run_as_process=1
+sdk_instant_resume=1

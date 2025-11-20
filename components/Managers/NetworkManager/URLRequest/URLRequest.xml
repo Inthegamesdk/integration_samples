@@ -1,0 +1,28 @@
+<component name="URLRequest" extends="node">
+    <script type="text/brightscript" uri="URLRequest.brs"/>
+    <script type="text/brightscript" uri="../../../Helpers/util.brs"/>
+    
+    <interface>
+        <field id="path" type="string"/>
+        <field id="cacheExpiredInterval" type="integer"/>        
+        <field id="headerParameters" type="assocarray"/>
+        <field id="pathArgument" type="string"/>
+        <field id="url" type="string"/>
+        <field id="isJson" type="bool" value = "true"/>
+        <field id="method" type="string" value="GET"/>
+        <field id="body" type="assocarray"/>
+        <field id="bodyString" type="string"/>
+        <field id="arrayBody" type="array"/>
+        <field id="isUrlEncoded" type="bool" value = "true"/>
+        <field id="timeout" type="int" value = "100000"/>
+        <field id="completionInfo" type="assocarray" />
+
+        <field id="context" type="assocarray"/>
+        <field id="querryParams" type="assocarray"/>        
+        <field id="withBody" type="bool" value = "true"/>        
+
+        <function name="getUrl"/>
+        <function name="getBody"/>
+        <function name="getHeaders"/>        
+    </interface>
+</component>

@@ -1,0 +1,18 @@
+<component name="URLResponse" extends="node">
+    <script type="text/brightscript" uri="URLResponse.brs"/>
+    <script type="text/brightscript" uri="../../../Helpers/util.brs"/>
+
+    <interface>
+        <field id="arrayData" type="array"/>
+        <field id="data" type="assocarray"/>
+        <field id="xml" type="string"/>
+        <field id="stringData" type="string" />
+        <field id="error" type="assocarray"/>
+        <field id="context" type="assocarray"/>
+        <field id="isSuccess" type="boolean" value="true"/>
+        <field id="responceCode" type="integer" />
+        <field id="headers" type="assocarray" />
+        <field id="completionInfo" type="assocarray" />
+        <function name="initWithResponse"/>
+    </interface>
+</component>
