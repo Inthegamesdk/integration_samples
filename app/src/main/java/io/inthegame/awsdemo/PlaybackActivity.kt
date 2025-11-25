@@ -36,17 +36,13 @@ class PlaybackActivity : FragmentActivity() {
         }
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                lifecycleScope.launch {
-                    val fragment =
-                        supportFragmentManager.findFragmentByTag(playbackFragmentTag) as? PlaybackVideoFragment
-                    if (fragment != null && fragment.handleBackPressIfNeeded()) {
-                        return@launch
-                    } else {
-                        // Back is pressed... Finishing the activity
-                        finish()
-                    }
+                val fragment = supportFragmentManager.findFragmentByTag(playbackFragmentTag) as? PlaybackVideoFragment
+                if (fragment != null && fragment.handleBackPressIfNeeded()) {
+                    return
+                } else {
+                    // Back is pressed... Finishing the activity
+                    finish()
                 }
-
             }
         })
     }
