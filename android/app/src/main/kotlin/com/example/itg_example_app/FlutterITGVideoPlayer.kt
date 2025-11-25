@@ -93,6 +93,7 @@ class ITGExoPlayerView(
 
             accountId = accountId, //mandatory: your ITG accountId
             channelSlug = channelSlug, //mandatory: your channelId on our admin panel
+            enableLogs = true
         )
 
         mITGComponent.setOnKeyListener { _, keyCode, event ->

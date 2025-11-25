@@ -60,5 +60,5 @@ dependencies {
     implementation 'androidx.media3:media3-ui:1.4.0'
 
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.2.2'
-    implementation 'com.github.Inthegamesdk:itg-android-sdk-latest:2.6.31'
+    implementation 'com.github.Inthegamesdk:itg-android-sdk-latest:2.6.37'
 }
