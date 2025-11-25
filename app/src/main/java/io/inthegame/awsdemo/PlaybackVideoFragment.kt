@@ -112,7 +112,7 @@ class PlaybackVideoFragment : VideoSupportFragment() {
             requireView(),
             viewLifecycleOwner,
             adapter,
-            "62a73d850bcf95e08a025f82",
+            "69230d1b5f7b3515524dd184",
             "demo",
             itgEnvironment = ITGEnvironment.dev,
             savedState = savedInstanceState
