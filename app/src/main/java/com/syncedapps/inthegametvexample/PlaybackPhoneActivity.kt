@@ -88,11 +88,10 @@ class PlaybackPhoneActivity : FragmentActivity() {
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                lifecycleScope.launch {
-                    if (mITGComponent == null || mITGComponent?.handleBackPressIfNeeded() == false) {
-                        // Implement your own back press action here
-                        finish()
-                    }
+                // ITG: make sure ITG does not consume this back press
+                if (mITGComponent == null || mITGComponent?.handleBackPressIfNeeded() == false) {
+                    // Implement your own back press action here
+                    finish()
                 }
             }
         })
