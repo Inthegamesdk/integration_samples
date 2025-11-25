@@ -77,11 +77,9 @@ class PlaybackVideoFragment : VideoSupportFragment()  {
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                lifecycleScope.launch {
-                    if (mITGComponent == null || mITGComponent?.handleBackPressIfNeeded() == false) {
-                        // Implement your own back press action here
-                        requireActivity().finish()
-                    }
+                if (mITGComponent == null || mITGComponent?.handleBackPressIfNeeded() == false) {
+                    // Implement your own back press action here
+                    requireActivity().finish()
                 }
             }
         })
