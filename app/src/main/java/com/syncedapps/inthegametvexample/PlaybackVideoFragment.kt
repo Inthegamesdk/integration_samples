@@ -46,7 +46,7 @@ class PlaybackVideoFragment : VideoSupportFragment()  {
         play()
 
         // Replace 'your_account_id' and 'your_channel_slug' with actual values
-        val accountId = "62a73d850bcf95e08a025f82"
+        val accountId = "69230d1b5f7b3515524dd184"
         val channelSlug = "demo"
 
 
