@@ -20,11 +20,10 @@ end sub
 sub initSDK(channelSlug, virtualChannels = [])
     if m.overlayViewController = invalid
         m.overlayViewController = m.top.createChild("ITGLibrary:OverlayViewController")
-        m.overlayViewController.environment = "dev"
     end if
 
      m.overlayViewController.accountRoute = {
-        "accountId": "62a73d850bcf95e08a025f82", 'mandatory: your ITG accountId
+        "accountId": "69230d1b5f7b3515524dd184", 'mandatory: your ITG accountId
         "channelSlug": channelSlug, 'mandatory: your channelSlug on our admin panel
         "virtualChannels": virtualChannels 'optional: virtual channels or categories, type: array of strings       
     }
