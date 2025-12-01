@@ -1,0 +1,15 @@
+{
+  "originHash" : "e72764db5942d8089472414a1a327e3df32df65626992ba8f1a2bbe9598fc495",
+  "pins" : [
+    {
+      "identity" : "itg-apple-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Inthegamesdk/itg-apple-sdk",
+      "state" : {
+        "revision" : "40006b3c78b7fac56a1f53b25863a9c4f2304feb",
+        "version" : "2.6.43"
+      }
+    }
+  ],
+  "version" : 3
+}
