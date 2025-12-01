@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-ITGSwiftUISampleFullIntegrationiOS/Pods-ITGSwiftUISampleFullIntegrationiOS-frameworks.sh
+${BUILT_PRODUCTS_DIR}/ITGOverlayViewSwiftUI-iOS/ITGOverlayViewSwiftUI.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/Inthegametv/InthegametviOS.framework/InthegametviOS
+${PODS_XCFRAMEWORKS_BUILD_DIR}/Inthegametv/Storket.framework/Storket

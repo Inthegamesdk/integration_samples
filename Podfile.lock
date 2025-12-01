@@ -1,0 +1,20 @@
+PODS:
+  - Inthegametv (2.6.44)
+  - ITGOverlayViewSwiftUI (2.6.44):
+    - Inthegametv (~> 2.6.44)
+
+DEPENDENCIES:
+  - ITGOverlayViewSwiftUI
+
+SPEC REPOS:
+  trunk:
+    - Inthegametv
+    - ITGOverlayViewSwiftUI
+
+SPEC CHECKSUMS:
+  Inthegametv: 3eafc80f75e8f95b7b9be6815dbe160a08d720f1
+  ITGOverlayViewSwiftUI: 3a86ae7be9ce22457a4e8418fdee49375478d332
+
+PODFILE CHECKSUM: d74669cd1bcea47c226891bbfacc0891cd10c762
+
+COCOAPODS: 1.16.2

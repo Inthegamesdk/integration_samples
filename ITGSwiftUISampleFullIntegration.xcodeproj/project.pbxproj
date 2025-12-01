@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11AC9F842EDDBF0B008405A6 /* ITGOverlayViewSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 11AC9F832EDDBF0B008405A6 /* ITGOverlayViewSwiftUI */; };
-		11AC9F862EDDBF0B008405A6 /* Inthegametv in Frameworks */ = {isa = PBXBuildFile; productRef = 11AC9F852EDDBF0B008405A6 /* Inthegametv */; };
-		11AC9F882EDDBF0B008405A6 /* InthegametviOS in Frameworks */ = {isa = PBXBuildFile; productRef = 11AC9F872EDDBF0B008405A6 /* InthegametviOS */; };
-		11AC9F8A2EDDBF1C008405A6 /* ITGOverlayViewSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 11AC9F892EDDBF1C008405A6 /* ITGOverlayViewSwiftUI */; };
+		97229346B21E05C46E5FC04C /* Pods_ITGSwiftUISampleFullIntegrationiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77ACF832B595B32CAB528F6C /* Pods_ITGSwiftUISampleFullIntegrationiOS.framework */; };
+		C7C382DA4C2FA73EDC717FD8 /* Pods_ITGSwiftUISampleFullIntegration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D4CAE769A05FEA24732AA5 /* Pods_ITGSwiftUISampleFullIntegration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00D4CAE769A05FEA24732AA5 /* Pods_ITGSwiftUISampleFullIntegration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITGSwiftUISampleFullIntegration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1168FC462ED87A5400E0B28A /* ITGSwiftUISampleFullIntegration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ITGSwiftUISampleFullIntegration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1168FC6B2ED87CB000E0B28A /* ITGSwiftUISampleFullIntegrationiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ITGSwiftUISampleFullIntegrationiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15584E72634EE4E9DAB7ADA0 /* Pods-ITGSwiftUISampleFullIntegration.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITGSwiftUISampleFullIntegration.debug.xcconfig"; path = "Target Support Files/Pods-ITGSwiftUISampleFullIntegration/Pods-ITGSwiftUISampleFullIntegration.debug.xcconfig"; sourceTree = "<group>"; };
+		77ACF832B595B32CAB528F6C /* Pods_ITGSwiftUISampleFullIntegrationiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITGSwiftUISampleFullIntegrationiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8043A24D9C357B71EC0E0990 /* Pods-ITGSwiftUISampleFullIntegrationiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITGSwiftUISampleFullIntegrationiOS.debug.xcconfig"; path = "Target Support Files/Pods-ITGSwiftUISampleFullIntegrationiOS/Pods-ITGSwiftUISampleFullIntegrationiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		8181044F947EC3D5A168D39F /* Pods-ITGSwiftUISampleFullIntegration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITGSwiftUISampleFullIntegration.release.xcconfig"; path = "Target Support Files/Pods-ITGSwiftUISampleFullIntegration/Pods-ITGSwiftUISampleFullIntegration.release.xcconfig"; sourceTree = "<group>"; };
+		A800FEC30DBCAAFAE0C4C731 /* Pods-ITGSwiftUISampleFullIntegrationiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITGSwiftUISampleFullIntegrationiOS.release.xcconfig"; path = "Target Support Files/Pods-ITGSwiftUISampleFullIntegrationiOS/Pods-ITGSwiftUISampleFullIntegrationiOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -54,8 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11AC9F842EDDBF0B008405A6 /* ITGOverlayViewSwiftUI in Frameworks */,
-				11AC9F862EDDBF0B008405A6 /* Inthegametv in Frameworks */,
+				C7C382DA4C2FA73EDC717FD8 /* Pods_ITGSwiftUISampleFullIntegration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,8 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11AC9F882EDDBF0B008405A6 /* InthegametviOS in Frameworks */,
-				11AC9F8A2EDDBF1C008405A6 /* ITGOverlayViewSwiftUI in Frameworks */,
+				97229346B21E05C46E5FC04C /* Pods_ITGSwiftUISampleFullIntegrationiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +79,7 @@
 				1168FC482ED87A5400E0B28A /* ITGSwiftUISampleFullIntegration */,
 				1168FC7B2ED87D1B00E0B28A /* Frameworks */,
 				1168FC472ED87A5400E0B28A /* Products */,
+				4B1C4A8AF1043DC273DEC563 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,8 +95,22 @@
 		1168FC7B2ED87D1B00E0B28A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00D4CAE769A05FEA24732AA5 /* Pods_ITGSwiftUISampleFullIntegration.framework */,
+				77ACF832B595B32CAB528F6C /* Pods_ITGSwiftUISampleFullIntegrationiOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4B1C4A8AF1043DC273DEC563 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15584E72634EE4E9DAB7ADA0 /* Pods-ITGSwiftUISampleFullIntegration.debug.xcconfig */,
+				8181044F947EC3D5A168D39F /* Pods-ITGSwiftUISampleFullIntegration.release.xcconfig */,
+				8043A24D9C357B71EC0E0990 /* Pods-ITGSwiftUISampleFullIntegrationiOS.debug.xcconfig */,
+				A800FEC30DBCAAFAE0C4C731 /* Pods-ITGSwiftUISampleFullIntegrationiOS.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -103,9 +120,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1168FC512ED87A5500E0B28A /* Build configuration list for PBXNativeTarget "ITGSwiftUISampleFullIntegration" */;
 			buildPhases = (
+				540C3E01BAA1ABC279882B34 /* [CP] Check Pods Manifest.lock */,
 				1168FC422ED87A5400E0B28A /* Sources */,
 				1168FC432ED87A5400E0B28A /* Frameworks */,
 				1168FC442ED87A5400E0B28A /* Resources */,
+				AA311B1BA1C00418633A4BA0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -115,10 +134,6 @@
 				1168FC482ED87A5400E0B28A /* ITGSwiftUISampleFullIntegration */,
 			);
 			name = ITGSwiftUISampleFullIntegration;
-			packageProductDependencies = (
-				11AC9F832EDDBF0B008405A6 /* ITGOverlayViewSwiftUI */,
-				11AC9F852EDDBF0B008405A6 /* Inthegametv */,
-			);
 			productName = ITGSwiftUISampleFullIntegration;
 			productReference = 1168FC462ED87A5400E0B28A /* ITGSwiftUISampleFullIntegration.app */;
 			productType = "com.apple.product-type.application";
@@ -127,19 +142,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1168FC732ED87CB000E0B28A /* Build configuration list for PBXNativeTarget "ITGSwiftUISampleFullIntegrationiOS" */;
 			buildPhases = (
+				FF829D336F3F5124812E903F /* [CP] Check Pods Manifest.lock */,
 				1168FC672ED87CB000E0B28A /* Sources */,
 				1168FC682ED87CB000E0B28A /* Frameworks */,
 				1168FC692ED87CB000E0B28A /* Resources */,
+				C921FBAA1D80750C09ACBF0A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = ITGSwiftUISampleFullIntegrationiOS;
-			packageProductDependencies = (
-				11AC9F872EDDBF0B008405A6 /* InthegametviOS */,
-				11AC9F892EDDBF1C008405A6 /* ITGOverlayViewSwiftUI */,
-			);
 			productName = ITGSwiftUISampleFullIntegrationiOS;
 			productReference = 1168FC6B2ED87CB000E0B28A /* ITGSwiftUISampleFullIntegrationiOS.app */;
 			productType = "com.apple.product-type.application";
@@ -171,9 +184,6 @@
 			);
 			mainGroup = 1168FC3D2ED87A5400E0B28A;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-				11AC9F822EDDBF0B008405A6 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */,
-			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1168FC472ED87A5400E0B28A /* Products */;
 			projectDirPath = "";
@@ -201,6 +211,87 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		540C3E01BAA1ABC279882B34 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ITGSwiftUISampleFullIntegration-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA311B1BA1C00418633A4BA0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ITGSwiftUISampleFullIntegration/Pods-ITGSwiftUISampleFullIntegration-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ITGSwiftUISampleFullIntegration/Pods-ITGSwiftUISampleFullIntegration-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ITGSwiftUISampleFullIntegration/Pods-ITGSwiftUISampleFullIntegration-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C921FBAA1D80750C09ACBF0A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ITGSwiftUISampleFullIntegrationiOS/Pods-ITGSwiftUISampleFullIntegrationiOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ITGSwiftUISampleFullIntegrationiOS/Pods-ITGSwiftUISampleFullIntegrationiOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ITGSwiftUISampleFullIntegrationiOS/Pods-ITGSwiftUISampleFullIntegrationiOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF829D336F3F5124812E903F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ITGSwiftUISampleFullIntegrationiOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1168FC422ED87A5400E0B28A /* Sources */ = {
@@ -343,6 +434,7 @@
 		};
 		1168FC522ED87A5500E0B28A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15584E72634EE4E9DAB7ADA0 /* Pods-ITGSwiftUISampleFullIntegration.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -372,6 +464,7 @@
 		};
 		1168FC532ED87A5500E0B28A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8181044F947EC3D5A168D39F /* Pods-ITGSwiftUISampleFullIntegration.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -401,6 +494,7 @@
 		};
 		1168FC742ED87CB000E0B28A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8043A24D9C357B71EC0E0990 /* Pods-ITGSwiftUISampleFullIntegrationiOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -439,6 +533,7 @@
 		};
 		1168FC752ED87CB000E0B28A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A800FEC30DBCAAFAE0C4C731 /* Pods-ITGSwiftUISampleFullIntegrationiOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -506,40 +601,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		11AC9F822EDDBF0B008405A6 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Inthegamesdk/itg-apple-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.6.43;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		11AC9F832EDDBF0B008405A6 /* ITGOverlayViewSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 11AC9F822EDDBF0B008405A6 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
-			productName = ITGOverlayViewSwiftUI;
-		};
-		11AC9F852EDDBF0B008405A6 /* Inthegametv */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 11AC9F822EDDBF0B008405A6 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
-			productName = Inthegametv;
-		};
-		11AC9F872EDDBF0B008405A6 /* InthegametviOS */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 11AC9F822EDDBF0B008405A6 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
-			productName = InthegametviOS;
-		};
-		11AC9F892EDDBF1C008405A6 /* ITGOverlayViewSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 11AC9F822EDDBF0B008405A6 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
-			productName = ITGOverlayViewSwiftUI;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1168FC3E2ED87A5400E0B28A /* Project object */;
 }

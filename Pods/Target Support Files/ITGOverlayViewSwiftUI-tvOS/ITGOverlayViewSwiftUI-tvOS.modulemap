@@ -1,0 +1,6 @@
+framework module ITGOverlayViewSwiftUI {
+  umbrella header "ITGOverlayViewSwiftUI-tvOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
