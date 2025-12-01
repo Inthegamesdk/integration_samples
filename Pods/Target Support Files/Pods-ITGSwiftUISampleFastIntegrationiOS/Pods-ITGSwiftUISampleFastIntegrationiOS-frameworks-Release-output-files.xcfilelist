@@ -1,0 +1,4 @@
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ITGPlayerViewController.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ITGPlayerViewControllerSwiftUI.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InthegametviOS.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Storket.framework

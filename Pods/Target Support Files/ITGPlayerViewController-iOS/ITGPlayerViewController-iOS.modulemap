@@ -1,0 +1,6 @@
+framework module ITGPlayerViewController {
+  umbrella header "ITGPlayerViewController-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

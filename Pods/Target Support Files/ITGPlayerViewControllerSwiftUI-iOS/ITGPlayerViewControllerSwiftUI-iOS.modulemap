@@ -1,0 +1,6 @@
+framework module ITGPlayerViewControllerSwiftUI {
+  umbrella header "ITGPlayerViewControllerSwiftUI-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

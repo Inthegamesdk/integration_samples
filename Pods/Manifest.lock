@@ -1,0 +1,24 @@
+PODS:
+  - Inthegametv (2.6.44)
+  - ITGPlayerViewController (2.6.44):
+    - Inthegametv (~> 2.6.44)
+  - ITGPlayerViewControllerSwiftUI (2.6.44):
+    - ITGPlayerViewController (~> 2.6.44)
+
+DEPENDENCIES:
+  - ITGPlayerViewControllerSwiftUI
+
+SPEC REPOS:
+  trunk:
+    - Inthegametv
+    - ITGPlayerViewController
+    - ITGPlayerViewControllerSwiftUI
+
+SPEC CHECKSUMS:
+  Inthegametv: 3eafc80f75e8f95b7b9be6815dbe160a08d720f1
+  ITGPlayerViewController: e4c05c0c83c37bd0296a4697afbc34c5082a75e8
+  ITGPlayerViewControllerSwiftUI: f4980a1bbd686040ba3c043348233c4afad419d2
+
+PODFILE CHECKSUM: ad7e06be2346c676d61ec8b614f2d4f494de55b1
+
+COCOAPODS: 1.16.2

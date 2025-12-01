@@ -1,0 +1,5 @@
+${PODS_ROOT}/Target Support Files/Pods-ITGSwiftUISampleFastIntegration/Pods-ITGSwiftUISampleFastIntegration-frameworks.sh
+${BUILT_PRODUCTS_DIR}/ITGPlayerViewController-tvOS/ITGPlayerViewController.framework
+${BUILT_PRODUCTS_DIR}/ITGPlayerViewControllerSwiftUI-tvOS/ITGPlayerViewControllerSwiftUI.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/Inthegametv/Inthegametv.framework/Inthegametv
+${PODS_XCFRAMEWORKS_BUILD_DIR}/Inthegametv/Storket.framework/Storket

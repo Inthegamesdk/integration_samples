@@ -1,0 +1,6 @@
+framework module Pods_ITGSwiftUISampleFastIntegrationiOS {
+  umbrella header "Pods-ITGSwiftUISampleFastIntegrationiOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
