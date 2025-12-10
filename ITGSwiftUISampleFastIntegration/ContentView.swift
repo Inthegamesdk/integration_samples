@@ -38,9 +38,10 @@ struct ContentView: View {
     @State var channelSlug = "samplechannel"
     @State var accountId = "68650da0324217d506bcc2d4"
     @State var env = ITGEnvironment(envName: "v2-3")
+    @State var blockItg: Bool = false
     
     var body: some View {
-        ITGPlayerViewControllerSwiftUI(channelSlug: channelSlug, accountId: accountId, environment: env, enableLogs: true, playerAdapter: ITGAVPlayerAdapter(playerViewModel.avplayer, playerView: UIHostingController(rootView: playerViewModel.videoView).view))
+        ITGPlayerViewControllerSwiftUI(channelSlug: channelSlug, accountId: accountId, environment: env, enableLogs: true, playerAdapter: ITGAVPlayerAdapter(playerViewModel.avplayer, playerView: UIHostingController(rootView: playerViewModel.videoView).view), blockAll: blockItg)
             .ignoresSafeArea()
             .onAppear(perform: {
                 playerViewModel.avplayer.play()
