@@ -27,7 +27,7 @@ Pick a dependency manager (SPM or CocoaPods) and then choose **Fast** vs **Full*
 
 ---
 
-## Android (Mobile)
+## Android 
 
 Choose a branch based on your **player stack** and your **integration focus**.
 
@@ -55,7 +55,7 @@ Choose a branch based on your **player stack** and your **integration focus**.
 
 ---
 
-## Android TV / Fire TV
+## Android TV (Leanback library)
 
 Use these branches if you’re building a TV experience (DPAD navigation + Leanback UI patterns).
 
