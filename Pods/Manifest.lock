@@ -1,0 +1,21 @@
+PODS:
+  - Inthegametv (2.6.51)
+  - ITGPlayerViewController (2.6.51):
+    - Inthegametv (~> 2.6.51)
+
+DEPENDENCIES:
+  - Inthegametv
+  - ITGPlayerViewController
+
+SPEC REPOS:
+  trunk:
+    - Inthegametv
+    - ITGPlayerViewController
+
+SPEC CHECKSUMS:
+  Inthegametv: c1cd136a0222c2d9b484b634f74bf4f9ac5b302a
+  ITGPlayerViewController: 6e9e01b1414cb38af03530822b6d4659a1fec807
+
+PODFILE CHECKSUM: 12a62baac25706c3fac13b11e8fc487d1b5ff732
+
+COCOAPODS: 1.16.2
