@@ -98,8 +98,8 @@ struct ContentView: View {
             onOverlayRequestedVideoResolution: { playerViewModel.avplayer.currentItem?.presentationSize ?? .zero },
             onOverlayRequestedVideoLength: { playerViewModel.avplayer.currentItem?.duration.seconds ?? 0 },
             onOverlayRequestedVideoSoundLevel: { volume in playerViewModel.avplayer.volume = volume },
-            onOverlayRequestedResetVideoSoundLevel: { playerViewModel.avplayer.volume = 1 }
-        )
+            onOverlayRequestedResetVideoSoundLevel: { playerViewModel.avplayer.volume = 1 },
+            onCreated: { itgOverlayView in })
         .focused($focusedItem, equals: FocusableItem.itgOverlay)
         .onAppear {
             playerViewModel.avplayer.play()
