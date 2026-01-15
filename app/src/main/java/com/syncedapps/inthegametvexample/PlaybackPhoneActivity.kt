@@ -1,6 +1,7 @@
 package com.syncedapps.inthegametvexample
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -22,225 +23,208 @@ import com.syncedapps.inthegametvexample.databinding.ActivityPhonePlaybackBindin
 import android.view.ViewGroup
 import java.util.*
 
-import io.inthegame.media3.ITGMedia3PlayerAdapter
 import com.syncedapps.inthegametv.integration.ITGPlaybackComponent
 import androidx.activity.OnBackPressedCallback
 import android.view.KeyEvent
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.LifecycleStartEffect
 import androidx.lifecycle.lifecycleScope
-import com.syncedapps.inthegametv.network.ITGEnvironment
-import kotlinx.coroutines.launch
+import androidx.media3.common.Player
+import androidx.media3.ui.compose.ContentFrame
+import androidx.media3.ui.compose.material3.buttons.MuteButton
+import androidx.media3.ui.compose.material3.buttons.NextButton
+import androidx.media3.ui.compose.material3.buttons.PlayPauseButton
+import androidx.media3.ui.compose.material3.buttons.PreviousButton
+import androidx.media3.ui.compose.material3.buttons.RepeatButton
+import androidx.media3.ui.compose.material3.buttons.SeekBackButton
+import androidx.media3.ui.compose.material3.buttons.SeekForwardButton
+import androidx.media3.ui.compose.material3.buttons.ShuffleButton
+import androidx.media3.ui.compose.material3.indicator.PositionAndDurationText
+import io.inthegame.compose.ITGPlaybackComponentCompose
 
 class PlaybackPhoneActivity : FragmentActivity() {
 
-    private lateinit var binding: ActivityPhonePlaybackBinding
-    private var player: ExoPlayer? = null
-    private var playbackPosition: Long = 0L
-    private var playWhenReady: Boolean = true
-    private var videoView : PlayerView? = null
-
-    private var mITGComponent: ITGPlaybackComponent? = null
-    private var mITGPlayerAdapter: ITGMedia3PlayerAdapter? = null
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        restorePlaybackStateIfAny(savedInstanceState)
-
-        binding = ActivityPhonePlaybackBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        setupFullscreenMode()
-
-        //add video view
-        videoView = buildVideoView()
-
-        startVideo()
-
-        // Replace 'your_account_id' and 'your_channel_slug' with actual values
-        val accountId = "69230d1b5f7b3515524dd184"
-        val channelSlug = "demo"
-
-
-        // Initialize ITGPlaybackComponent
-        mITGComponent = ITGPlaybackComponent(this)
-
-
-        // Set up the ITGMedia3PlayerAdapter with your player view
-        val adapter = ITGMedia3PlayerAdapter(playerView = videoView)
-        mITGPlayerAdapter = adapter
-
-
-        // Initialize the ITG component with necessary parameters
-        mITGComponent?.init(
-            activity = this, //mandatory: fragment activity instance
-            playerAdapter = adapter, //mandatory: adapter between the player and SDK
-            savedState = savedInstanceState, //mandatory: saved state of the component
-
-            accountId = accountId, //mandatory: your ITG accountId
-            channelSlug = channelSlug, //mandatory: your channelId on our admin panel
-            itgEnvironment = ITGEnvironment.dev,
-            showLogs = true
+        val mediaItems = listOf(
+            MediaItem.fromUri(Const.VIDEO_URL)
         )
+        setContent {
+            MainScreen(mediaItems = mediaItems, modifier = Modifier.safeDrawingPadding())
+        }
+    }
 
+    @Composable
+    fun MainScreen(
+        mediaItems: List<MediaItem>,
+        modifier: Modifier = Modifier
+    ) {
+        val context = LocalContext.current
+        var player by remember { mutableStateOf<Player?>(null) }
 
-        // Add the ITG component to your view hierarchy
-        binding.outerContainer.addView(mITGComponent, 0)
+        LifecycleStartEffect(Unit) {
+            player = initializePlayer(context, mediaItems)
+            onStopOrDispose {
+                player?.apply { release() }
+                player = null
+            }
+        }
 
-        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                // ITG: make sure ITG does not consume this back press
-                if (mITGComponent == null || mITGComponent?.handleBackPressIfNeeded() == false) {
-                    // Implement your own back press action here
+        player?.let { MainScreen(player = it, modifier = modifier.fillMaxSize()) }
+    }
+
+    @Composable
+    internal fun MainScreen(player: Player, modifier: Modifier = Modifier) {
+
+        var contentScale by remember { mutableStateOf(ContentScale.Fit) }
+
+        Box(modifier) {
+            ITGPlaybackComponentCompose(
+                player,
+                "68650da0324217d506bcc2d4",
+                "samplechannel",
+                enableLogs = true,
+                modifier = modifier,
+                itgRequestedVideoMode = { contentScale },
+                itgRequestedChangeVideoMode = { requestedContentScale ->
+                    contentScale = requestedContentScale
+                },
+                overlayProducedAnalyticsEvent = {
+                    Log.d(this@PlaybackPhoneActivity.javaClass.simpleName, "overlayProducedAnalyticsEvent $it")
+                },
+                onBackPressed = {
                     finish()
                 }
+            ) {
+                MediaPlayer(
+                    player,
+                    contentScale
+                )
             }
-        })
-
-    }
-
-    private fun restorePlaybackStateIfAny(savedInstanceState: Bundle?) {
-        if (savedInstanceState != null) {
-            playbackPosition = savedInstanceState.getLong("playbackPosition", 0L)
-            playWhenReady = savedInstanceState.getBoolean("playWhenReady")
         }
     }
 
-    private fun setupFullscreenMode() {
-        @Suppress("DEPRECATION")
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            window.insetsController?.hide(WindowInsets.Type.statusBars())
-        } else {
-            window.setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN
-            )
+    @Composable
+    internal fun BoxScope.MediaPlayer(
+        player: Player,
+        contentScale: ContentScale
+    ) {
+        var showControls by remember { mutableStateOf(true) }
+        ContentFrame(
+            player = player,
+            modifier = Modifier.noRippleClickable { showControls = !showControls },
+            contentScale = contentScale
+        )
+
+        if (showControls) {
+            // drawn on top of a potential shutter
+            Controls(player)
         }
     }
 
-    private fun startVideo() {
-        prepareMediaForPlaying(Uri.parse(Const.VIDEO_URL))
-        player?.playWhenReady = playWhenReady
-        player?.seekTo(0, playbackPosition)
-        player?.prepare()
-    }
-
-    @OptIn(UnstableApi::class)
-    private fun prepareMediaForPlaying(mediaSourceUri: Uri) {
-        val upstreamDataSourceFactory = DefaultHttpDataSource.Factory()
-            .setAllowCrossProtocolRedirects(true)
-
-        val defaultDataSourceFactory =
-            DefaultDataSource.Factory(this, upstreamDataSourceFactory)
-
-        defaultDataSourceFactory.createDataSource()
-
-        val mediaSource: MediaSource =
-            if (mediaSourceUri.lastPathSegment?.endsWith(".m3u8") == true) {
-                HlsMediaSource.Factory(defaultDataSourceFactory)
-                    .createMediaSource(
-                        MediaItem.fromUri(mediaSourceUri)
-                    )
-            } else {
-                ProgressiveMediaSource.Factory(defaultDataSourceFactory)
-                    .createMediaSource(
-                        MediaItem.fromUri(mediaSourceUri)
-                    )
+    @Composable
+    private fun RowControls(
+        modifier: Modifier = Modifier,
+        horizontalArrangement: Arrangement.Horizontal = Arrangement.Center,
+        verticalAlignment: Alignment.Vertical = Alignment.CenterVertically,
+        additionalSpacer: Float? = null,
+        buttons: List<@Composable () -> Unit>,
+    ) {
+        Row(modifier, horizontalArrangement, verticalAlignment) {
+            buttons.forEachIndexed { index, button ->
+                button()
+                if (index < buttons.lastIndex && additionalSpacer != null) {
+                    Spacer(Modifier.weight(additionalSpacer))
+                }
             }
-        player?.setMediaSource(mediaSource)
-    }
-
-    @SuppressLint("InflateParams")
-    private fun buildVideoView(): PlayerView {
-        val videoView = layoutInflater.inflate(R.layout.styled_player_view, null, false) as PlayerView
-        videoView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-        return videoView    }
-
-    @OptIn(UnstableApi::class)
-    private fun initializePlayer() {
-        val player = ExoPlayer.Builder(this)
-            .setSeekBackIncrementMs(SEEK_INCREMENT)
-            .setSeekForwardIncrementMs(SEEK_INCREMENT)
-            .build()
-
-        // Notify the ITGPlayerAdapter that the player is ready
-        mITGPlayerAdapter?.onPlayerReady(player)
-
-        videoView?.player = player
-        this.player = player
-    }
-
-    private fun releasePlayer() {
-        Log.d(this.javaClass.simpleName, "releasePlayer")
-        player?.let { exoPlayer ->
-            playbackPosition = exoPlayer.currentPosition
-            playWhenReady = exoPlayer.playWhenReady
-            videoView?.player = null
-            exoPlayer.release()
-
-            // Notify the ITGPlayerAdapter that the player has been released
-            mITGPlayerAdapter?.onPlayerReleased()
-
-        }
-        player = null
-    }
-
-    override fun onResume() {
-        super.onResume()
-        if ((Build.VERSION.SDK_INT <= 23 || player == null)) {
-            initializePlayer()
-            startVideo()
         }
     }
 
-    override fun onStop() {
-        if (Build.VERSION.SDK_INT > 23) {
-            releasePlayer()
+    @Composable
+    internal fun BoxScope.Controls(player: Player) {
+        val buttonModifier = Modifier
+            .size(50.dp)
+            .background(Color.Gray.copy(alpha = 0.1f), CircleShape)
+        // Central controls
+        RowControls(
+            Modifier
+                .fillMaxWidth()
+                .align(Alignment.Center),
+            buttons =
+                listOf(
+                    { PreviousButton(player, buttonModifier) },
+                    { SeekBackButton(player, buttonModifier) },
+                    { PlayPauseButton(player, buttonModifier) },
+                    { SeekForwardButton(player, buttonModifier) },
+                    { NextButton(player, buttonModifier) },
+                ),
+        )
+        // Button panel controls
+        Column(
+            Modifier
+                .fillMaxWidth()
+                .align(Alignment.BottomCenter)
+        ) {
+            Row(
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .background(Color.Gray.copy(alpha = 0.4f))
+                        .padding(start = 15.dp),
+                horizontalArrangement = Arrangement.Start,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                PositionAndDurationText(player)
+                Spacer(Modifier.weight(1f))
+                ShuffleButton(player)
+                RepeatButton(player)
+                MuteButton(player)
+            }
         }
-        super.onStop()
     }
 
-    public override fun onPause() {
-        super.onPause()
-        if (Build.VERSION.SDK_INT <= 23) {
-            releasePlayer()
+    @Composable
+    internal fun Modifier.noRippleClickable(onClick: () -> Unit): Modifier =
+        clickable(
+            interactionSource = remember { MutableInteractionSource() },
+            indication = null, // to prevent the ripple from the tap
+        ) {
+            onClick()
         }
-    }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putLong("playbackPosition", playbackPosition)
-        outState.putBoolean("playWhenReady", playWhenReady)
+    private fun initializePlayer(context: Context, mediaItems: List<MediaItem>): Player =
+        ExoPlayer.Builder(context).build().apply {
+            setMediaItems(mediaItems)
+            playWhenReady = true
+            prepare()
+        }
 
-        // Saving the state of the SDK
-        mITGComponent?.onSaveInstanceState(outState)
-    }
-
-    @SuppressLint("RestrictedApi")
-    override fun dispatchKeyEvent(event: KeyEvent?): Boolean {
-        if (mITGComponent?.itgOverlayView?.isKeyEventConsumable(event) == true)
-            return super.dispatchKeyEvent(event)
-        // ... rest of your dispatchKeyEvent code
-        return super.dispatchKeyEvent(event)
-    }
-
-
-    override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
-        if (mITGComponent?.itgOverlayView?.isKeyEventConsumable(event) == true)
-            return super.onKeyUp(keyCode, event)
-        // ... rest of your onKeyUp code
-        return super.onKeyUp(keyCode, event)
-    }
-
-
-    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        if (mITGComponent?.itgOverlayView?.isKeyEventConsumable(event) == true)
-            return super.onKeyDown(keyCode, event)
-        // ... rest of your onKeyDown code
-        return super.onKeyDown(keyCode, event)
-    }
-
-
-    companion object {
-        private const val SEEK_INCREMENT = 10_000L
-    }
 }
