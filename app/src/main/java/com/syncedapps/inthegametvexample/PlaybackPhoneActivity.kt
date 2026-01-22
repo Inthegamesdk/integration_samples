@@ -55,6 +55,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import androidx.lifecycle.compose.LifecycleStartEffect
 import androidx.lifecycle.lifecycleScope
 import androidx.media3.common.Player
@@ -68,30 +69,31 @@ import androidx.media3.ui.compose.material3.buttons.SeekBackButton
 import androidx.media3.ui.compose.material3.buttons.SeekForwardButton
 import androidx.media3.ui.compose.material3.buttons.ShuffleButton
 import androidx.media3.ui.compose.material3.indicator.PositionAndDurationText
+import com.syncedapps.inthegametvdemo.mediatailor.FetchConfig
 import io.inthegame.compose.ITGPlaybackComponentCompose
+import io.inthegame.mediatailor.ITGMediaTailorPlugin
+import io.inthegame.mediatailor.domain.useCase.basic.Resource.Companion.asSuccessful
+import kotlinx.coroutines.launch
 
 class PlaybackPhoneActivity : FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val mediaItems = listOf(
-            MediaItem.fromUri(Const.VIDEO_URL)
-        )
         setContent {
-            MainScreen(mediaItems = mediaItems, modifier = Modifier.safeDrawingPadding())
+            MainScreen(modifier = Modifier.safeDrawingPadding())
         }
     }
 
     @Composable
     fun MainScreen(
-        mediaItems: List<MediaItem>,
         modifier: Modifier = Modifier
     ) {
         val context = LocalContext.current
+
         var player by remember { mutableStateOf<Player?>(null) }
 
         LifecycleStartEffect(Unit) {
-            player = initializePlayer(context, mediaItems)
+            player = initializePlayer(context)
             onStopOrDispose {
                 player?.apply { release() }
                 player = null
@@ -109,16 +111,50 @@ class PlaybackPhoneActivity : FragmentActivity() {
         Box(modifier) {
             ITGPlaybackComponentCompose(
                 player,
-                "68650da0324217d506bcc2d4",
-                "samplechannel",
+                "69230d1b5f7b3515524dd184",
+                "demo_mediatailor",
                 enableLogs = true,
                 modifier = modifier,
                 itgRequestedVideoMode = { contentScale },
+                itgPlaybackComponentCreated = { itgPlaybackComponent ->
+                    val plugin = ITGMediaTailorPlugin()
+
+                    plugin.delegate = itgPlaybackComponent.itgOverlayView
+
+                    plugin.listener = object : ITGMediaTailorPlugin.ITGMediaTailorListener {
+                        override fun didReceiveTrackingData(json: String) {
+                            Log.d(
+                                this@PlaybackPhoneActivity.javaClass.simpleName,
+                                "didReceiveTrackingData $json"
+                            )
+                        }
+                    }
+
+                    itgPlaybackComponent.itgOverlayView?.lifecycleScope?.launch {
+                        val mediatailorConfig =
+                            FetchConfig().invoke(
+                                FetchConfig.Param(CONTENT_URL)
+                            ).asSuccessful() ?: return@launch
+
+                        player.setMediaItem(
+                            MediaItem.fromUri(
+                                mediatailorConfig.manifestUrl.orEmpty().toUri()
+                            )
+                        )
+                        plugin.startMediaTailor(
+                            trackingURL = mediatailorConfig.trackingUrl.orEmpty(),
+                            interval = 5_000L
+                        )
+                    }
+                },
                 itgRequestedChangeVideoMode = { requestedContentScale ->
                     contentScale = requestedContentScale
                 },
                 overlayProducedAnalyticsEvent = {
-                    Log.d(this@PlaybackPhoneActivity.javaClass.simpleName, "overlayProducedAnalyticsEvent $it")
+                    Log.d(
+                        this@PlaybackPhoneActivity.javaClass.simpleName,
+                        "overlayProducedAnalyticsEvent $it"
+                    )
                 },
                 onBackPressed = {
                     finish()
@@ -131,6 +167,7 @@ class PlaybackPhoneActivity : FragmentActivity() {
             }
         }
     }
+
 
     @Composable
     internal fun BoxScope.MediaPlayer(
@@ -220,11 +257,15 @@ class PlaybackPhoneActivity : FragmentActivity() {
             onClick()
         }
 
-    private fun initializePlayer(context: Context, mediaItems: List<MediaItem>): Player =
+    private fun initializePlayer(context: Context): Player =
         ExoPlayer.Builder(context).build().apply {
-            setMediaItems(mediaItems)
             playWhenReady = true
             prepare()
         }
+
+    companion object {
+        const val CONTENT_URL =
+            "https://dbfc60fb257a4fa69b8410fae7d4d3b6.mediatailor.us-west-2.amazonaws.com/v1/session/7c8ce5ad5bcc5198ca301174a2ead89b25915ca4/Flosport27/"
+    }
 
 }
