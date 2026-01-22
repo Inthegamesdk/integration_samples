@@ -40,7 +40,7 @@ class PlaybackPhoneActivity : FragmentActivity() {
     private var player: ExoPlayer? = null
     private var playbackPosition: Long = 0L
     private var playWhenReady: Boolean = true
-    private var videoView : PlayerView? = null
+    private var videoView: PlayerView? = null
 
     private var mITGComponent: ITGPlaybackComponent? = null
     private var mITGPlayerAdapter: ITGMedia3PlayerAdapter? = null
@@ -76,7 +76,7 @@ class PlaybackPhoneActivity : FragmentActivity() {
         }
     }
 
-   private fun startMediaTailor(trackingUrl: String) {
+    private fun startMediaTailor(trackingUrl: String) {
         val plugin = ITGMediaTailorPlugin()
 
         // Required: overlay view used to schedule Flexis
@@ -160,7 +160,7 @@ class PlaybackPhoneActivity : FragmentActivity() {
         }
     }
 
-    private fun startVideo(url : String) {
+    private fun startVideo(url: String) {
         prepareMediaForPlaying(url.toUri())
         player?.playWhenReady = playWhenReady
         player?.seekTo(0, playbackPosition)
@@ -194,9 +194,14 @@ class PlaybackPhoneActivity : FragmentActivity() {
 
     @SuppressLint("InflateParams")
     private fun buildVideoView(): PlayerView {
-        val videoView = layoutInflater.inflate(R.layout.styled_player_view, null, false) as PlayerView
-        videoView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-        return videoView    }
+        val videoView =
+            layoutInflater.inflate(R.layout.styled_player_view, null, false) as PlayerView
+        videoView.layoutParams = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.MATCH_PARENT
+        )
+        return videoView
+    }
 
     @OptIn(UnstableApi::class)
     private fun initializePlayer() {

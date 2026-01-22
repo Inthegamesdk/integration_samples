@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.fragment.app.FragmentActivity
 
 class InitialActivity : FragmentActivity() {
