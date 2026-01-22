@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "io.inthegame.awsdemo"
+    namespace = "io.inthegame.mediatailor"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "io.inthegame.awsdemo"
+        applicationId = "io.inthegame.mediatailor"
         minSdk = 29
         targetSdk = 35
         versionCode = 1
@@ -60,10 +60,11 @@ dependencies {
     implementation("androidx.media3:media3-ui-leanback:1.8.0")
     implementation("androidx.media3:media3-ui:1.8.0")
 
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.2.2")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 
     implementation("io.inthegame.sdk:core:2.7.0")
     implementation("io.inthegame.sdk:media3:2.7.0")
+    implementation("io.inthegame.sdk:mediatailor:2.7.0")
 
 
 }
