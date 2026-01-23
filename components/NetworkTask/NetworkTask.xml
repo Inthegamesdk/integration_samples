@@ -1,11 +1,12 @@
-<component name="MediaTailorTask" extends = "Task">
-    <script type="text/brightscript" uri="MediaTailorTask.brs" />   
+<component name="NetworkTask" extends = "Task">
+    <script type="text/brightscript" uri="NetworkTask.brs" />   
 
     <interface>
         <field id="id" type="string" />
         <field id="url" type="string" value = ""/>
         <field id="body" type="string" value = ""/>
         <field id="response" type="assocarray" />
+        <field id="context" type="assocarray" />
     </interface>
 
      <children>  

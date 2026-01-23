@@ -1,0 +1,12 @@
+<component name="Integration" extends="Group">
+    <script type="text/brightscript" uri="./Integration.brs" />
+
+
+    <interface>
+        <field id="trakingData" type="assocarray" onChange = "onChangeTrakingData"/>
+    </interface>
+
+    <children>
+        <Video id = "videoPlayer" width = "1920" height = "1080"/>
+    </children>
+</component>

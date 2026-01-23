@@ -1,0 +1,12 @@
+<component name="MainScene" extends="Scene">
+    <script type="text/brightscript" uri="./MainScene.brs" />
+
+
+    <interface>
+       
+    </interface>
+
+    <children>
+        <Poster uri = "pkg:/images/rde_splash_fhd.jpg" width = "1920" height = "1080"/>
+    </children>
+</component>
