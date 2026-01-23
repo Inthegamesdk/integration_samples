@@ -73,7 +73,7 @@ dependencies {
     implementation("io.inthegame.sdk:core:2.7.0.1")
     implementation("io.inthegame.sdk:media3:2.7.0")
     implementation("io.inthegame.sdk:compose:2.7.0")
-    implementation("io.inthegame.sdk:mediatailor:2.7.0")
+    implementation("io.inthegame.sdk:mediatailor:2.7.0.1")
 
     implementation(platform("androidx.compose:compose-bom:2026.01.00"))
     androidTestImplementation(platform("androidx.compose:compose-bom:2026.01.00"))
