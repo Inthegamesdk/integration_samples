@@ -17,8 +17,8 @@ import InthegametviOS
 class ViewController: UIViewController {
     
     let mediaUrl = "https://assets.inthegame.io/admin-assets/black_screen_with_timer.mp4"
-    let channelSlug: String = "samplechannel"
-    let accountId: String = "68650da0324217d506bcc2d4"
+    let channelSlug: String = "demo"
+    let accountId: String = "69230d1b5f7b3515524dd184"
     var itgPlayerController: ITGPlayerViewController!
         
     @IBAction func openChannelAction(_ sender: Any) {
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         playerViewController.player = player
         
         let playerAdapter = ITGAVPlayerAdapter(player, playerViewController: playerViewController)
-        itgPlayerController = ITGPlayerViewController(channelSlug: channelSlug, accountId: accountId, playerAdapter: playerAdapter)
+        itgPlayerController = ITGPlayerViewController(channelSlug: channelSlug, accountId: accountId, environment: ITGEnvironment(envName: "v2-7"), playerAdapter: playerAdapter, showLogs: true)
         itgPlayerController.shouldPlayChannelVideo = false
 #if os(iOS)
         itgPlayerController.closeButtonVisibilityMode = .hidden
