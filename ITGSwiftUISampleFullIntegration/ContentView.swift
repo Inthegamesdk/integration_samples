@@ -15,17 +15,19 @@ import InthegametviOS
 #endif
 import ITGOverlayViewSwiftUI
 
-class PlayerViewModel: ObservableObject {
+class ITGPlayerViewModel: ObservableObject {
     
     @Published var isPlaying: Bool = false
+    @Published var contentMode: ContentMode
+    @Published var videoRect: CGRect = UIScreen().bounds
     let avplayer: AVPlayer
-    let videoView: any View
     var seekTimer: Timer? = nil
     var observer: NSKeyValueObservation?
+    var itgOverlayView: ITGOverlayView? = nil
     
     init(_ videoUrl: URL) {
         self.avplayer = AVPlayer(url: videoUrl)
-        self.videoView = VideoPlayer(player: avplayer).ignoresSafeArea()
+        self.contentMode = .fit
         observer = avplayer.observe(\.timeControlStatus, options: [.new]) { [weak self] _, _ in
             guard let self = self else { return }
             self.isPlaying = self.avplayer.timeControlStatus == .playing
@@ -47,7 +49,7 @@ class PlayerViewModel: ObservableObject {
             })
         }
     }
-
+    
     func seekTo(_ time: TimeInterval) {
         avplayer.seek(to: CMTime(value: CMTimeValue(time), timescale: 1), toleranceBefore: CMTime(value: CMTimeValue(0.1), timescale: 1), toleranceAfter: CMTime(value: CMTimeValue(0.1), timescale: 1), completionHandler: { [weak self] _ in
             guard let self = self else { return }
@@ -72,38 +74,92 @@ struct ContentView: View {
         case player
     }
     
-    @State var blockItg: Bool = false
-    @StateObject var playerViewModel = PlayerViewModel(URL(string: "https://assets.inthegame.io/admin-assets/black_screen_with_timer.mp4")!)
-    @State var channelSlug = "samplechannel"
-    @State var accountId = "68650da0324217d506bcc2d4"
-    @State var env = ITGEnvironment(envName: "v2-3")
+    @State var blockItg: Bool = false {
+        didSet {
+            playerViewModel.itgOverlayView?.block(blockItg)
+        }
+    }
+    @StateObject var playerViewModel = ITGPlayerViewModel(URL(string: "https://assets.inthegame.io/admin-assets/black_screen_with_timer.mp4")!)
+    @State var channelSlug: String = "demo"
+    @State var accountId: String = "69230d1b5f7b3515524dd184"
+    @State var env = ITGEnvironment(envName: "v2-7")
+    @State private var containerRect: CGRect = .zero
     @FocusState private var focusedItem: FocusableItem?
-
+    
     var body: some View {
-        ITGOverlayViewSwiftUI<AnyView>(
-            channelSlug: channelSlug,
-            accountId: accountId,
-            environment: env,
-            videoView: AnyView(playerViewModel.videoView.focused($focusedItem, equals: FocusableItem.player)),
-            blockAll: blockItg,
-            playerIsPlaying: playerViewModel.isPlaying,
-            onOverlayRequestedVideoTime: {
-                return playerViewModel.avplayer.currentTime().seconds
-            },
-            onOverlayRequestedPause: { playerViewModel.avplayer.pause() },
-            onOverlayRequestedPlay: { playerViewModel.avplayer.play() },
-            onOverlayRequestedFocus: { focusedItem = .itgOverlay },
-            onOnOverlayReleasedFocus: { focusedItem = .player },
-            onOverlayRequestedVideoSeek: playerViewModel.seekTo(_:),
-            onOverlayRequestedVideoResolution: { playerViewModel.avplayer.currentItem?.presentationSize ?? .zero },
-            onOverlayRequestedVideoLength: { playerViewModel.avplayer.currentItem?.duration.seconds ?? 0 },
-            onOverlayRequestedVideoSoundLevel: { volume in playerViewModel.avplayer.volume = volume },
-            onOverlayRequestedResetVideoSoundLevel: { playerViewModel.avplayer.volume = 1 },
-            onCreated: { itgOverlayView in })
-        .focused($focusedItem, equals: FocusableItem.itgOverlay)
-        .onAppear {
-            playerViewModel.avplayer.play()
-            focusedItem = .player
+        ZStack {
+            GeometryReader { geometry in
+                Color.clear
+                    .onAppear {
+                        containerRect = CGRect(origin: CGPoint.zero, size: geometry.size)
+                        playerViewModel.videoRect = CGRect(origin: CGPoint.zero, size: geometry.size)
+                    }
+            }
+            .ignoresSafeArea()
+            VideoPlayer(player: playerViewModel.avplayer)
+                .aspectRatio(contentMode: playerViewModel.contentMode)
+                .frame(width: playerViewModel.videoRect.size.width, height: playerViewModel.videoRect.size.height)
+                .position(x: playerViewModel.videoRect.midX, y: playerViewModel.videoRect.midY)
+                .ignoresSafeArea();
+            ITGOverlayViewSwiftUI<AnyView>(
+                channelSlug: channelSlug,
+                accountId: accountId,
+                environment: env,
+                showLogs: true,
+                onItgDidLoadChannelInfo: nil,
+                onItgRequestedVideoStateChange: { state, time in
+                    if let time {
+                        playerViewModel.seekTo(time)
+                    }
+                    if state == .playing {
+                        playerViewModel.avplayer.play()
+                    } else {
+                        playerViewModel.avplayer.pause()
+                    }
+                },
+                onItgRequestedFocusUpdate: { requiresFocus in
+                    if requiresFocus {
+                        focusedItem = .itgOverlay
+                    } else {
+                        focusedItem = .player
+                    }
+                },
+                onItgRequestedVideoRectChange: { rect, time in
+                    withAnimation(.easeInOut(duration: time)) {
+                        playerViewModel.videoRect = rect ?? containerRect
+                    }
+                },
+                onItgReceivedDeeplink: { deepLink in
+                    print(deepLink)
+                },
+                onItgDidProcessAnalyticEvent: nil,
+                onItgDidUpdateUserState: nil,
+                onItgRequestedVideoSoundLevel: { sound in
+                    playerViewModel.avplayer.volume = sound ?? 1
+                },
+                onItgRequestedVideoGravity: { videoGravity in
+                    if videoGravity == .resize {
+                        playerViewModel.contentMode = .fill
+                    } else {
+                        playerViewModel.contentMode = .fit
+                    }
+                },
+                onItgOverlayCreated: { overlayView in
+                    playerViewModel.itgOverlayView = overlayView
+                })
+            .focused($focusedItem, equals: FocusableItem.itgOverlay)
+            .onAppear {
+                playerViewModel.avplayer.play()
+                focusedItem = .player
+            }
+            .onChange(of: playerViewModel.isPlaying, {
+                let state = ITGVideoState(videoDuration: playerViewModel.avplayer.currentItem?.duration.seconds ?? 0,
+                                          videoTime: playerViewModel.avplayer.currentTime().seconds,
+                                          videoStatus: playerViewModel.isPlaying ? .playing : .paused,
+                                          visibleContent: .content)
+                playerViewModel.itgOverlayView?.playerChangedState(state)
+            })
+            .ignoresSafeArea()
         }
         .ignoresSafeArea()
     }
