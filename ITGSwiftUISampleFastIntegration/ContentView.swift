@@ -24,7 +24,7 @@ struct PlayerViewModel {
         self.avplayer = AVPlayer(url: videoUrl)
         self.videoView = AnyView(VideoPlayer(player: avplayer).ignoresSafeArea())
     }
-
+    
 }
 
 struct ContentView: View {
@@ -33,30 +33,32 @@ struct ContentView: View {
         case itgOverlay
         case player
     }
-
+    
     @State var playerViewModel: PlayerViewModel = PlayerViewModel(URL(string: "https://assets.inthegame.io/admin-assets/black_screen_with_timer.mp4")!)
-    @State var channelSlug = "samplechannel"
-    @State var accountId = "68650da0324217d506bcc2d4"
-    @State var env = ITGEnvironment(envName: "v2-3")
+    @State var channelSlug: String = "demo"
+    @State var accountId: String = "69230d1b5f7b3515524dd184"
+    @State var env = ITGEnvironment(envName: "v2-7")
     @State var blockItg: Bool = false
+    @State var itgPlayerViewController: ITGPlayerViewController?
     
     var body: some View {
         ITGPlayerViewControllerSwiftUI(channelSlug: channelSlug,
                                        accountId: accountId,
                                        environment: env,
-                                       enableLogs: true,
                                        playerAdapter: ITGAVPlayerAdapter(playerViewModel.avplayer, playerView: UIHostingController(rootView: playerViewModel.videoView).view),
-                                       blockAll: blockItg,
-                                       onCreated: { itgPlayerViewController in })
-            .ignoresSafeArea()
-            .onAppear(perform: {
-                playerViewModel.avplayer.play()
-            })
+                                       onCreated: { itgPlayerViewController in
+            DispatchQueue.main.async {
+                self.itgPlayerViewController = itgPlayerViewController
+            }
+        })
+        .onChange(of: blockItg, {
+            itgPlayerViewController?.overlayView?.block(blockItg)
+        })
+        .ignoresSafeArea()
+        .onAppear(perform: {
+            playerViewModel.avplayer.play()
+        })
     }
     
-}
-
-#Preview {
-    ContentView()
 }
 
