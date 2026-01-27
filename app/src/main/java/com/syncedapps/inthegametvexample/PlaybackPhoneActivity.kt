@@ -79,6 +79,7 @@ import io.datazoom.sdk.Datazoom
 import io.datazoom.sdk.DzAdapter
 import io.datazoom.sdk.logs.LogLevel
 import io.datazoom.sdk.media3.createContext
+import io.datazoom.sdk.mediatailor.removeSession
 import io.datazoom.sdk.mediatailor.setupAdSession
 import io.inthegame.compose.ITGPlaybackComponentCompose
 import io.inthegame.datazoom.ITGDatazoomPlugin.attachITG
@@ -147,6 +148,16 @@ class PlaybackPhoneActivity : FragmentActivity() {
             onStopOrDispose {
                 player?.apply { release() }
                 player = null
+
+                // Datazoom start
+                datazoomAdapter?.id?.let {
+                    Datazoom.removeContext(id = it)
+                }
+                datazoomAdapter?.removeSession()
+
+                datazoomAdapter = null
+                session = null
+                // Datazoom end
             }
         }
 
