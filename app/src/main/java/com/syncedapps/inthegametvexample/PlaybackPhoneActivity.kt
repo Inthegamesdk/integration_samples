@@ -134,7 +134,11 @@ class PlaybackPhoneActivity : FragmentActivity() {
             MediaTailor.createSession(config) { sessionValue, _ ->
                 sessionValue?.let {
                     session = sessionValue
-                    datazoomAdapter?.setupAdSession(sessionValue, View(context), CONTENT_URL)
+                    datazoomAdapter?.setupAdSession(
+                        sessionValue,
+                        View(context), // TODO: provide real ad view
+                        CONTENT_URL
+                    )
 
                     player?.setMediaItem(MediaItem.fromUri(sessionValue.playbackUrl.orEmpty().toUri()))
                 }
