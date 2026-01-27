@@ -55,9 +55,9 @@ class PlaybackVideoFragment : VideoSupportFragment() {
             viewLifecycleOwner,
             adapter,
             "69230d1b5f7b3515524dd184",
-            "demo",
-            itgEnvironment = ITGEnvironment.dev,
-            savedState = savedInstanceState
+            "demo_mediatailor",
+            savedState = savedInstanceState,
+            enableLogs = true
         )
         (requireView() as ViewGroup).addView(mITGComponent, 0)
 
