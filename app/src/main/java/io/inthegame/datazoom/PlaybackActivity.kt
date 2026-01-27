@@ -1,13 +1,11 @@
-package io.inthegame.awsdemo
+package io.inthegame.datazoom
 
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.lifecycleScope
 import io.datazoom.sdk.Datazoom
 import io.datazoom.sdk.Config.Builder
 import io.datazoom.sdk.logs.LogLevel
-import kotlinx.coroutines.launch
 
 /** Loads [PlaybackVideoFragment]. */
 class PlaybackActivity : FragmentActivity() {

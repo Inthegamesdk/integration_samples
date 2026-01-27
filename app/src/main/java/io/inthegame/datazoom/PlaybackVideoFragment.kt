@@ -1,4 +1,4 @@
-package io.inthegame.awsdemo
+package io.inthegame.datazoom
 
 import android.content.Context
 import android.graphics.Color
@@ -27,7 +27,7 @@ import io.datazoom.sdk.DzAdapter
 import io.datazoom.sdk.media3.createContext
 import io.datazoom.sdk.mediatailor.removeSession
 import io.datazoom.sdk.mediatailor.setupAdSession
-import io.inthegame.datazoom.ITGDatazoomUtil.attachITG
+import io.inthegame.datazoom.ITGDatazoomPlugin.attachITG
 
 @OptIn(UnstableApi::class)
 class PlaybackVideoFragment : VideoSupportFragment() {
@@ -76,7 +76,9 @@ class PlaybackVideoFragment : VideoSupportFragment() {
                 datazoomAdapter?.setupAdSession(session, surfaceView, contentUrl)
 
                 // Attach ITG to Datazoom
-                mITGComponent?.let { itg -> itgAdObserver = session.attachITG(itg) }
+                mITGComponent?.let { itg ->
+                    itgAdObserver = session.attachITG(itg)
+                }
 
                 startPlayback(session)
             }
@@ -138,9 +140,10 @@ class PlaybackVideoFragment : VideoSupportFragment() {
     }
 
     private fun releasePlayer() {
-        // Datazoom start
+        // ITG Datazoom plugin release
         itgAdObserver?.let { session?.removeAdObserver(it) }
         itgAdObserver = null
+
         session = null
         datazoomAdapter?.id?.let {
             Datazoom.removeContext(id = it)
@@ -157,7 +160,7 @@ class PlaybackVideoFragment : VideoSupportFragment() {
         }
     }
 
-    suspend fun handleBackPressIfNeeded(): Boolean {
+    fun handleBackPressIfNeeded(): Boolean {
         return mITGComponent?.handleBackPressIfNeeded() ?: false
     }
 
@@ -190,9 +193,7 @@ class PlaybackVideoFragment : VideoSupportFragment() {
 
     companion object {
         private const val UPDATE_DELAY = 16
-        private const val BASE_URL =
-            "https://3e763f5a2cb64a869ea9bb83d5f933d7.mediatailor.us-west-2.amazonaws.com"
         private const val CONTENT_URL =
-            "${BASE_URL}/v1/session/7c8ce5ad5bcc5198ca301174a2ead89b25915ca4/demo_page_for_client_testing/index.m3u8"
+            "https://dbfc60fb257a4fa69b8410fae7d4d3b6.mediatailor.us-west-2.amazonaws.com/v1/session/7c8ce5ad5bcc5198ca301174a2ead89b25915ca4/Flosport27/index.m3u8"
     }
 }

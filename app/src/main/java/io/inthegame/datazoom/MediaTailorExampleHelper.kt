@@ -1,4 +1,4 @@
-package io.inthegame.awsdemo
+package io.inthegame.datazoom
 
 import com.amazon.mediatailorsdk.MediaTailor
 import com.amazon.mediatailorsdk.Session
