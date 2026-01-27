@@ -26,6 +26,7 @@ import java.util.*
 import com.syncedapps.inthegametv.integration.ITGPlaybackComponent
 import androidx.activity.OnBackPressedCallback
 import android.view.KeyEvent
+import android.view.View
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -69,16 +70,36 @@ import androidx.media3.ui.compose.material3.buttons.SeekBackButton
 import androidx.media3.ui.compose.material3.buttons.SeekForwardButton
 import androidx.media3.ui.compose.material3.buttons.ShuffleButton
 import androidx.media3.ui.compose.material3.indicator.PositionAndDurationText
-import com.syncedapps.inthegametvdemo.mediatailor.FetchConfig
+import com.amazon.mediatailorsdk.AdTrackingUpdateMode
+import com.amazon.mediatailorsdk.MediaTailor
+import com.amazon.mediatailorsdk.Session
+import com.amazon.mediatailorsdk.SessionConfiguration
+import io.datazoom.sdk.Config.Builder
+import io.datazoom.sdk.Datazoom
+import io.datazoom.sdk.DzAdapter
+import io.datazoom.sdk.logs.LogLevel
+import io.datazoom.sdk.media3.createContext
+import io.datazoom.sdk.mediatailor.setupAdSession
 import io.inthegame.compose.ITGPlaybackComponentCompose
-import io.inthegame.mediatailor.ITGMediaTailorPlugin
-import io.inthegame.mediatailor.domain.useCase.basic.Resource.Companion.asSuccessful
-import kotlinx.coroutines.launch
+import io.inthegame.datazoom.ITGDatazoomPlugin.attachITG
 
 class PlaybackPhoneActivity : FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val configId = "f5562a7c-9e5f-4c60-b7c4-d174808c5d38"
+
+        if (configId.isEmpty() || configId == "{DATAZOOM_CONFIG_ID}") {
+            throw IllegalArgumentException("Please provide your Datazoom configId")
+        }
+
+        Datazoom.init(
+            Builder(configId)
+                .logLevel(LogLevel.VERBOSE)
+                .build()
+        )
+
         setContent {
             MainScreen(modifier = Modifier.safeDrawingPadding())
         }
@@ -91,24 +112,53 @@ class PlaybackPhoneActivity : FragmentActivity() {
         val context = LocalContext.current
 
         var player by remember { mutableStateOf<Player?>(null) }
+        var session by remember { mutableStateOf<Session?>(null) }
+        var datazoomAdapter by remember { mutableStateOf<DzAdapter?>(null) }
 
         LifecycleStartEffect(Unit) {
+
+            // Implement MediaTailor SDK here
+            MediaTailor.setLogLevel(com.amazon.mediatailorsdk.logs.LogLevel.VERBOSE)
+
             player = initializePlayer(context)
+            // Datazoom start
+            datazoomAdapter = Datazoom.createContext(exoPlayer = player as ExoPlayer)
+            // Datazoom end
+
+            val config = SessionConfiguration.Builder()
+                .sessionInitUrl(CONTENT_URL)
+                .adTrackingUpdateMode(AdTrackingUpdateMode.FULL)
+
+                .build()
+
+            MediaTailor.createSession(config) { sessionValue, _ ->
+                sessionValue?.let {
+                    session = sessionValue
+                    datazoomAdapter?.setupAdSession(sessionValue, View(context), CONTENT_URL)
+
+                    player?.setMediaItem(MediaItem.fromUri(sessionValue.playbackUrl.orEmpty().toUri()))
+                }
+            }
+
             onStopOrDispose {
                 player?.apply { release() }
                 player = null
             }
         }
 
-        player?.let { MainScreen(player = it, modifier = modifier.fillMaxSize()) }
+        player?.let { playerInstance ->
+            session?.let { sessionInstance ->
+                MainScreen(player = playerInstance, session = sessionInstance, modifier = modifier.fillMaxSize())
+            }
+        }
     }
 
     @Composable
-    internal fun MainScreen(player: Player, modifier: Modifier = Modifier) {
+    internal fun MainScreen(player: Player, session : Session, modifier: Modifier = Modifier) {
 
         var contentScale by remember { mutableStateOf(ContentScale.Fit) }
 
-        Box(modifier) {
+        Box(modifier.background(Color.Black)) {
             ITGPlaybackComponentCompose(
                 player,
                 "69230d1b5f7b3515524dd184",
@@ -117,35 +167,8 @@ class PlaybackPhoneActivity : FragmentActivity() {
                 modifier = modifier,
                 itgRequestedVideoMode = { contentScale },
                 itgPlaybackComponentCreated = { itgPlaybackComponent ->
-                    val plugin = ITGMediaTailorPlugin()
-
-                    plugin.delegate = itgPlaybackComponent.itgOverlayView
-
-                    plugin.listener = object : ITGMediaTailorPlugin.ITGMediaTailorListener {
-                        override fun didReceiveTrackingData(json: String) {
-                            Log.d(
-                                this@PlaybackPhoneActivity.javaClass.simpleName,
-                                "didReceiveTrackingData $json"
-                            )
-                        }
-                    }
-
-                    itgPlaybackComponent.itgOverlayView?.lifecycleScope?.launch {
-                        val mediatailorConfig =
-                            FetchConfig().invoke(
-                                FetchConfig.Param(CONTENT_URL)
-                            ).asSuccessful() ?: return@launch
-
-                        player.setMediaItem(
-                            MediaItem.fromUri(
-                                mediatailorConfig.manifestUrl.orEmpty().toUri()
-                            )
-                        )
-                        plugin.startMediaTailor(
-                            trackingURL = mediatailorConfig.trackingUrl.orEmpty(),
-                            interval = 5_000L
-                        )
-                    }
+                    //Datazoom plugin init
+                   session.attachITG(itgPlaybackComponent)
                 },
                 itgRequestedChangeVideoMode = { requestedContentScale ->
                     contentScale = requestedContentScale
@@ -265,7 +288,7 @@ class PlaybackPhoneActivity : FragmentActivity() {
 
     companion object {
         const val CONTENT_URL =
-            "https://dbfc60fb257a4fa69b8410fae7d4d3b6.mediatailor.us-west-2.amazonaws.com/v1/session/7c8ce5ad5bcc5198ca301174a2ead89b25915ca4/Flosport27/"
+            "https://dbfc60fb257a4fa69b8410fae7d4d3b6.mediatailor.us-west-2.amazonaws.com/v1/session/7c8ce5ad5bcc5198ca301174a2ead89b25915ca4/Flosport27/index.m3u8"
     }
 
 }
