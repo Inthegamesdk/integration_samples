@@ -22,11 +22,11 @@ import com.syncedapps.inthegametvexample.databinding.ActivityPhonePlaybackBindin
 import android.view.ViewGroup
 import java.util.*
 
-import io.inthegame.media3.ITGMedia3PlayerAdapter
 import com.syncedapps.inthegametv.integration.ITGPlaybackComponent
 import androidx.activity.OnBackPressedCallback
 import android.view.KeyEvent
 import androidx.lifecycle.lifecycleScope
+import com.syncedapps.inthegametv.integration.ITGMedia3PlayerAdapter
 import com.syncedapps.inthegametv.network.ITGEnvironment
 import kotlinx.coroutines.launch
 
@@ -79,7 +79,7 @@ class PlaybackPhoneActivity : FragmentActivity() {
             accountId = accountId, //mandatory: your ITG accountId
             channelSlug = channelSlug, //mandatory: your channelId on our admin panel
             itgEnvironment = ITGEnvironment.dev,
-            showLogs = true
+            enableLogs = true
         )
 
 
