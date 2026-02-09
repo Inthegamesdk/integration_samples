@@ -95,6 +95,8 @@ Use these branches if you’re building a TV experience (DPAD navigation + Leanb
   **Use case:** LightningJS integration example.
 - `basic`  
   **Use case:** Basic integration example with plain html video tag.
+- `datazoom`  
+  **Use case:** Basic integration example with plain html video tag and Datazoom.
 
 ---
 
