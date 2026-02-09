@@ -27,7 +27,7 @@ Pick a dependency manager (SPM or CocoaPods) and then choose **Fast** vs **Full*
 
 ---
 
-## Android 
+## Android
 
 Choose a branch based on your **player stack** and your **integration focus**.
 
@@ -89,13 +89,22 @@ Use these branches if you’re building a TV experience (DPAD navigation + Leanb
 
 ---
 
+## HTML (Javascript)
+
+- `lightingjs`  
+  **Use case:** LightningJS integration example.
+- `basic`  
+  **Use case:** Basic integration example with plain html video tag.
+
+---
+
 ## Naming conventions used
 
 - `apple/<fast|full>Integration<UI><SPM|Cocoapods>`
 - `android/itg-<version>-<player-or-usecase>`
 - `roku/itg-<version>-<usecase>`
 - `flutter`, `react-native-expo`
-
-`
+- `html/itg-<version>-<player-or-usecase>`
+  `
 
 
