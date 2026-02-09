@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Testing demo</title>
+  <style>
+      body {
+          background-color: darkslategrey;
+          margin: 0;
+      }
+
+      .root {
+          width: 100vw;
+          height: 100vh;
+          position: relative; /* Needed for overlay positioning */
+      }
+
+      video {
+          width: 100%;
+          height: 100%;
+          outline: none;
+      }
+  </style>
+</head>
+<body>
+<div class="root">
+  <video
+      autoplay
+      class="demoVideoElement"
+      controls
+      id="demoVideoElement"
+      loop
+      muted
+      src="https://assets.inthegame.io/admin-assets/black_screen_with_timer.mp4"
+  ></video>
+</div>
+
+<script src="https://html5.inthegame.io/<YOUR_VERSION>/main.js"></script>
+<script>
+	if (window.inthegame) {
+		var initParams = {
+			videoPlayerId: 'demoVideoElement',
+			device: 'tv',
+			accountId: '<YOUR_ACCOUNT_ID>',
+			channelSlug: '<YOUR_CHANNEL_SLUG>',
+		};
+
+		window.inthegame.init(initParams);
+	} else {
+		console.error('No window.inthegame');
+	}
+</script>
+</body>
+</html>
