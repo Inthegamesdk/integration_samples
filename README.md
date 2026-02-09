@@ -89,13 +89,20 @@ Use these branches if you’re building a TV experience (DPAD navigation + Leanb
 
 ---
 
+## HTML (Javascript)
+
+- `lightingjs`  
+  **Use case:** LightningJS integration example.
+
+---
+
 ## Naming conventions used
 
 - `apple/<fast|full>Integration<UI><SPM|Cocoapods>`
 - `android/itg-<version>-<player-or-usecase>`
 - `roku/itg-<version>-<usecase>`
 - `flutter`, `react-native-expo`
-
+- `html/itg-<version>-<player-or-usecase>`
 `
 
 
