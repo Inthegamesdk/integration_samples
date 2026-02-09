@@ -1,6 +1,5 @@
 package com.syncedapps.inthegametvexample
 
-import com.syncedapps.inthegametv.network.ITGEnvironment
 
 object Const {
 
