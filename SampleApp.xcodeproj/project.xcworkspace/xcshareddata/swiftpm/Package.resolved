@@ -1,0 +1,51 @@
+{
+  "originHash" : "c239ea206e2aa1e92a1862c9fea493e8b11cf6cb1b89459d163872005d89edc1",
+  "pins" : [
+    {
+      "identity" : "apple_dz_avplayer_adapter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://gitlab.com/datazoom/apple/libraries-release/apple_dz_avplayer_adapter",
+      "state" : {
+        "revision" : "e90ba462a1446f8a39f3fe0b58fe1ed7000345cb",
+        "version" : "1.8.6"
+      }
+    },
+    {
+      "identity" : "apple_dz_mediatailor_adapter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://gitlab.com/datazoom/apple/libraries-release/apple_dz_mediatailor_adapter",
+      "state" : {
+        "revision" : "123b3970e156965734ec3a97675f4d81c299a63e",
+        "version" : "1.9.1"
+      }
+    },
+    {
+      "identity" : "itg-apple-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Inthegamesdk/itg-apple-sdk",
+      "state" : {
+        "revision" : "f7e1886eb0cf56f30f594b7463990fb75d87a01e",
+        "version" : "2.7.12"
+      }
+    },
+    {
+      "identity" : "swift-package-manager-google-programmatic-access-library-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/googleads/swift-package-manager-google-programmatic-access-library-ios",
+      "state" : {
+        "revision" : "3f71fb9b08a879c0984c0eb8e352323176f5be11",
+        "version" : "2.9.1"
+      }
+    },
+    {
+      "identity" : "swift-package-manager-google-programmatic-access-library-tvos",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/googleads/swift-package-manager-google-programmatic-access-library-tvos",
+      "state" : {
+        "revision" : "92228ed393c31b02159001758d3f03a71ad005f0",
+        "version" : "2.9.1"
+      }
+    }
+  ],
+  "version" : 3
+}
