@@ -2,6 +2,7 @@ package io.inthegame.datazoom
 
 
 import android.annotation.SuppressLint
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -25,12 +26,15 @@ import java.util.*
 import com.syncedapps.inthegametv.integration.ITGPlaybackComponent
 import androidx.activity.OnBackPressedCallback
 import android.view.KeyEvent
+import android.view.View
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.lifecycleScope
 import com.syncedapps.inthegametv.integration.ITGMedia3PlayerAdapter
 import kotlinx.coroutines.launch
 import androidx.core.net.toUri
 import com.amazon.mediatailorsdk.AdObserver
 import com.amazon.mediatailorsdk.Session
+import com.syncedapps.inthegametv.utils.DeviceUtils.isMobile
 import io.datazoom.sdk.Config.Builder
 import io.datazoom.sdk.Datazoom
 import io.datazoom.sdk.DzAdapter
@@ -75,6 +79,9 @@ class PlaybackPhoneActivity : FragmentActivity() {
         binding = ActivityPhonePlaybackBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupFullscreenMode()
+
+        applyVideoConstraints(binding.outerContainer)
+
         videoView = buildVideoView()
 
         //ITG  initialize the ITGPlaybackComponent
@@ -238,6 +245,48 @@ class PlaybackPhoneActivity : FragmentActivity() {
         }
         player = null
     }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        if (isMobile())
+            applyVideoConstraints(binding.outerContainer)
+    }
+
+
+    private fun applyVideoConstraints(videoView: View) {
+        val lp = videoView.layoutParams as ConstraintLayout.LayoutParams
+
+        val isLandscape =
+            videoView.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+
+        if (isLandscape) {
+            // Fill the parent (remove ratio, constrain to all sides)
+            lp.dimensionRatio = null
+            lp.topToTop = ConstraintLayout.LayoutParams.PARENT_ID
+            lp.bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
+            lp.startToStart = ConstraintLayout.LayoutParams.PARENT_ID
+            lp.endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
+
+            // Usually: match constraints on both axes
+            lp.width = ConstraintLayout.LayoutParams.MATCH_CONSTRAINT
+            lp.height = ConstraintLayout.LayoutParams.MATCH_CONSTRAINT
+        } else {
+            // Portrait: keep 16:9 ratio and top-aligned (no bottom constraint)
+            lp.dimensionRatio = "H,16:9"
+            lp.topToTop = ConstraintLayout.LayoutParams.PARENT_ID
+            lp.bottomToBottom = ConstraintLayout.LayoutParams.UNSET
+            lp.startToStart = ConstraintLayout.LayoutParams.PARENT_ID
+            lp.endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
+
+            // Width constrained by start/end, height computed from ratio
+            lp.width = ConstraintLayout.LayoutParams.MATCH_CONSTRAINT
+            lp.height = ConstraintLayout.LayoutParams.MATCH_CONSTRAINT
+        }
+
+        videoView.layoutParams = lp
+        videoView.requestLayout()
+    }
+
 
     override fun onResume() {
         super.onResume()
