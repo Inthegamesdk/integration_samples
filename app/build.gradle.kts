@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "io.inthegame.datazoom"
-        minSdk = 29
+        minSdk = 28
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -62,7 +62,7 @@ dependencies {
 
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 
-    implementation("io.inthegame.sdk:core:2.7.0.2")
+    implementation("io.inthegame.sdk:core:2.7.0.4")
     implementation("io.inthegame.sdk:media3:2.7.0")
 
     implementation("io.datazoom.sdk:media3:1.0.0")
