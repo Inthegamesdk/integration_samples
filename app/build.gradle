@@ -72,7 +72,7 @@ dependencies {
 
 
     // ITG
-    implementation("io.inthegame.sdk:core:2.7.0.2")
+    implementation("io.inthegame.sdk:core:2.7.0.4")
     implementation("io.inthegame.sdk:media3:2.7.0")
     implementation("io.inthegame.sdk:compose:2.7.0")
     implementation("io.inthegame.sdk:datazoom:2.7.0.1")
