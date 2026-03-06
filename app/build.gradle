@@ -74,6 +74,6 @@ dependencies {
 
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.5'
 
-    implementation 'io.inthegame.sdk:core:2.7.0.4'
+    implementation 'io.inthegame.sdk:core:2.7.0.6'
     implementation 'io.inthegame.sdk:kaltura:2.7.0'
 }
