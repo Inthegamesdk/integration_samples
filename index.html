@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Shaka Player</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/shaka-player@latest/dist/shaka-player.ui.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/shaka-player@latest/dist/controls.css" rel="stylesheet">
+
+  <script
+      id="inthegame-script"
+      src="https://html5.inthegame.io/v2-7/itg.umd.es5.js"
+  ></script>
+
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #000;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+      }
+
+      [data-shaka-player-container] {
+          width: 100%;
+          height: 100vh;
+          position: relative;
+          background: #000;
+      }
+
+      #container {
+          width: 100%;
+          height: 100%;
+      }
+
+      video {
+          width: 100%;
+          height: 100%;
+      }
+
+      /* change controls z-index so shaka player is on top , remove if ITG overlay should be on top*/
+      .shaka-controls-container {
+          z-index: 101000;
+      }
+  </style>
+</head>
+
+<body>
+
+<div data-shaka-player-container id="container">
+  <video autoplay data-shaka-player id="my-video"></video>
+</div>
+
+<script>
+	function initITG() {
+		const config = {
+			enableLogs: true,
+      device: 'web',
+			videoPlayerId: "my-video",
+			accountId: "69afe203f58ab4f4d32bfab2",
+			channelSlug: "skybrazil_test",
+		};
+
+		window.inthegame.init(config);
+	}
+
+	const manifestUri =
+		'https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd';
+
+	function initApp() {
+		shaka.polyfill.installAll();
+
+		if (shaka.Player.isBrowserSupported()) {
+			initPlayer();
+		} else {
+			console.error('Browser not supported!');
+		}
+	}
+
+	async function initPlayer() {
+		const video = document.getElementById('my-video');
+		const container = document.getElementById('container');
+
+		const player = new shaka.Player(video);
+		const ui = new shaka.ui.Overlay(player, container, video);
+
+		window.player = player;
+
+		player.addEventListener('error', onError);
+
+		try {
+			await player.load(manifestUri);
+			initITG()
+			console.log('The video has now been loaded!');
+		} catch (e) {
+			onError(e)
+		}
+	}
+
+	function onError(error) {
+		console.error('Player error: ', error);
+	}
+
+	document.addEventListener('DOMContentLoaded', initApp);
+</script>
+
+</body>
+</html>
