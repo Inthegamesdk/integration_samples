@@ -1,6 +1,6 @@
 # ITG Integration Samples — Branch Guide (Platforms + Use Cases)
 
-This repository is organized as **one integration per branch**.  
+This repository is organized as **one integration per branch**.
 Choose your **platform** and **use case**, then switch to the matching branch.
 
 ---
@@ -9,7 +9,7 @@ Choose your **platform** and **use case**, then switch to the matching branch.
 
 ## Apple (iOS) — SwiftUI
 
-Use these branches if you’re integrating ITG into a **SwiftUI** iOS app.  
+Use these branches if you’re integrating ITG into a **SwiftUI** iOS app.
 Pick a dependency manager (SPM or CocoaPods) and then choose **Fast** vs **Full**.
 
 ### Swift Package Manager (SPM)
@@ -32,25 +32,25 @@ Pick a dependency manager (SPM or CocoaPods) and then choose **Fast** vs **Full*
 Choose a branch based on your **player stack** and your **integration focus**.
 
 ### Media3
-- `android/itg-2.7-media3`  
+- `android/itg-2.7-media3`
   **Use case:** new Android projects or projects already migrated to Media3.
 
 ### Legacy ExoPlayer stack
-- `android/itg-2.7-exoplayer`  
+- `android/itg-2.7-exoplayer`
   **Use case:** apps still using older ExoPlayer APIs (not yet migrated to Media3).
 
 ### Third-party players
-- `android/itg-2.7-bitmovin`  
+- `android/itg-2.7-bitmovin`
   **Use case:** apps built around the Bitmovin SDK.
-- `android/itg-2.7-kaltura-player`  
+- `android/itg-2.7-kaltura-player`
   **Use case:** apps built around the Kaltura SDK.
 
 ### SSAI — AWS MediaTailor
-- `android/itg-2.7-mediatailor`  
+- `android/itg-2.7-mediatailor`
   **Use case:** server-side ad insertion / ad stitching workflows driven by MediaTailor.
 
 ### SSAI — DataZoom AWS MediaTailor
-- `android/itg-2.7-datazoom`  
+- `android/itg-2.7-datazoom`
   **Use case:** DataZoom-focused integration and measurement workflow.
 
 ---
@@ -59,44 +59,46 @@ Choose a branch based on your **player stack** and your **integration focus**.
 
 Use these branches if you’re building a TV experience (DPAD navigation + Leanback UI patterns).
 
-- `android/itg-2.7-media3-leanback`  
+- `android/itg-2.7-media3-leanback`
   **Use case:** Android TV / Fire TV using **Media3** + Leanback.
-- `android/itg-2.7-exoplayer-leanback`  
+- `android/itg-2.7-exoplayer-leanback`
   **Use case:** Android TV / Fire TV using **legacy ExoPlayer** + Leanback.
 
 ---
 
 ## Roku
 
-- `roku/itg-2.7-video-player`  
+- `roku/itg-2.7-video-player`
   **Use case:** standard Roku player integration sample.
-- `roku/itg-2.7-mediatailor`  
+- `roku/itg-2.7-mediatailor`
   **Use case:** Roku integration for AWS MediaTailor (SSAI) workflows.
 
 ---
 
 ## Flutter
 
-- `flutter`  
+- `flutter`
   **Use case:** Flutter integration sample / cross-platform path.
 
 ---
 
 ## React Native (Expo)
 
-- `react-native-expo`  
+- `react-native-expo`
   **Use case:** React Native + Expo friendly integration path.
 
 ---
 
 ## HTML (Javascript)
 
-- `lightingjs`  
+- `lightingjs`
   **Use case:** LightningJS integration example.
-- `basic`  
+- `basic`
   **Use case:** Basic integration example with plain html video tag.
-- `datazoom`  
+- `datazoom`
   **Use case:** Basic integration example with plain html video tag and Datazoom.
+- `shaka`
+  **Use case:** Basic integration example with Shaka video player.
 
 ---
 
