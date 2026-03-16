@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11050B0B2F0E5F80002A7B8C /* ITGPlayerViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 11050B0A2F0E5F80002A7B8C /* ITGPlayerViewController */; };
-		11050B0D2F0E5F80002A7B8C /* Inthegametv in Frameworks */ = {isa = PBXBuildFile; productRef = 11050B0C2F0E5F80002A7B8C /* Inthegametv */; };
-		11050B0F2F0E5F80002A7B8C /* InthegametviOS in Frameworks */ = {isa = PBXBuildFile; productRef = 11050B0E2F0E5F80002A7B8C /* InthegametviOS */; };
-		11050B112F0E5F98002A7B8C /* ITGPlayerViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 11050B102F0E5F98002A7B8C /* ITGPlayerViewController */; };
+		116B706E2F6070C7006EE1FF /* ITGPlayerViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 116B706D2F6070C7006EE1FF /* ITGPlayerViewController */; };
+		116B70702F6070C7006EE1FF /* Inthegametv in Frameworks */ = {isa = PBXBuildFile; productRef = 116B706F2F6070C7006EE1FF /* Inthegametv */; };
+		116B70722F6070C7006EE1FF /* InthegametviOS in Frameworks */ = {isa = PBXBuildFile; productRef = 116B70712F6070C7006EE1FF /* InthegametviOS */; };
+		116B70752F6070D6006EE1FF /* ITGPlayerViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 116B70742F6070D6006EE1FF /* ITGPlayerViewController */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,8 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11050B0F2F0E5F80002A7B8C /* InthegametviOS in Frameworks */,
-				11050B112F0E5F98002A7B8C /* ITGPlayerViewController in Frameworks */,
+				116B70722F6070C7006EE1FF /* InthegametviOS in Frameworks */,
+				116B70752F6070D6006EE1FF /* ITGPlayerViewController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,19 +72,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11050B0B2F0E5F80002A7B8C /* ITGPlayerViewController in Frameworks */,
-				11050B0D2F0E5F80002A7B8C /* Inthegametv in Frameworks */,
+				116B706E2F6070C7006EE1FF /* ITGPlayerViewController in Frameworks */,
+				116B70702F6070C7006EE1FF /* Inthegametv in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		116B70732F6070D6006EE1FF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		11EB15972D92AE8C0054D53A = {
 			isa = PBXGroup;
 			children = (
 				11EB15A22D92AE8C0054D53A /* SampleApp */,
 				11E961912EA6495C00CD21E9 /* iOS */,
+				116B70732F6070D6006EE1FF /* Frameworks */,
 				11EB15A12D92AE8C0054D53A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -168,7 +176,7 @@
 			mainGroup = 11EB15972D92AE8C0054D53A;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				11050B092F0E5F80002A7B8C /* XCRemoteSwiftPackageReference "itg-apple-sdk" */,
+				116B706C2F6070C7006EE1FF /* XCRemoteSwiftPackageReference "itg-apple-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 11EB15A12D92AE8C0054D53A /* Products */;
@@ -484,35 +492,35 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		11050B092F0E5F80002A7B8C /* XCRemoteSwiftPackageReference "itg-apple-sdk" */ = {
+		116B706C2F6070C7006EE1FF /* XCRemoteSwiftPackageReference "itg-apple-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Inthegamesdk/itg-apple-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.6.51;
+				minimumVersion = 2.7.18;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		11050B0A2F0E5F80002A7B8C /* ITGPlayerViewController */ = {
+		116B706D2F6070C7006EE1FF /* ITGPlayerViewController */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 11050B092F0E5F80002A7B8C /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
+			package = 116B706C2F6070C7006EE1FF /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
 			productName = ITGPlayerViewController;
 		};
-		11050B0C2F0E5F80002A7B8C /* Inthegametv */ = {
+		116B706F2F6070C7006EE1FF /* Inthegametv */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 11050B092F0E5F80002A7B8C /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
+			package = 116B706C2F6070C7006EE1FF /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
 			productName = Inthegametv;
 		};
-		11050B0E2F0E5F80002A7B8C /* InthegametviOS */ = {
+		116B70712F6070C7006EE1FF /* InthegametviOS */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 11050B092F0E5F80002A7B8C /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
+			package = 116B706C2F6070C7006EE1FF /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
 			productName = InthegametviOS;
 		};
-		11050B102F0E5F98002A7B8C /* ITGPlayerViewController */ = {
+		116B70742F6070D6006EE1FF /* ITGPlayerViewController */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 11050B092F0E5F80002A7B8C /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
+			package = 116B706C2F6070C7006EE1FF /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
 			productName = ITGPlayerViewController;
 		};
 /* End XCSwiftPackageProductDependency section */

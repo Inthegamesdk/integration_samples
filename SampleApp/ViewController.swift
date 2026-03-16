@@ -7,7 +7,7 @@
 
 import UIKit
 import AVKit
-import ITGPlayerViewController
+import ItgPlayerViewController
 #if os(tvOS)
 import Inthegametv
 #else
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         playerViewController.player = player
         
         let playerAdapter = ITGAVPlayerAdapter(player, playerViewController: playerViewController)
-        itgPlayerController = ITGPlayerViewController(channelSlug: channelSlug, accountId: accountId, environment: ITGEnvironment(envName: "v2-7"), playerAdapter: playerAdapter, showLogs: true)
+        itgPlayerController = ITGPlayerViewController(channelSlug: channelSlug, accountId: accountId, playerAdapter: playerAdapter)
         itgPlayerController.shouldPlayChannelVideo = false
 #if os(iOS)
         itgPlayerController.closeButtonVisibilityMode = .hidden

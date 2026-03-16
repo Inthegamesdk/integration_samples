@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Inthegamesdk/itg-apple-sdk",
       "state" : {
-        "revision" : "434d010f7fb754bd620fc6e16de09c0f6aefd586",
-        "version" : "2.7.2"
+        "revision" : "4211a708d4ccfa8d18468013ab76dfe5eff7f466",
+        "version" : "2.7.20"
       }
     }
   ],
