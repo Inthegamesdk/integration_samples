@@ -12,8 +12,8 @@ import Inthegametv
 #else
 import InthegametviOS
 #endif
-import ITGPlayerViewControllerSwiftUI
-import ITGPlayerViewController
+import ItgPlayerViewControllerSwiftUI
+import ItgPlayerViewController
 
 struct PlayerViewModel {
     
@@ -49,10 +49,13 @@ struct ContentView: View {
                                        onCreated: { itgPlayerViewController in
             DispatchQueue.main.async {
                 self.itgPlayerViewController = itgPlayerViewController
+#if os(iOS)
+                self.itgPlayerViewController?.closeButtonVisibilityMode = .hidden
+#endif
             }
         })
         .onChange(of: blockItg, {
-            itgPlayerViewController?.overlayView?.block(blockItg)
+            itgPlayerViewController?.overlayView?.block(blockItg, includePauseAd: true)
         })
         .ignoresSafeArea()
         .onAppear(perform: {

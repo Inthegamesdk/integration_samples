@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		112A6E222EDDB93F00AF1C3E /* ITGPlayerViewControllerSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 112A6E212EDDB93F00AF1C3E /* ITGPlayerViewControllerSwiftUI */; };
+		112A2EDD2F6836F600E4A971 /* ITGPlayerViewControllerSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 112A6E212EDDB93F00AF1C3E /* ITGPlayerViewControllerSwiftUI */; };
 		112A6E232EDDB94D00AF1C3E /* ITGSwiftUISampleFastIntegration.app in Resources */ = {isa = PBXBuildFile; fileRef = 1168FCCC2ED87F5500E0B28A /* ITGSwiftUISampleFastIntegration.app */; };
-		112A6E282EDDB9D300AF1C3E /* ITGPlayerViewControllerSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 112A6E272EDDB9D300AF1C3E /* ITGPlayerViewControllerSwiftUI */; };
-		112A6E2A2EDDBA0D00AF1C3E /* Inthegametv in Frameworks */ = {isa = PBXBuildFile; productRef = 112A6E292EDDBA0D00AF1C3E /* Inthegametv */; };
-		112A6E2C2EDDBA0D00AF1C3E /* InthegametviOS in Frameworks */ = {isa = PBXBuildFile; productRef = 112A6E2B2EDDBA0D00AF1C3E /* InthegametviOS */; };
-		112A6E7C2EDDC62400AF1C3E /* ITGPlayerViewControllerSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 112A6E7B2EDDC62400AF1C3E /* ITGPlayerViewControllerSwiftUI */; };
+		1182A0FF2F5B08E200EB2A93 /* ITGPlayerViewControllerSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1182A0FE2F5B08E200EB2A93 /* ITGPlayerViewControllerSwiftUI */; };
+		1182A1012F5B08EF00EB2A93 /* ITGPlayerViewControllerSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1182A1002F5B08EF00EB2A93 /* ITGPlayerViewControllerSwiftUI */; };
+		1182A1032F5B094E00EB2A93 /* Inthegametv in Frameworks */ = {isa = PBXBuildFile; productRef = 1182A1022F5B094E00EB2A93 /* Inthegametv */; };
+		1182A1052F5B095300EB2A93 /* ITGPlayerViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 1182A1042F5B095300EB2A93 /* ITGPlayerViewController */; };
+		1182A1072F5B095800EB2A93 /* InthegametviOS in Frameworks */ = {isa = PBXBuildFile; productRef = 1182A1062F5B095800EB2A93 /* InthegametviOS */; };
+		1182A1092F5B096000EB2A93 /* ITGPlayerViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 1182A1082F5B096000EB2A93 /* ITGPlayerViewController */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,9 +68,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				112A6E2A2EDDBA0D00AF1C3E /* Inthegametv in Frameworks */,
-				112A6E222EDDB93F00AF1C3E /* ITGPlayerViewControllerSwiftUI in Frameworks */,
-				112A6E282EDDB9D300AF1C3E /* ITGPlayerViewControllerSwiftUI in Frameworks */,
+				112A2EDD2F6836F600E4A971 /* ITGPlayerViewControllerSwiftUI in Frameworks */,
+				1182A0FF2F5B08E200EB2A93 /* ITGPlayerViewControllerSwiftUI in Frameworks */,
+				1182A1032F5B094E00EB2A93 /* Inthegametv in Frameworks */,
+				1182A1052F5B095300EB2A93 /* ITGPlayerViewController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,8 +79,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				112A6E2C2EDDBA0D00AF1C3E /* InthegametviOS in Frameworks */,
-				112A6E7C2EDDC62400AF1C3E /* ITGPlayerViewControllerSwiftUI in Frameworks */,
+				1182A1012F5B08EF00EB2A93 /* ITGPlayerViewControllerSwiftUI in Frameworks */,
+				1182A1072F5B095800EB2A93 /* InthegametviOS in Frameworks */,
+				1182A1092F5B096000EB2A93 /* ITGPlayerViewController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,8 +134,9 @@
 			name = ITGSwiftUISampleFastIntegration;
 			packageProductDependencies = (
 				112A6E212EDDB93F00AF1C3E /* ITGPlayerViewControllerSwiftUI */,
-				112A6E272EDDB9D300AF1C3E /* ITGPlayerViewControllerSwiftUI */,
-				112A6E292EDDBA0D00AF1C3E /* Inthegametv */,
+				1182A0FE2F5B08E200EB2A93 /* ITGPlayerViewControllerSwiftUI */,
+				1182A1022F5B094E00EB2A93 /* Inthegametv */,
+				1182A1042F5B095300EB2A93 /* ITGPlayerViewController */,
 			);
 			productName = ITGSwiftUISampleFastIntegration;
 			productReference = 1168FCCC2ED87F5500E0B28A /* ITGSwiftUISampleFastIntegration.app */;
@@ -152,8 +157,9 @@
 			);
 			name = ITGSwiftUISampleFastIntegrationiOS;
 			packageProductDependencies = (
-				112A6E2B2EDDBA0D00AF1C3E /* InthegametviOS */,
-				112A6E7B2EDDC62400AF1C3E /* ITGPlayerViewControllerSwiftUI */,
+				1182A1002F5B08EF00EB2A93 /* ITGPlayerViewControllerSwiftUI */,
+				1182A1062F5B095800EB2A93 /* InthegametviOS */,
+				1182A1082F5B096000EB2A93 /* ITGPlayerViewController */,
 			);
 			productName = ITGSwiftUISampleFastIntegrationiOS;
 			productReference = 1168FCE72ED87F9200E0B28A /* ITGSwiftUISampleFastIntegrationiOS.app */;
@@ -187,7 +193,7 @@
 			mainGroup = 1168FCC32ED87F5500E0B28A;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				112A6E262EDDB9D300AF1C3E /* XCRemoteSwiftPackageReference "itg-apple-sdk" */,
+				1182A0FD2F5B08E200EB2A93 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1168FCCD2ED87F5500E0B28A /* Products */;
@@ -391,6 +397,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17;
 			};
 			name = Debug;
 		};
@@ -420,6 +427,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17;
 			};
 			name = Release;
 		};
@@ -438,7 +446,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -476,7 +484,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -532,12 +540,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		112A6E262EDDB9D300AF1C3E /* XCRemoteSwiftPackageReference "itg-apple-sdk" */ = {
+		1182A0FD2F5B08E200EB2A93 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Inthegamesdk/itg-apple-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.6.41;
+				minimumVersion = 2.7.16;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -547,25 +555,35 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = ITGPlayerViewControllerSwiftUI;
 		};
-		112A6E272EDDB9D300AF1C3E /* ITGPlayerViewControllerSwiftUI */ = {
+		1182A0FE2F5B08E200EB2A93 /* ITGPlayerViewControllerSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 112A6E262EDDB9D300AF1C3E /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
+			package = 1182A0FD2F5B08E200EB2A93 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
 			productName = ITGPlayerViewControllerSwiftUI;
 		};
-		112A6E292EDDBA0D00AF1C3E /* Inthegametv */ = {
+		1182A1002F5B08EF00EB2A93 /* ITGPlayerViewControllerSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 112A6E262EDDB9D300AF1C3E /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
+			package = 1182A0FD2F5B08E200EB2A93 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
+			productName = ITGPlayerViewControllerSwiftUI;
+		};
+		1182A1022F5B094E00EB2A93 /* Inthegametv */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1182A0FD2F5B08E200EB2A93 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
 			productName = Inthegametv;
 		};
-		112A6E2B2EDDBA0D00AF1C3E /* InthegametviOS */ = {
+		1182A1042F5B095300EB2A93 /* ITGPlayerViewController */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 112A6E262EDDB9D300AF1C3E /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
+			package = 1182A0FD2F5B08E200EB2A93 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
+			productName = ITGPlayerViewController;
+		};
+		1182A1062F5B095800EB2A93 /* InthegametviOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1182A0FD2F5B08E200EB2A93 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
 			productName = InthegametviOS;
 		};
-		112A6E7B2EDDC62400AF1C3E /* ITGPlayerViewControllerSwiftUI */ = {
+		1182A1082F5B096000EB2A93 /* ITGPlayerViewController */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 112A6E262EDDB9D300AF1C3E /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
-			productName = ITGPlayerViewControllerSwiftUI;
+			package = 1182A0FD2F5B08E200EB2A93 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
+			productName = ITGPlayerViewController;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
