@@ -91,8 +91,10 @@ struct ContentView: View {
             GeometryReader { geometry in
                 Color.clear
                     .onAppear {
-                        containerRect = CGRect(origin: CGPoint.zero, size: geometry.size)
-                        playerViewModel.videoRect = CGRect(origin: CGPoint.zero, size: geometry.size)
+                        updateContainerRect(geometry.size)
+                    }
+                    .onChange(of: geometry.size) { newSize in
+                        updateContainerRect(newSize)
                     }
             }
             .ignoresSafeArea()
@@ -145,7 +147,7 @@ struct ContentView: View {
                     }
                 },
                 onItgWillPresentAd: { _ in },
-                onItgDidFinishPresentingAd: { _ in }, 
+                onItgDidFinishPresentingAd: { _ in },
                 onItgOverlayCreated: { overlayView in
                     playerViewModel.itgOverlayView = overlayView
                 })
@@ -165,4 +167,10 @@ struct ContentView: View {
         }
         .ignoresSafeArea()
     }
+    
+    func updateContainerRect(_ size: CGSize) {
+        containerRect = CGRect(origin: .zero, size: size)
+        playerViewModel.videoRect = containerRect
+    }
+    
 }
