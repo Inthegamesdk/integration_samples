@@ -7,8 +7,8 @@
 
 import UIKit
 import AVKit
-import ITGPlayerViewController
-import ITGMediatailorPlugin
+import ItgPlayerViewController
+import ItgMediatailorPlugin
 #if os(tvOS)
 import Inthegametv
 #else
