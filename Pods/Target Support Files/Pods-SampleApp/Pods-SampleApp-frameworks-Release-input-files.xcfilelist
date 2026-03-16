@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-SampleApp/Pods-SampleApp-frameworks.sh
+${PODS_XCFRAMEWORKS_BUILD_DIR}/ITGPlayerViewController/ItgPlayerViewController.framework/ItgPlayerViewController
+${PODS_XCFRAMEWORKS_BUILD_DIR}/Inthegametv/Inthegametv.framework/Inthegametv
+${PODS_XCFRAMEWORKS_BUILD_DIR}/Inthegametv/Storket.framework/Storket

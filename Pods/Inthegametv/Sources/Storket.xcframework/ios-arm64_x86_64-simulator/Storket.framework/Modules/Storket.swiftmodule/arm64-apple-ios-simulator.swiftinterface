@@ -1,0 +1,39 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name Storket
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+import Foundation
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public struct StorketMessage {
+  public var content: [Swift.String : Any]?
+  public var timestamp: Swift.Double
+  public var id: Swift.String
+  public var expireAt: Swift.Int64
+  public var delay: Swift.Double
+}
+public enum StorketError : Swift.Error {
+  case notFound
+  case invalidJson
+  case unknown
+  public static func == (a: Storket.StorketError, b: Storket.StorketError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol StorketDelegate : ObjectiveC.NSObject {
+  func didReceive(messages: [Storket.StorketMessage])
+}
+public class StorketService {
+  weak public var delegate: (any Storket.StorketDelegate)?
+  public init()
+  public func configure(url: Swift.String, authKey: Swift.String, start: Foundation.Date, duration: Swift.Double, interval: Swift.Double)
+  public func connect(accountId: Swift.String, channelSlug: Swift.String)
+  public func stop()
+  @objc deinit
+}
+extension Storket.StorketError : Swift.Equatable {}
+extension Storket.StorketError : Swift.Hashable {}

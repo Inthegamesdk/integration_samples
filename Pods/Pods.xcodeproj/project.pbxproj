@@ -1,0 +1,1075 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		0FDF4EA6476311B39B7CF2F9BD4046B6 /* Inthegametv-iOS */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = C68CD24BEA3747EB8B164AA1068BBC34 /* Build configuration list for PBXAggregateTarget "Inthegametv-iOS" */;
+			buildPhases = (
+				5D242C0C4378F7351EACA7B7B3E33949 /* [CP] Copy XCFrameworks */,
+			);
+			dependencies = (
+			);
+			name = "Inthegametv-iOS";
+		};
+		84709E1DA43ECDE317878E92C1E8683C /* Inthegametv-tvOS */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 5693B3F7D9B71551665BFC98A00E23A0 /* Build configuration list for PBXAggregateTarget "Inthegametv-tvOS" */;
+			buildPhases = (
+				C84450255081D982339C4F7F0200D0FD /* [CP] Copy XCFrameworks */,
+			);
+			dependencies = (
+			);
+			name = "Inthegametv-tvOS";
+		};
+		C56FFB5226CBB0A26AF9A5E0D36C4907 /* ITGPlayerViewController-tvOS */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 086C2AA6E0AD111D320B486F00F95DA1 /* Build configuration list for PBXAggregateTarget "ITGPlayerViewController-tvOS" */;
+			buildPhases = (
+				C24126D9F77BCD5083C110B8FC919089 /* [CP] Copy XCFrameworks */,
+			);
+			dependencies = (
+				299FC1D16F4140CC5560FC6169E1D0FD /* PBXTargetDependency */,
+			);
+			name = "ITGPlayerViewController-tvOS";
+		};
+		CCF971F4A541E71A479B9E7E10DF0BB3 /* ITGPlayerViewController-iOS */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 363DA63641371508182141628C53972B /* Build configuration list for PBXAggregateTarget "ITGPlayerViewController-iOS" */;
+			buildPhases = (
+				08D5262CF4C1A13BBBFC1F417D7B0F9A /* [CP] Copy XCFrameworks */,
+			);
+			dependencies = (
+				FC850E831ABEE856F40DA4F9A7D3362D /* PBXTargetDependency */,
+			);
+			name = "ITGPlayerViewController-iOS";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		09A1F574F452B68662B0A155C6DEDBA7 /* Pods-SampleApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E03E7EA155D3F3276114859C7E632342 /* Pods-SampleApp-dummy.m */; };
+		2B800B3C100A4272B7C58F4471A0FA8A /* Pods-SampleApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 639F3EFB0D9CE50F72292EF86920382B /* Pods-SampleApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7D04CBF709460FC405B74CF51111AD9C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938A87FFF9E7A6948A80B30F681294EE /* Foundation.framework */; };
+		9E945B06F2C66D5D2648409EA2916F44 /* Pods-SampleAppiOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F503CDA2561E9FD67A69F88518CEA4C4 /* Pods-SampleAppiOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BEA70F74A744D06B24C13F61D85B79FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40BEBBEE28ED5AA0CA9EA87D85E775C /* Foundation.framework */; };
+		EB07B9C118500692555FCE62A23B7DAE /* Pods-SampleAppiOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD8EC99610FC32E6993A5F9602B05DF /* Pods-SampleAppiOS-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4E8B3556B076F7256C005B765EF3E2A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CCF971F4A541E71A479B9E7E10DF0BB3;
+			remoteInfo = "ITGPlayerViewController-iOS";
+		};
+		83BEE5409108341B05A9FD6690BE6CB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0FDF4EA6476311B39B7CF2F9BD4046B6;
+			remoteInfo = "Inthegametv-iOS";
+		};
+		C0012FFD9F2E02869BC6CBCA7239E6CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0FDF4EA6476311B39B7CF2F9BD4046B6;
+			remoteInfo = "Inthegametv-iOS";
+		};
+		CF94BE9C85F95B57E72EA4770B47DDD5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C56FFB5226CBB0A26AF9A5E0D36C4907;
+			remoteInfo = "ITGPlayerViewController-tvOS";
+		};
+		DD9E35328A5760D9142C83399395B6C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84709E1DA43ECDE317878E92C1E8683C;
+			remoteInfo = "Inthegametv-tvOS";
+		};
+		FF0E5D5EEE25E03D35848E848EC078F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84709E1DA43ECDE317878E92C1E8683C;
+			remoteInfo = "Inthegametv-tvOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		003C0920327413467B185A21FE4E15EF /* Storket.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Storket.xcframework; path = Sources/Storket.xcframework; sourceTree = "<group>"; };
+		04ADEF1E3031A470D9BA4A20C4814A2B /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
+		0D33F9BA748E142FCFAE5CA27619060F /* Pods-SampleApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SampleApp-frameworks.sh"; sourceTree = "<group>"; };
+		0FD8EC99610FC32E6993A5F9602B05DF /* Pods-SampleAppiOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SampleAppiOS-dummy.m"; sourceTree = "<group>"; };
+		105A6F083E3336A0C3DD0C3D1456EB8C /* Pods-SampleAppiOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-SampleAppiOS"; path = Pods_SampleAppiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1286CB6C8D1472DD6F3D2219B38DFF72 /* Pods-SampleApp */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-SampleApp"; path = Pods_SampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		17C0361F2467D76A3916C523C89F9A67 /* ITGPlayerViewController-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "ITGPlayerViewController-tvOS.release.xcconfig"; path = "../ITGPlayerViewController-tvOS/ITGPlayerViewController-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		1D8DF837BA715B7F1B5120EAA2DD1164 /* Inthegametv-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Inthegametv-tvOS.debug.xcconfig"; path = "../Inthegametv-tvOS/Inthegametv-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		23B68DBF162AF8B622F9E5C24F49CD06 /* Inthegametv-iOS-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Inthegametv-iOS-xcframeworks.sh"; sourceTree = "<group>"; };
+		3B41628C7C63483C22D6A3F1F834509F /* Pods-SampleAppiOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SampleAppiOS-acknowledgements.plist"; sourceTree = "<group>"; };
+		3BFFAF08489A584A88313B8D0B92A722 /* Pods-SampleApp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SampleApp-Info.plist"; sourceTree = "<group>"; };
+		3F5E4522880B3FB00302CF4B7D02326F /* ITGPlayerViewController-tvOS-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; name = "ITGPlayerViewController-tvOS-xcframeworks.sh"; path = "../ITGPlayerViewController-tvOS/ITGPlayerViewController-tvOS-xcframeworks.sh"; sourceTree = "<group>"; };
+		480B37E491FD6AF027633D64F11B3064 /* ITGPlayerViewController-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "ITGPlayerViewController-tvOS.debug.xcconfig"; path = "../ITGPlayerViewController-tvOS/ITGPlayerViewController-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		4A59CA6C6D617B5731ECE2768648D942 /* Inthegametv-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Inthegametv-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		54B37353B057408D95B46157B45293C4 /* Inthegametv-tvOS-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; name = "Inthegametv-tvOS-xcframeworks.sh"; path = "../Inthegametv-tvOS/Inthegametv-tvOS-xcframeworks.sh"; sourceTree = "<group>"; };
+		5E5CD5E24E135728DCE1459EE2FB5F46 /* Pods-SampleApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SampleApp-acknowledgements.plist"; sourceTree = "<group>"; };
+		639F3EFB0D9CE50F72292EF86920382B /* Pods-SampleApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SampleApp-umbrella.h"; sourceTree = "<group>"; };
+		672A8069D473CD680ED8B23C372C4628 /* ITGPlayerViewController-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ITGPlayerViewController-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		6DC1BB7346BE14B83DD12F71E4F86ED9 /* Pods-SampleAppiOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SampleAppiOS.modulemap"; sourceTree = "<group>"; };
+		7086FAEBE7C5E1CC14118D3A2C68BD3A /* ITGPlayerViewController-iOS-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "ITGPlayerViewController-iOS-xcframeworks.sh"; sourceTree = "<group>"; };
+		7D581C2EF15D4942158E8EEBFFF472D4 /* Pods-SampleAppiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SampleAppiOS.release.xcconfig"; sourceTree = "<group>"; };
+		8372BC71423ACCCE03AC686B5F5E965D /* InthegametviOS.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = InthegametviOS.xcframework; path = Sources/InthegametviOS.xcframework; sourceTree = "<group>"; };
+		8841FFECE0F9DDD9B618CD805BF6C986 /* ITGPlayerViewController-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ITGPlayerViewController-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		89E87F5860E9C5D71978BD299BF5DC2E /* ItgPlayerViewController.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = ItgPlayerViewController.xcframework; path = Sources/Plugins/ItgPlayerViewController.xcframework; sourceTree = "<group>"; };
+		8C558D300C3C7DB5FC9AF26A48F7DE2C /* Pods-SampleAppiOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SampleAppiOS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		938A87FFF9E7A6948A80B30F681294EE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		945448713D821D34445A4BB88ED51DB0 /* Inthegametv-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Inthegametv-tvOS.release.xcconfig"; path = "../Inthegametv-tvOS/Inthegametv-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		9C8A24E9176D2CA06E9550DA72092E1A /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D3A25120F5A5A72F2610C5CFA3953DF0 /* Pods-SampleAppiOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SampleAppiOS-frameworks.sh"; sourceTree = "<group>"; };
+		E03E7EA155D3F3276114859C7E632342 /* Pods-SampleApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SampleApp-dummy.m"; sourceTree = "<group>"; };
+		E0A94F260F6BF7365BEDF7E439901EE3 /* Inthegametv-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Inthegametv-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		E22C7EC7A7525B80D397E7C76C608AF1 /* Inthegametv.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Inthegametv.xcframework; path = Sources/Inthegametv.xcframework; sourceTree = "<group>"; };
+		E40BEBBEE28ED5AA0CA9EA87D85E775C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		F503CDA2561E9FD67A69F88518CEA4C4 /* Pods-SampleAppiOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SampleAppiOS-umbrella.h"; sourceTree = "<group>"; };
+		F54AA50423C67D88A60E98B6204DB7A0 /* Pods-SampleApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SampleApp.modulemap"; sourceTree = "<group>"; };
+		F5D9D6504E46308DA4A821358158E6E3 /* Pods-SampleApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SampleApp-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F8CABC9DC54B70BB83386683AA68B320 /* Pods-SampleAppiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SampleAppiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		FE505320A6B842BD0F45994F528B29BF /* Pods-SampleAppiOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SampleAppiOS-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1E5D0518AF955201ED9BFCEE4A73C01D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D04CBF709460FC405B74CF51111AD9C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEFE6AE618A015E803522E64E446B73E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEA70F74A744D06B24C13F61D85B79FA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0DDB6211C9F980C1FC6EBC163A00EF63 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				23B68DBF162AF8B622F9E5C24F49CD06 /* Inthegametv-iOS-xcframeworks.sh */,
+				E0A94F260F6BF7365BEDF7E439901EE3 /* Inthegametv-iOS.debug.xcconfig */,
+				4A59CA6C6D617B5731ECE2768648D942 /* Inthegametv-iOS.release.xcconfig */,
+				54B37353B057408D95B46157B45293C4 /* Inthegametv-tvOS-xcframeworks.sh */,
+				1D8DF837BA715B7F1B5120EAA2DD1164 /* Inthegametv-tvOS.debug.xcconfig */,
+				945448713D821D34445A4BB88ED51DB0 /* Inthegametv-tvOS.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Inthegametv-iOS";
+			sourceTree = "<group>";
+		};
+		0FE259FED2E32D2C8742A968DC379E8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1286CB6C8D1472DD6F3D2219B38DFF72 /* Pods-SampleApp */,
+				105A6F083E3336A0C3DD0C3D1456EB8C /* Pods-SampleAppiOS */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1B968CE06695A078258908306A475674 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				73110A00E419934FF6C72BECD029BB7E /* Inthegametv */,
+				25C87AC1F08F7BD95F4F9FA6D59FB0EA /* ITGPlayerViewController */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		23B1D24EF6319F41CA8BE2BC35684916 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				62C023F392CFDE60C0730A814CD0B417 /* Pods-SampleApp */,
+				9CF4859947AAD7D04FCC5004A6ED64EB /* Pods-SampleAppiOS */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		25C87AC1F08F7BD95F4F9FA6D59FB0EA /* ITGPlayerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4F4BC0B8B8E258B938C94C8D5CAB490D /* Frameworks */,
+				5D495373E7FAB99F45F6374D3C9069F4 /* Support Files */,
+			);
+			name = ITGPlayerViewController;
+			path = ITGPlayerViewController;
+			sourceTree = "<group>";
+		};
+		3536D49A7FB3CA1BC49237B5C6176E23 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				938A87FFF9E7A6948A80B30F681294EE /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		4F4BC0B8B8E258B938C94C8D5CAB490D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89E87F5860E9C5D71978BD299BF5DC2E /* ItgPlayerViewController.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		59C86D8F0F1FA9A4CD2BD7505C8075AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3536D49A7FB3CA1BC49237B5C6176E23 /* iOS */,
+				C536FBE30C089D904DB6F2CDB2971B04 /* tvOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5D495373E7FAB99F45F6374D3C9069F4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7086FAEBE7C5E1CC14118D3A2C68BD3A /* ITGPlayerViewController-iOS-xcframeworks.sh */,
+				672A8069D473CD680ED8B23C372C4628 /* ITGPlayerViewController-iOS.debug.xcconfig */,
+				8841FFECE0F9DDD9B618CD805BF6C986 /* ITGPlayerViewController-iOS.release.xcconfig */,
+				3F5E4522880B3FB00302CF4B7D02326F /* ITGPlayerViewController-tvOS-xcframeworks.sh */,
+				480B37E491FD6AF027633D64F11B3064 /* ITGPlayerViewController-tvOS.debug.xcconfig */,
+				17C0361F2467D76A3916C523C89F9A67 /* ITGPlayerViewController-tvOS.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ITGPlayerViewController-iOS";
+			sourceTree = "<group>";
+		};
+		62C023F392CFDE60C0730A814CD0B417 /* Pods-SampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				F54AA50423C67D88A60E98B6204DB7A0 /* Pods-SampleApp.modulemap */,
+				F5D9D6504E46308DA4A821358158E6E3 /* Pods-SampleApp-acknowledgements.markdown */,
+				5E5CD5E24E135728DCE1459EE2FB5F46 /* Pods-SampleApp-acknowledgements.plist */,
+				E03E7EA155D3F3276114859C7E632342 /* Pods-SampleApp-dummy.m */,
+				0D33F9BA748E142FCFAE5CA27619060F /* Pods-SampleApp-frameworks.sh */,
+				3BFFAF08489A584A88313B8D0B92A722 /* Pods-SampleApp-Info.plist */,
+				639F3EFB0D9CE50F72292EF86920382B /* Pods-SampleApp-umbrella.h */,
+				04ADEF1E3031A470D9BA4A20C4814A2B /* Pods-SampleApp.debug.xcconfig */,
+				9C8A24E9176D2CA06E9550DA72092E1A /* Pods-SampleApp.release.xcconfig */,
+			);
+			name = "Pods-SampleApp";
+			path = "Target Support Files/Pods-SampleApp";
+			sourceTree = "<group>";
+		};
+		73110A00E419934FF6C72BECD029BB7E /* Inthegametv */ = {
+			isa = PBXGroup;
+			children = (
+				DD8E2B2E9CB6441FEB112215084BA0E1 /* Frameworks */,
+				0DDB6211C9F980C1FC6EBC163A00EF63 /* Support Files */,
+			);
+			name = Inthegametv;
+			path = Inthegametv;
+			sourceTree = "<group>";
+		};
+		9CF4859947AAD7D04FCC5004A6ED64EB /* Pods-SampleAppiOS */ = {
+			isa = PBXGroup;
+			children = (
+				6DC1BB7346BE14B83DD12F71E4F86ED9 /* Pods-SampleAppiOS.modulemap */,
+				8C558D300C3C7DB5FC9AF26A48F7DE2C /* Pods-SampleAppiOS-acknowledgements.markdown */,
+				3B41628C7C63483C22D6A3F1F834509F /* Pods-SampleAppiOS-acknowledgements.plist */,
+				0FD8EC99610FC32E6993A5F9602B05DF /* Pods-SampleAppiOS-dummy.m */,
+				D3A25120F5A5A72F2610C5CFA3953DF0 /* Pods-SampleAppiOS-frameworks.sh */,
+				FE505320A6B842BD0F45994F528B29BF /* Pods-SampleAppiOS-Info.plist */,
+				F503CDA2561E9FD67A69F88518CEA4C4 /* Pods-SampleAppiOS-umbrella.h */,
+				F8CABC9DC54B70BB83386683AA68B320 /* Pods-SampleAppiOS.debug.xcconfig */,
+				7D581C2EF15D4942158E8EEBFFF472D4 /* Pods-SampleAppiOS.release.xcconfig */,
+			);
+			name = "Pods-SampleAppiOS";
+			path = "Target Support Files/Pods-SampleAppiOS";
+			sourceTree = "<group>";
+		};
+		C536FBE30C089D904DB6F2CDB2971B04 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				E40BEBBEE28ED5AA0CA9EA87D85E775C /* Foundation.framework */,
+			);
+			name = tvOS;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				59C86D8F0F1FA9A4CD2BD7505C8075AD /* Frameworks */,
+				1B968CE06695A078258908306A475674 /* Pods */,
+				0FE259FED2E32D2C8742A968DC379E8B /* Products */,
+				23B1D24EF6319F41CA8BE2BC35684916 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		DD8E2B2E9CB6441FEB112215084BA0E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E22C7EC7A7525B80D397E7C76C608AF1 /* Inthegametv.xcframework */,
+				8372BC71423ACCCE03AC686B5F5E965D /* InthegametviOS.xcframework */,
+				003C0920327413467B185A21FE4E15EF /* Storket.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C7185A49A4109251BF3C37819B203E22 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B800B3C100A4272B7C58F4471A0FA8A /* Pods-SampleApp-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBBC98390327D15CFB23E293BF7906B0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E945B06F2C66D5D2648409EA2916F44 /* Pods-SampleAppiOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7EFCCFB3480AA7EDB90F9DDD3E9E1D93 /* Pods-SampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3259DB28161A153BE4E3082B739431D2 /* Build configuration list for PBXNativeTarget "Pods-SampleApp" */;
+			buildPhases = (
+				C7185A49A4109251BF3C37819B203E22 /* Headers */,
+				46F5945CA43687CC5701B0D3F7671273 /* Sources */,
+				AEFE6AE618A015E803522E64E446B73E /* Frameworks */,
+				7272A5890423A8FCBA6647B92978954B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B3292FC1F1CD588FFE9ABE381599953 /* PBXTargetDependency */,
+				1B8196984ED786B973F195ED6E006A78 /* PBXTargetDependency */,
+			);
+			name = "Pods-SampleApp";
+			productName = Pods_SampleApp;
+			productReference = 1286CB6C8D1472DD6F3D2219B38DFF72 /* Pods-SampleApp */;
+			productType = "com.apple.product-type.framework";
+		};
+		A3A61107A2813C502277D34391A7897E /* Pods-SampleAppiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A4BC2FBF2829CED61C9BC268D377A86 /* Build configuration list for PBXNativeTarget "Pods-SampleAppiOS" */;
+			buildPhases = (
+				DBBC98390327D15CFB23E293BF7906B0 /* Headers */,
+				33AFA8117C997048A314C98BABEE88F1 /* Sources */,
+				1E5D0518AF955201ED9BFCEE4A73C01D /* Frameworks */,
+				926CAAEE10542CFD9EB3F56C2CC2767C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E06CFD180134D4D922A1CE44132821EF /* PBXTargetDependency */,
+				8C37577210D0709FF132ED23276824C0 /* PBXTargetDependency */,
+			);
+			name = "Pods-SampleAppiOS";
+			productName = Pods_SampleAppiOS;
+			productReference = 105A6F083E3336A0C3DD0C3D1456EB8C /* Pods-SampleAppiOS */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 16.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 0FE259FED2E32D2C8742A968DC379E8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0FDF4EA6476311B39B7CF2F9BD4046B6 /* Inthegametv-iOS */,
+				84709E1DA43ECDE317878E92C1E8683C /* Inthegametv-tvOS */,
+				CCF971F4A541E71A479B9E7E10DF0BB3 /* ITGPlayerViewController-iOS */,
+				C56FFB5226CBB0A26AF9A5E0D36C4907 /* ITGPlayerViewController-tvOS */,
+				7EFCCFB3480AA7EDB90F9DDD3E9E1D93 /* Pods-SampleApp */,
+				A3A61107A2813C502277D34391A7897E /* Pods-SampleAppiOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7272A5890423A8FCBA6647B92978954B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		926CAAEE10542CFD9EB3F56C2CC2767C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		08D5262CF4C1A13BBBFC1F417D7B0F9A /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/ITGPlayerViewController-iOS/ITGPlayerViewController-iOS-xcframeworks-input-files.xcfilelist",
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/ITGPlayerViewController-iOS/ITGPlayerViewController-iOS-xcframeworks-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/ITGPlayerViewController-iOS/ITGPlayerViewController-iOS-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D242C0C4378F7351EACA7B7B3E33949 /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Inthegametv-iOS/Inthegametv-iOS-xcframeworks-input-files.xcfilelist",
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Inthegametv-iOS/Inthegametv-iOS-xcframeworks-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Inthegametv-iOS/Inthegametv-iOS-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C24126D9F77BCD5083C110B8FC919089 /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/ITGPlayerViewController-tvOS/ITGPlayerViewController-tvOS-xcframeworks-input-files.xcfilelist",
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/ITGPlayerViewController-tvOS/ITGPlayerViewController-tvOS-xcframeworks-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/ITGPlayerViewController-tvOS/ITGPlayerViewController-tvOS-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C84450255081D982339C4F7F0200D0FD /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Inthegametv-tvOS/Inthegametv-tvOS-xcframeworks-input-files.xcfilelist",
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Inthegametv-tvOS/Inthegametv-tvOS-xcframeworks-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Inthegametv-tvOS/Inthegametv-tvOS-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33AFA8117C997048A314C98BABEE88F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB07B9C118500692555FCE62A23B7DAE /* Pods-SampleAppiOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46F5945CA43687CC5701B0D3F7671273 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09A1F574F452B68662B0A155C6DEDBA7 /* Pods-SampleApp-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0B3292FC1F1CD588FFE9ABE381599953 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ITGPlayerViewController-tvOS";
+			target = C56FFB5226CBB0A26AF9A5E0D36C4907 /* ITGPlayerViewController-tvOS */;
+			targetProxy = CF94BE9C85F95B57E72EA4770B47DDD5 /* PBXContainerItemProxy */;
+		};
+		1B8196984ED786B973F195ED6E006A78 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Inthegametv-tvOS";
+			target = 84709E1DA43ECDE317878E92C1E8683C /* Inthegametv-tvOS */;
+			targetProxy = FF0E5D5EEE25E03D35848E848EC078F8 /* PBXContainerItemProxy */;
+		};
+		299FC1D16F4140CC5560FC6169E1D0FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Inthegametv-tvOS";
+			target = 84709E1DA43ECDE317878E92C1E8683C /* Inthegametv-tvOS */;
+			targetProxy = DD9E35328A5760D9142C83399395B6C3 /* PBXContainerItemProxy */;
+		};
+		8C37577210D0709FF132ED23276824C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Inthegametv-iOS";
+			target = 0FDF4EA6476311B39B7CF2F9BD4046B6 /* Inthegametv-iOS */;
+			targetProxy = C0012FFD9F2E02869BC6CBCA7239E6CE /* PBXContainerItemProxy */;
+		};
+		E06CFD180134D4D922A1CE44132821EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ITGPlayerViewController-iOS";
+			target = CCF971F4A541E71A479B9E7E10DF0BB3 /* ITGPlayerViewController-iOS */;
+			targetProxy = 4E8B3556B076F7256C005B765EF3E2A7 /* PBXContainerItemProxy */;
+		};
+		FC850E831ABEE856F40DA4F9A7D3362D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Inthegametv-iOS";
+			target = 0FDF4EA6476311B39B7CF2F9BD4046B6 /* Inthegametv-iOS */;
+			targetProxy = 83BEE5409108341B05A9FD6690BE6CB1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		176E47BE82BC3A71DDF9DB176DBDE7D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C8A24E9176D2CA06E9550DA72092E1A /* Pods-SampleApp.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-SampleApp/Pods-SampleApp-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SampleApp/Pods-SampleApp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 18.6;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		214FDB1F819AAA828BF2D7BC092C9C2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 18.6;
+			};
+			name = Release;
+		};
+		3C56A9E69F5B870D8D64CE57955994F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8841FFECE0F9DDD9B618CD805BF6C986 /* ITGPlayerViewController-iOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3E2946D4B46590A593E8D2E5CDC4E312 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 945448713D821D34445A4BB88ED51DB0 /* Inthegametv-tvOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		64405C083B218D1848D83E4E0235AA00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A59CA6C6D617B5731ECE2768648D942 /* Inthegametv-iOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		679157111DFAF4DDC3C66441855FF497 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 672A8069D473CD680ED8B23C372C4628 /* ITGPlayerViewController-iOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		867CEE6F73FCB66E3ADA1E07A6A470FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 480B37E491FD6AF027633D64F11B3064 /* ITGPlayerViewController-tvOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+			};
+			name = Debug;
+		};
+		93CD68A853926CB71C0B16B5BCDB6728 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0A94F260F6BF7365BEDF7E439901EE3 /* Inthegametv-iOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		93D56E0EE6D7A0DB03FBA7144EC64CF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04ADEF1E3031A470D9BA4A20C4814A2B /* Pods-SampleApp.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-SampleApp/Pods-SampleApp-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SampleApp/Pods-SampleApp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 18.6;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A30EB890129D09E3AE8F43710746962E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17C0361F2467D76A3916C523C89F9A67 /* ITGPlayerViewController-tvOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ADF99154F7A1C616AAE2DB9BE4D0E9E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8CABC9DC54B70BB83386683AA68B320 /* Pods-SampleAppiOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-SampleAppiOS/Pods-SampleAppiOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SampleAppiOS/Pods-SampleAppiOS.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CBA5C33CEB9B679963FF692C757F69B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 18.6;
+			};
+			name = Debug;
+		};
+		D900C1466E1EF80048C8A8B0FA568D65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D8DF837BA715B7F1B5120EAA2DD1164 /* Inthegametv-tvOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
+			};
+			name = Debug;
+		};
+		F971EEA0BB9344B791A3AEE5D65F364D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D581C2EF15D4942158E8EEBFFF472D4 /* Pods-SampleAppiOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-SampleAppiOS/Pods-SampleAppiOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SampleAppiOS/Pods-SampleAppiOS.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		086C2AA6E0AD111D320B486F00F95DA1 /* Build configuration list for PBXAggregateTarget "ITGPlayerViewController-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				867CEE6F73FCB66E3ADA1E07A6A470FE /* Debug */,
+				A30EB890129D09E3AE8F43710746962E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3259DB28161A153BE4E3082B739431D2 /* Build configuration list for PBXNativeTarget "Pods-SampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93D56E0EE6D7A0DB03FBA7144EC64CF0 /* Debug */,
+				176E47BE82BC3A71DDF9DB176DBDE7D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		363DA63641371508182141628C53972B /* Build configuration list for PBXAggregateTarget "ITGPlayerViewController-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				679157111DFAF4DDC3C66441855FF497 /* Debug */,
+				3C56A9E69F5B870D8D64CE57955994F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBA5C33CEB9B679963FF692C757F69B3 /* Debug */,
+				214FDB1F819AAA828BF2D7BC092C9C2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5693B3F7D9B71551665BFC98A00E23A0 /* Build configuration list for PBXAggregateTarget "Inthegametv-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D900C1466E1EF80048C8A8B0FA568D65 /* Debug */,
+				3E2946D4B46590A593E8D2E5CDC4E312 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A4BC2FBF2829CED61C9BC268D377A86 /* Build configuration list for PBXNativeTarget "Pods-SampleAppiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADF99154F7A1C616AAE2DB9BE4D0E9E5 /* Debug */,
+				F971EEA0BB9344B791A3AEE5D65F364D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C68CD24BEA3747EB8B164AA1068BBC34 /* Build configuration list for PBXAggregateTarget "Inthegametv-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93CD68A853926CB71C0B16B5BCDB6728 /* Debug */,
+				64405C083B218D1848D83E4E0235AA00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
