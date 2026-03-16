@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11050B0B2F0E5F80002A7B8C /* ITGPlayerViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 11050B0A2F0E5F80002A7B8C /* ITGPlayerViewController */; };
-		11050B0D2F0E5F80002A7B8C /* Inthegametv in Frameworks */ = {isa = PBXBuildFile; productRef = 11050B0C2F0E5F80002A7B8C /* Inthegametv */; };
-		11050B0F2F0E5F80002A7B8C /* InthegametviOS in Frameworks */ = {isa = PBXBuildFile; productRef = 11050B0E2F0E5F80002A7B8C /* InthegametviOS */; };
-		11050B112F0E5F98002A7B8C /* ITGPlayerViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 11050B102F0E5F98002A7B8C /* ITGPlayerViewController */; };
-		1177E0B72F3A16D500F937F0 /* ITGDatazoomPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 1177E0B62F3A16D500F937F0 /* ITGDatazoomPlugin */; };
-		1177E0B92F3A16D500F937F0 /* ITGPlayerViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 1177E0B82F3A16D500F937F0 /* ITGPlayerViewController */; };
+		112A2EA32F6834D900E4A971 /* ITGDatazoomPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 112A2EA22F6834D900E4A971 /* ITGDatazoomPlugin */; };
+		112A2EA72F6834D900E4A971 /* Inthegametv in Frameworks */ = {isa = PBXBuildFile; productRef = 112A2EA62F6834D900E4A971 /* Inthegametv */; };
+		112A2EAB2F6834EA00E4A971 /* InthegametviOS in Frameworks */ = {isa = PBXBuildFile; productRef = 112A2EAA2F6834EA00E4A971 /* InthegametviOS */; };
+		112A2EAD2F6834EA00E4A971 /* ITGDatazoomPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 112A2EAC2F6834EA00E4A971 /* ITGDatazoomPlugin */; };
+		112A2EAF2F6834FE00E4A971 /* ITGPlayerViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 112A2EAE2F6834FE00E4A971 /* ITGPlayerViewController */; };
+		112A2EB12F68350800E4A971 /* ITGPlayerViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 112A2EB02F68350800E4A971 /* ITGPlayerViewController */; };
+		112A2EB42F68352A00E4A971 /* DzMediaTailorAdapter in Frameworks */ = {isa = PBXBuildFile; productRef = 112A2EB32F68352A00E4A971 /* DzMediaTailorAdapter */; };
+		112A2EB62F68354500E4A971 /* DzMediaTailorAdapter in Frameworks */ = {isa = PBXBuildFile; productRef = 112A2EB52F68354500E4A971 /* DzMediaTailorAdapter */; };
 		1177E0BC2F3A179300F937F0 /* DzAVPlayerAdapter in Frameworks */ = {isa = PBXBuildFile; productRef = 1177E0BB2F3A179300F937F0 /* DzAVPlayerAdapter */; };
 		1177E0BF2F3A18C300F937F0 /* GoogleProgrammaticAccessLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 1177E0BE2F3A18C300F937F0 /* GoogleProgrammaticAccessLibrary */; };
 		1177E0C22F3A191000F937F0 /* GoogleProgrammaticAccessLibraryTvOS in Frameworks */ = {isa = PBXBuildFile; productRef = 1177E0C12F3A191000F937F0 /* GoogleProgrammaticAccessLibraryTvOS */; };
-		1177E0C42F3A19D700F937F0 /* ITGDatazoomPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 1177E0C32F3A19D700F937F0 /* ITGDatazoomPlugin */; };
 		1177E0C62F3A19EA00F937F0 /* DzAVPlayerAdapter in Frameworks */ = {isa = PBXBuildFile; productRef = 1177E0C52F3A19EA00F937F0 /* DzAVPlayerAdapter */; };
 /* End PBXBuildFile section */
 
@@ -35,12 +36,24 @@
 			);
 			target = 11EB159F2D92AE8C0054D53A /* SampleApp */;
 		};
+		112A2EA02F6834C000E4A971 /* Exceptions for "SampleApp" folder in "SampleApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Inthegametv.xcframework,
+				ItgPlayerViewController.xcframework,
+				Storket.xcframework,
+			);
+			target = 11EB159F2D92AE8C0054D53A /* SampleApp */;
+		};
 		11E961982EA6497800CD21E9 /* Exceptions for "SampleApp" folder in "SampleAppiOS" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"/Localized: LaunchScreen.storyboard",
 				"/Localized: Main.storyboard",
 				Assets.xcassets,
+				Inthegametv.xcframework,
+				ItgPlayerViewController.xcframework,
+				Storket.xcframework,
 			);
 			target = 11E961572EA647ED00CD21E9 /* SampleAppiOS */;
 		};
@@ -58,6 +71,7 @@
 		11EB15A22D92AE8C0054D53A /* SampleApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				112A2EA02F6834C000E4A971 /* Exceptions for "SampleApp" folder in "SampleApp" target */,
 				11E961982EA6497800CD21E9 /* Exceptions for "SampleApp" folder in "SampleAppiOS" target */,
 			);
 			path = SampleApp;
@@ -70,11 +84,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11050B0F2F0E5F80002A7B8C /* InthegametviOS in Frameworks */,
+				112A2EB62F68354500E4A971 /* DzMediaTailorAdapter in Frameworks */,
 				1177E0C62F3A19EA00F937F0 /* DzAVPlayerAdapter in Frameworks */,
+				112A2EAB2F6834EA00E4A971 /* InthegametviOS in Frameworks */,
 				1177E0BF2F3A18C300F937F0 /* GoogleProgrammaticAccessLibrary in Frameworks */,
-				11050B112F0E5F98002A7B8C /* ITGPlayerViewController in Frameworks */,
-				1177E0C42F3A19D700F937F0 /* ITGDatazoomPlugin in Frameworks */,
+				112A2EAD2F6834EA00E4A971 /* ITGDatazoomPlugin in Frameworks */,
+				112A2EAF2F6834FE00E4A971 /* ITGPlayerViewController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,12 +97,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11050B0B2F0E5F80002A7B8C /* ITGPlayerViewController in Frameworks */,
+				112A2EB42F68352A00E4A971 /* DzMediaTailorAdapter in Frameworks */,
 				1177E0BC2F3A179300F937F0 /* DzAVPlayerAdapter in Frameworks */,
-				11050B0D2F0E5F80002A7B8C /* Inthegametv in Frameworks */,
-				1177E0B92F3A16D500F937F0 /* ITGPlayerViewController in Frameworks */,
+				112A2EA72F6834D900E4A971 /* Inthegametv in Frameworks */,
+				112A2EA32F6834D900E4A971 /* ITGDatazoomPlugin in Frameworks */,
+				112A2EB12F68350800E4A971 /* ITGPlayerViewController in Frameworks */,
 				1177E0C22F3A191000F937F0 /* GoogleProgrammaticAccessLibraryTvOS in Frameworks */,
-				1177E0B72F3A16D500F937F0 /* ITGDatazoomPlugin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,10 +205,11 @@
 			mainGroup = 11EB15972D92AE8C0054D53A;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				1177E0B52F3A16D500F937F0 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */,
 				1177E0BA2F3A179300F937F0 /* XCRemoteSwiftPackageReference "apple_dz_avplayer_adapter" */,
 				1177E0BD2F3A18C300F937F0 /* XCRemoteSwiftPackageReference "swift-package-manager-google-programmatic-access-library-ios" */,
 				1177E0C02F3A191000F937F0 /* XCRemoteSwiftPackageReference "swift-package-manager-google-programmatic-access-library-tvos" */,
+				112A2EA12F6834D900E4A971 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */,
+				112A2EB22F68352A00E4A971 /* XCRemoteSwiftPackageReference "apple_dz_mediatailor_adapter" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 11EB15A12D92AE8C0054D53A /* Products */;
@@ -253,7 +269,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -285,7 +301,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -446,7 +462,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 15.6;
+				TVOS_DEPLOYMENT_TARGET = 16;
 			};
 			name = Debug;
 		};
@@ -472,7 +488,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 15.6;
+				TVOS_DEPLOYMENT_TARGET = 16;
 			};
 			name = Release;
 		};
@@ -509,20 +525,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		11050B092F0E5F80002A7B8C /* XCRemoteSwiftPackageReference "itg-apple-sdk" */ = {
+		112A2EA12F6834D900E4A971 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Inthegamesdk/itg-apple-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.7.1;
+				minimumVersion = 2.7.20;
 			};
 		};
-		1177E0B52F3A16D500F937F0 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */ = {
+		112A2EB22F68352A00E4A971 /* XCRemoteSwiftPackageReference "apple_dz_mediatailor_adapter" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Inthegamesdk/itg-apple-sdk";
+			repositoryURL = "https://gitlab.com/datazoom/apple/libraries-release/apple_dz_mediatailor_adapter";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.7.12;
+				minimumVersion = 1.9.1;
 			};
 		};
 		1177E0BA2F3A179300F937F0 /* XCRemoteSwiftPackageReference "apple_dz_avplayer_adapter" */ = {
@@ -552,35 +568,45 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		11050B0A2F0E5F80002A7B8C /* ITGPlayerViewController */ = {
+		112A2EA22F6834D900E4A971 /* ITGDatazoomPlugin */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 11050B092F0E5F80002A7B8C /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
-			productName = ITGPlayerViewController;
-		};
-		11050B0C2F0E5F80002A7B8C /* Inthegametv */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 11050B092F0E5F80002A7B8C /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
-			productName = Inthegametv;
-		};
-		11050B0E2F0E5F80002A7B8C /* InthegametviOS */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 11050B092F0E5F80002A7B8C /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
-			productName = InthegametviOS;
-		};
-		11050B102F0E5F98002A7B8C /* ITGPlayerViewController */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 11050B092F0E5F80002A7B8C /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
-			productName = ITGPlayerViewController;
-		};
-		1177E0B62F3A16D500F937F0 /* ITGDatazoomPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1177E0B52F3A16D500F937F0 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
+			package = 112A2EA12F6834D900E4A971 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
 			productName = ITGDatazoomPlugin;
 		};
-		1177E0B82F3A16D500F937F0 /* ITGPlayerViewController */ = {
+		112A2EA62F6834D900E4A971 /* Inthegametv */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1177E0B52F3A16D500F937F0 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
+			package = 112A2EA12F6834D900E4A971 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
+			productName = Inthegametv;
+		};
+		112A2EAA2F6834EA00E4A971 /* InthegametviOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 112A2EA12F6834D900E4A971 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
+			productName = InthegametviOS;
+		};
+		112A2EAC2F6834EA00E4A971 /* ITGDatazoomPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 112A2EA12F6834D900E4A971 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
+			productName = ITGDatazoomPlugin;
+		};
+		112A2EAE2F6834FE00E4A971 /* ITGPlayerViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 112A2EA12F6834D900E4A971 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
 			productName = ITGPlayerViewController;
+		};
+		112A2EB02F68350800E4A971 /* ITGPlayerViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 112A2EA12F6834D900E4A971 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
+			productName = ITGPlayerViewController;
+		};
+		112A2EB32F68352A00E4A971 /* DzMediaTailorAdapter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 112A2EB22F68352A00E4A971 /* XCRemoteSwiftPackageReference "apple_dz_mediatailor_adapter" */;
+			productName = DzMediaTailorAdapter;
+		};
+		112A2EB52F68354500E4A971 /* DzMediaTailorAdapter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 112A2EB22F68352A00E4A971 /* XCRemoteSwiftPackageReference "apple_dz_mediatailor_adapter" */;
+			productName = DzMediaTailorAdapter;
 		};
 		1177E0BB2F3A179300F937F0 /* DzAVPlayerAdapter */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -596,11 +622,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1177E0C02F3A191000F937F0 /* XCRemoteSwiftPackageReference "swift-package-manager-google-programmatic-access-library-tvos" */;
 			productName = GoogleProgrammaticAccessLibraryTvOS;
-		};
-		1177E0C32F3A19D700F937F0 /* ITGDatazoomPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1177E0B52F3A16D500F937F0 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
-			productName = ITGDatazoomPlugin;
 		};
 		1177E0C52F3A19EA00F937F0 /* DzAVPlayerAdapter */ = {
 			isa = XCSwiftPackageProductDependency;

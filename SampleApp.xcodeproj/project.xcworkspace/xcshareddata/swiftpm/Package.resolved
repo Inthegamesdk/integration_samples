@@ -1,5 +1,5 @@
 {
-  "originHash" : "c239ea206e2aa1e92a1862c9fea493e8b11cf6cb1b89459d163872005d89edc1",
+  "originHash" : "7f5b8b1e676ab4fc5c1b4f5a9e900da3d021c69e59fef8e3bc9268bfe46aec2e",
   "pins" : [
     {
       "identity" : "apple_dz_avplayer_adapter",
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Inthegamesdk/itg-apple-sdk",
       "state" : {
-        "revision" : "f7e1886eb0cf56f30f594b7463990fb75d87a01e",
-        "version" : "2.7.12"
+        "revision" : "4211a708d4ccfa8d18468013ab76dfe5eff7f466",
+        "version" : "2.7.20"
       }
     },
     {

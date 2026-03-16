@@ -7,8 +7,8 @@
 
 import UIKit
 import AVKit
-import ITGPlayerViewController
-import ITGDatazoomPlugin
+import ItgPlayerViewController
+import ItgDatazoomPlugin
 #if os(tvOS)
 import Inthegametv
 #else
