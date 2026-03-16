@@ -13,7 +13,7 @@ import Inthegametv
 #else
 import InthegametviOS
 #endif
-import ITGOverlayViewSwiftUI
+import ItgOverlayViewSwiftUI
 
 class ITGPlayerViewModel: ObservableObject {
     
@@ -76,7 +76,7 @@ struct ContentView: View {
     
     @State var blockItg: Bool = false {
         didSet {
-            playerViewModel.itgOverlayView?.block(blockItg)
+            playerViewModel.itgOverlayView?.block(blockItg, includePauseAd: true)
         }
     }
     @StateObject var playerViewModel = ITGPlayerViewModel(URL(string: "https://assets.inthegame.io/admin-assets/black_screen_with_timer.mp4")!)
@@ -144,6 +144,8 @@ struct ContentView: View {
                         playerViewModel.contentMode = .fit
                     }
                 },
+                onItgWillPresentAd: { _ in },
+                onItgDidFinishPresentingAd: { _ in }, 
                 onItgOverlayCreated: { overlayView in
                     playerViewModel.itgOverlayView = overlayView
                 })
