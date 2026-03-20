@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		112B5C752F6D464300F5BF36 /* ITGGoogleIMAPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 112B5C742F6D464300F5BF36 /* ITGGoogleIMAPlugin */; };
+		112B5C772F6D464900F5BF36 /* ITGGoogleIMAPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 112B5C762F6D464900F5BF36 /* ITGGoogleIMAPlugin */; };
+		112B5C7A2F6D46B200F5BF36 /* GoogleProgrammaticAccessLibraryTvOS in Frameworks */ = {isa = PBXBuildFile; productRef = 112B5C792F6D46B200F5BF36 /* GoogleProgrammaticAccessLibraryTvOS */; };
+		112B5C7E2F6D479400F5BF36 /* GoogleProgrammaticAccessLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 112B5C7D2F6D479400F5BF36 /* GoogleProgrammaticAccessLibrary */; };
+		112B5C812F6D488B00F5BF36 /* GoogleInteractiveMediaAdsTvOS in Frameworks */ = {isa = PBXBuildFile; productRef = 112B5C802F6D488B00F5BF36 /* GoogleInteractiveMediaAdsTvOS */; };
+		112B5C842F6D492200F5BF36 /* GoogleInteractiveMediaAds in Frameworks */ = {isa = PBXBuildFile; productRef = 112B5C832F6D492200F5BF36 /* GoogleInteractiveMediaAds */; };
 		116B706E2F6070C7006EE1FF /* ITGPlayerViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 116B706D2F6070C7006EE1FF /* ITGPlayerViewController */; };
 		116B70702F6070C7006EE1FF /* Inthegametv in Frameworks */ = {isa = PBXBuildFile; productRef = 116B706F2F6070C7006EE1FF /* Inthegametv */; };
 		116B70722F6070C7006EE1FF /* InthegametviOS in Frameworks */ = {isa = PBXBuildFile; productRef = 116B70712F6070C7006EE1FF /* InthegametviOS */; };
@@ -64,6 +70,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				116B70722F6070C7006EE1FF /* InthegametviOS in Frameworks */,
+				112B5C842F6D492200F5BF36 /* GoogleInteractiveMediaAds in Frameworks */,
+				112B5C7E2F6D479400F5BF36 /* GoogleProgrammaticAccessLibrary in Frameworks */,
+				112B5C772F6D464900F5BF36 /* ITGGoogleIMAPlugin in Frameworks */,
 				116B70752F6070D6006EE1FF /* ITGPlayerViewController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +82,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				116B706E2F6070C7006EE1FF /* ITGPlayerViewController in Frameworks */,
+				112B5C7A2F6D46B200F5BF36 /* GoogleProgrammaticAccessLibraryTvOS in Frameworks */,
+				112B5C812F6D488B00F5BF36 /* GoogleInteractiveMediaAdsTvOS in Frameworks */,
+				112B5C752F6D464300F5BF36 /* ITGGoogleIMAPlugin in Frameworks */,
 				116B70702F6070C7006EE1FF /* Inthegametv in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,6 +189,10 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				116B706C2F6070C7006EE1FF /* XCRemoteSwiftPackageReference "itg-apple-sdk" */,
+				112B5C782F6D46B200F5BF36 /* XCRemoteSwiftPackageReference "swift-package-manager-google-programmatic-access-library-tvos" */,
+				112B5C7C2F6D479400F5BF36 /* XCRemoteSwiftPackageReference "swift-package-manager-google-programmatic-access-library-ios" */,
+				112B5C7F2F6D488B00F5BF36 /* XCRemoteSwiftPackageReference "swift-package-manager-google-interactive-media-ads-tvos" */,
+				112B5C822F6D48E200F5BF36 /* XCRemoteSwiftPackageReference "swift-package-manager-google-interactive-media-ads-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 11EB15A12D92AE8C0054D53A /* Products */;
@@ -492,6 +508,38 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		112B5C782F6D46B200F5BF36 /* XCRemoteSwiftPackageReference "swift-package-manager-google-programmatic-access-library-tvos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-programmatic-access-library-tvos";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		112B5C7C2F6D479400F5BF36 /* XCRemoteSwiftPackageReference "swift-package-manager-google-programmatic-access-library-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-programmatic-access-library-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		112B5C7F2F6D488B00F5BF36 /* XCRemoteSwiftPackageReference "swift-package-manager-google-interactive-media-ads-tvos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-interactive-media-ads-tvos";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		112B5C822F6D48E200F5BF36 /* XCRemoteSwiftPackageReference "swift-package-manager-google-interactive-media-ads-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-interactive-media-ads-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		116B706C2F6070C7006EE1FF /* XCRemoteSwiftPackageReference "itg-apple-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Inthegamesdk/itg-apple-sdk";
@@ -503,6 +551,36 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		112B5C742F6D464300F5BF36 /* ITGGoogleIMAPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 116B706C2F6070C7006EE1FF /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
+			productName = ITGGoogleIMAPlugin;
+		};
+		112B5C762F6D464900F5BF36 /* ITGGoogleIMAPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 116B706C2F6070C7006EE1FF /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
+			productName = ITGGoogleIMAPlugin;
+		};
+		112B5C792F6D46B200F5BF36 /* GoogleProgrammaticAccessLibraryTvOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 112B5C782F6D46B200F5BF36 /* XCRemoteSwiftPackageReference "swift-package-manager-google-programmatic-access-library-tvos" */;
+			productName = GoogleProgrammaticAccessLibraryTvOS;
+		};
+		112B5C7D2F6D479400F5BF36 /* GoogleProgrammaticAccessLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 112B5C7C2F6D479400F5BF36 /* XCRemoteSwiftPackageReference "swift-package-manager-google-programmatic-access-library-ios" */;
+			productName = GoogleProgrammaticAccessLibrary;
+		};
+		112B5C802F6D488B00F5BF36 /* GoogleInteractiveMediaAdsTvOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 112B5C7F2F6D488B00F5BF36 /* XCRemoteSwiftPackageReference "swift-package-manager-google-interactive-media-ads-tvos" */;
+			productName = GoogleInteractiveMediaAdsTvOS;
+		};
+		112B5C832F6D492200F5BF36 /* GoogleInteractiveMediaAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 112B5C822F6D48E200F5BF36 /* XCRemoteSwiftPackageReference "swift-package-manager-google-interactive-media-ads-ios" */;
+			productName = GoogleInteractiveMediaAds;
+		};
 		116B706D2F6070C7006EE1FF /* ITGPlayerViewController */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 116B706C2F6070C7006EE1FF /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;

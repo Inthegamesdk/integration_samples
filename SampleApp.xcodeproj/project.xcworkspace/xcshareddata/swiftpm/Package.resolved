@@ -1,5 +1,5 @@
 {
-  "originHash" : "e72764db5942d8089472414a1a327e3df32df65626992ba8f1a2bbe9598fc495",
+  "originHash" : "9049495aa7487a8c859deaf9088fa253b88eb7913de118435de22f0beda14a8a",
   "pins" : [
     {
       "identity" : "itg-apple-sdk",
@@ -8,6 +8,42 @@
       "state" : {
         "revision" : "4211a708d4ccfa8d18468013ab76dfe5eff7f466",
         "version" : "2.7.20"
+      }
+    },
+    {
+      "identity" : "swift-package-manager-google-interactive-media-ads-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/googleads/swift-package-manager-google-interactive-media-ads-ios",
+      "state" : {
+        "revision" : "46ab9a1d3c0417c4fc27f73625648062bb4c7893",
+        "version" : "3.30.0"
+      }
+    },
+    {
+      "identity" : "swift-package-manager-google-interactive-media-ads-tvos",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/googleads/swift-package-manager-google-interactive-media-ads-tvos",
+      "state" : {
+        "revision" : "fe5a302eb17388077258b02e2a18e88f63100625",
+        "version" : "4.16.0"
+      }
+    },
+    {
+      "identity" : "swift-package-manager-google-programmatic-access-library-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/googleads/swift-package-manager-google-programmatic-access-library-ios",
+      "state" : {
+        "revision" : "3f71fb9b08a879c0984c0eb8e352323176f5be11",
+        "version" : "2.9.1"
+      }
+    },
+    {
+      "identity" : "swift-package-manager-google-programmatic-access-library-tvos",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/googleads/swift-package-manager-google-programmatic-access-library-tvos",
+      "state" : {
+        "revision" : "92228ed393c31b02159001758d3f03a71ad005f0",
+        "version" : "2.9.1"
       }
     }
   ],

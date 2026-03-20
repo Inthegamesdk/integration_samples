@@ -8,6 +8,7 @@
 import UIKit
 import AVKit
 import ItgPlayerViewController
+import ItgGoogleIMAPlugin
 #if os(tvOS)
 import Inthegametv
 #else
@@ -35,6 +36,7 @@ class ViewController: UIViewController {
 #endif
         view.addSubview(itgPlayerController.view)
         itgPlayerController.view.constraintsFillSuperview()
+        itgPlayerController.overlayView?.imaPlugin = ITGGoogleIMAPlugin()
         player.play()
         
     }
