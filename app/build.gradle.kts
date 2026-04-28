@@ -62,10 +62,10 @@ dependencies {
 
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 
-    implementation("io.inthegame.sdk:core:2.7.0.6")
-    implementation("io.inthegame.sdk:media3:2.7.0")
+    implementation("io.inthegame.sdk:core:2.7.0.16")
+    implementation("io.inthegame.sdk:media3:2.7.0.3")
 
     implementation("io.datazoom.sdk:media3:1.0.0")
-    implementation("io.inthegame.sdk:datazoom:2.7.0.1")
+    implementation("io.inthegame.sdk:datazoom:2.7.0.3")
 
 }
