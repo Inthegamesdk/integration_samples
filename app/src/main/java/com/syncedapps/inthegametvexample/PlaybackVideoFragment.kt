@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.ViewGroup
@@ -25,17 +26,26 @@ import androidx.media3.exoplayer.source.ProgressiveMediaSource
 import androidx.media3.ui.leanback.LeanbackPlayerAdapter
 import com.syncedapps.inthegametv.integration.ITGMedia3LeanbackPlayerAdapter
 import com.syncedapps.inthegametv.integration.ITGPlaybackComponent
+import com.syncedapps.inthegametvexample.mediatailor.FetchConfig
+import io.inthegame.mediatailor.ITGMediaTailorPlugin
+import io.inthegame.mediatailor.domain.useCase.basic.Resource.Companion.asSuccessful
 import kotlinx.coroutines.launch
+import androidx.core.net.toUri
+import com.syncedapps.inthegametvexample.Const.MEDITAILOR_URL
 
-class PlaybackVideoFragment : VideoSupportFragment()  {
+class PlaybackVideoFragment : VideoSupportFragment() {
 
+    @SuppressLint("UnsafeOptInUsageError")
     private var mPlayerGlue: PlaybackTransportControlGlue<LeanbackPlayerAdapter>? = null
+
+    @SuppressLint("UnsafeOptInUsageError")
     private var mPlayerAdapter: LeanbackPlayerAdapter? = null
     private var mPlayer: ExoPlayer? = null
     private var shouldNotShowControls = false
 
     private var mITGComponent: ITGPlaybackComponent? = null
     private var mITGPlayerAdapter: ITGMedia3LeanbackPlayerAdapter? = null
+    private var mITGMediaTailorPlugin: ITGMediaTailorPlugin? = null
 
 
     @OptIn(UnstableApi::class)
@@ -43,11 +53,14 @@ class PlaybackVideoFragment : VideoSupportFragment()  {
         super.onViewCreated(view, savedInstanceState)
         view.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.black))
 
-        play()
+        initITG(savedInstanceState)
+        initMediaTailor()
+    }
 
+    private fun initITG(savedInstanceState: Bundle?) {
         // Replace 'your_account_id' and 'your_channel_slug' with actual values
         val accountId = "69230d1b5f7b3515524dd184"
-        val channelSlug = "demo"
+        val channelSlug = "demo_mediatailor"
 
 
         // Initialize ITGPlaybackComponent
@@ -75,15 +88,55 @@ class PlaybackVideoFragment : VideoSupportFragment()  {
         // Add the ITG component to your view hierarchy
         (requireView() as ViewGroup).addView(mITGComponent, 0)
 
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                if (mITGComponent == null || mITGComponent?.handleBackPressIfNeeded() == false) {
-                    // Implement your own back press action here
-                    requireActivity().finish()
+
+        //Setup backpress listener
+
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    if (mITGComponent == null || mITGComponent?.handleBackPressIfNeeded() == false) {
+                        // Implement your own back press action here
+                        requireActivity().finish()
+                    }
+                }
+            })
+    }
+
+    @SuppressLint("UnsafeOptInUsageError")
+    private fun initMediaTailor() = lifecycleScope.launch {
+        // init MT
+        val config =
+            FetchConfig().invoke(
+                FetchConfig.Param(MEDITAILOR_URL)
+            ).asSuccessful()
+
+        // init ITG MT Plugin
+        val itgMediaTailorPlugin = ITGMediaTailorPlugin()
+        itgMediaTailorPlugin.delegate = mITGComponent?.itgOverlayView ?: return@launch
+
+        // assign optional listener
+        itgMediaTailorPlugin.listener =
+            object : ITGMediaTailorPlugin.ITGMediaTailorListener {
+                override fun didReceiveTrackingData(json: String) {
+                    Log.d(
+                        this@PlaybackVideoFragment.javaClass.simpleName,
+                        "didReceiveTrackingData $json"
+                    )
                 }
             }
-        })
 
+        // start the plugin
+        itgMediaTailorPlugin.startMediaTailor(
+            config?.trackingUrl.orEmpty(),
+            5_000L,
+            injectImmediately = true
+        )
+
+        mITGMediaTailorPlugin = itgMediaTailorPlugin
+
+        // start playback
+        config?.manifestUrl?.let { play(it) }
     }
 
     @OptIn(UnstableApi::class)
@@ -97,7 +150,6 @@ class PlaybackVideoFragment : VideoSupportFragment()  {
         super.onResume()
         if (mPlayer == null) {
             initializePlayer()
-            play()
         }
     }
 
@@ -138,8 +190,6 @@ class PlaybackVideoFragment : VideoSupportFragment()  {
         mPlayerGlue?.host = VideoSupportFragmentGlueHost(this)
         mPlayerGlue?.playWhenPrepared()
         isControlsOverlayAutoHideEnabled = true
-
-        play()
     }
 
     private fun releasePlayer() {
@@ -156,28 +206,9 @@ class PlaybackVideoFragment : VideoSupportFragment()  {
     }
 
     @UnstableApi
-    private fun play(streamUrl: String? = Const.VIDEO_URL) {
-        prepareMediaForPlaying(Uri.parse(streamUrl))
+    private fun play(streamUrl: String) {
+        mPlayer?.setMediaItem(MediaItem.fromUri(streamUrl))
         mPlayerGlue?.play()
-    }
-
-    @UnstableApi
-    private fun prepareMediaForPlaying(mediaSourceUri: Uri) {
-        val userAgent: String = Util.getUserAgent(requireContext(), "VideoPlayerGlue")
-
-        val upstreamDataSourceFactory = DefaultHttpDataSource.Factory()
-            .setAllowCrossProtocolRedirects(true)
-            .setUserAgent(userAgent)
-
-        val defaultDataSourceFactory =
-            DefaultDataSource.Factory(requireContext(), upstreamDataSourceFactory)
-
-        defaultDataSourceFactory.createDataSource()
-
-        val mediaSource: MediaSource = ProgressiveMediaSource.Factory(defaultDataSourceFactory)
-            .createMediaSource(MediaItem.fromUri(mediaSourceUri))
-
-        mPlayer?.setMediaSource(mediaSource)
     }
 
     override fun showControlsOverlay(runAnimation: Boolean) {
