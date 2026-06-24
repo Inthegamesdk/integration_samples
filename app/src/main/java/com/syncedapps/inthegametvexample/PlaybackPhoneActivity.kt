@@ -78,7 +78,6 @@ class PlaybackPhoneActivity : FragmentActivity() {
 
             accountId = accountId, //mandatory: your ITG accountId
             channelSlug = channelSlug, //mandatory: your channelId on our admin panel
-            itgEnvironment = ITGEnvironment.dev,
             enableLogs = true
         )
 

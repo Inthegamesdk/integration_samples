@@ -10,9 +10,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven {
-            url = uri("https://androidrepo.internal.inthegame.io/repository/android/")
-        }
+//        maven {
+//            url = uri("https://androidrepo.internal.inthegame.io/repository/android/")
+//        }
     }
 }
 include ':app'
