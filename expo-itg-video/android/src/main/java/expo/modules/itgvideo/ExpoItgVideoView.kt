@@ -69,9 +69,8 @@ class ExpoItgVideoView(context: Context, appContext: AppContext) : ExpoView(cont
   }
 
   private fun initITG() {
-    // Replace 'your_account_id' and 'your_channel_slug' with actual values
-    val accountId = "68650da0324217d506bcc2d4"
-    val channelSlug = "samplechannel"
+    val accountId = "69230d1b5f7b3515524dd184"
+    val channelSlug = "demo"
 
 
     // Initialize ITGPlaybackComponent
