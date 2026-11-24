@@ -1,6 +1,6 @@
 import ExpoModulesCore
 import AVKit
-import ITGPlayerViewController
+import ItgPlayerViewController
 #if os(iOS)
 import InthegametviOS
 #else
@@ -20,7 +20,7 @@ public class ExpoItgVideoView: ExpoView {
         playerViewController.player = player
         
         let playerAdapter = ITGAVPlayerAdapter(player, playerViewController: playerViewController)
-        itgPlayerController = ITGPlayerViewController(channelSlug: "samplechannel", accountId: "68650da0324217d506bcc2d4", environment: ITGEnvironment(envName: "v2-3"), playerAdapter: playerAdapter)
+        itgPlayerController = ITGPlayerViewController(channelSlug: "demo", accountId: "69230d1b5f7b3515524dd184", environment: ITGEnvironment(envName: "v2-7"), playerAdapter: playerAdapter, showLogs: true)
         itgPlayerController.shouldPlayChannelVideo = false
 #if os(iOS)
         itgPlayerController.closeButtonVisibilityMode = .hidden

@@ -7,6 +7,26 @@ This project uses
 - the [React Native TV fork](https://github.com/react-native-tvos/react-native-tvos), which supports both phone (Android and iOS) and TV (Android TV and Apple TV) targets
 - the [React Native TV config plugin](https://github.com/react-native-tvos/config-tv/tree/main/packages/config-tv) to allow Expo prebuild to modify the project's native files for TV builds
 
+## ITG SDK integration (Swift Package Manager)
+
+The video player with the ITG overlay lives in the local Expo module [`expo-itg-video`](./expo-itg-video).
+On iOS and tvOS it uses the ITG Apple SDK from its Swift Package Manager repository,
+[`Inthegamesdk/itg-apple-sdk`](https://github.com/Inthegamesdk/itg-apple-sdk). The current minimum version is **2.7.36**.
+
+- **SDK version**: set in one place, `itgAppleSdk` in [`expo-itg-video/package.json`](./expo-itg-video/package.json). The requirement is "up to next major" from `minimumVersion`.
+- **Module code**: [`ExpoItgVideo.podspec`](./expo-itg-video/ios/ExpoItgVideo.podspec) declares the package with React Native's `spm_dependency`, so `pod install` adds it to the `ExpoItgVideo` pod.
+- **App target**: the SDK ships as dynamic xcframeworks, so the app target also has to link the package for Xcode to embed them. The config plugin [`expo-itg-video/app.plugin.js`](./expo-itg-video/app.plugin.js), registered in `app.json`, does this during `expo prebuild`.
+- **iOS vs tvOS**: both sides pick the platform-specific core product:
+
+| Target | SPM products |
+| ------ | ------------ |
+| iOS (`npm run prebuild`) | `ITGPlayerViewController`, `InthegametviOS` |
+| tvOS (`npm run prebuild:tv`, `EXPO_TV=1`) | `ITGPlayerViewController`, `Inthegametv` |
+
+To move to a newer SDK, bump `itgAppleSdk.minimumVersion`. Then run `npm run prebuild` or `npm run prebuild:tv`,
+or run `pod install` in `ios/` and update packages in Xcode (File → Packages → Update to Latest Package Versions).
+The resolved version is pinned in `ios/MyTVProject.xcworkspace/xcshareddata/swiftpm/Package.resolved`.
+
 ## 🚀 How to use
 
 #### Creating a new project

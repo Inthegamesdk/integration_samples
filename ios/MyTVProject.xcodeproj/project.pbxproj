@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		19261F93B570DB00B32D1B14 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 4B3A9A4882EFD0D172AF7D6A /* PrivacyInfo.xcprivacy */; };
+		2B840743CE5C472D987D66D7 /* InthegametviOS in Frameworks */ = {isa = PBXBuildFile; productRef = 511C4EEDC2F148EBAE6729F7 /* InthegametviOS */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
+		73F1F967D37F44A39A35716D /* ITGPlayerViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 5C7FC23BB3A24292935AF9F4 /* ITGPlayerViewController */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
 		C7CE410D438F28BCAE53B24E /* libPods-MyTVProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC4F7A3235CADDA34AD76F25 /* libPods-MyTVProject.a */; };
 		E91DFD0C8D31873FFC7DB0D0 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA0FB8F6BDA11E53C6FAAC /* ExpoModulesProvider.swift */; };
@@ -38,6 +40,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7CE410D438F28BCAE53B24E /* libPods-MyTVProject.a in Frameworks */,
+				73F1F967D37F44A39A35716D /* ITGPlayerViewController in Frameworks */,
+				2B840743CE5C472D987D66D7 /* InthegametviOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +157,10 @@
 			dependencies = (
 			);
 			name = MyTVProject;
+			packageProductDependencies = (
+				5C7FC23BB3A24292935AF9F4 /* ITGPlayerViewController */,
+				511C4EEDC2F148EBAE6729F7 /* InthegametviOS */,
+			);
 			productName = MyTVProject;
 			productReference = 13B07F961A680F5B00A75B9A /* MyTVProject.app */;
 			productType = "com.apple.product-type.application";
@@ -179,6 +187,9 @@
 				Base,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
+			packageReferences = (
+				A3CD9F1BA4B147C980B05183 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */,
+			);
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -299,16 +310,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MyTVProject/Pods-MyTVProject-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Inthegametv/InthegametviOS.framework/InthegametviOS",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Inthegametv/Storket.framework/Storket",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/React-Core-prebuilt/React.framework/React",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ReactNativeDependencies/ReactNativeDependencies.framework/ReactNativeDependencies",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InthegametviOS.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Storket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/React.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactNativeDependencies.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
@@ -539,6 +546,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A3CD9F1BA4B147C980B05183 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Inthegamesdk/itg-apple-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.36;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		511C4EEDC2F148EBAE6729F7 /* InthegametviOS */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3CD9F1BA4B147C980B05183 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
+			productName = InthegametviOS;
+		};
+		5C7FC23BB3A24292935AF9F4 /* ITGPlayerViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3CD9F1BA4B147C980B05183 /* XCRemoteSwiftPackageReference "itg-apple-sdk" */;
+			productName = ITGPlayerViewController;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
 }

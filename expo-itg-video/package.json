@@ -28,6 +28,10 @@
   "author": "roman.havdulskyi <romeogavdulskiy@gmail.com> (https://github.com/romanhavdulskyi)",
   "license": "MIT",
   "homepage": "https://github.com/romanhavdulskyi/expo-itg-video#readme",
+  "itgAppleSdk": {
+    "url": "https://github.com/Inthegamesdk/itg-apple-sdk",
+    "minimumVersion": "2.7.36"
+  },
   "dependencies": {},
   "devDependencies": {
     "@types/react": "~19.1.0",
